@@ -1,6 +1,6 @@
 ![minesense](https://github.com/nukiz/minesense/blob/main/githubrsc/minesenses.png?raw=true)
 
-# minesense
-developers only yada yada yada
+<h1 align="center">MineSense</h1>
 
-## we are upcoming best mcbe ghost cheat
+
+
