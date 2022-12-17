@@ -56,24 +56,26 @@ namespace WindowsFormsApp1.minesense.feature.overlays
         {
             this.ShowInTaskbar = false;
             this.TopMost = true;
-            string USER = Console.ReadLine() + " | ";
+            string USER = "wip | "; // WIP
 
-            int initialStyle = GetWindowLong(this.Handle, -20);
-            SetWindowLong(this.Handle, -20, initialStyle | 0x8000 | 0x20);
-
+            int initialStyle = GetWindowLong(this.Handle, -10);
+            SetWindowLong(this.Handle, -10, initialStyle | 0x8000 | 0x20);
+            this.MaximumSize = new System.Drawing.Size(283, 42);
+            this.MinimumSize = new System.Drawing.Size(283, 42);
             GetWindowRect(handle, out rect);
             this.Size = new Size(rect.right - rect.left, rect.bottom - rect.top);
             this.Left = rect.left;
             this.Top = rect.top;
             backgroundWorker1.RunWorkerAsync();
             shadowLabel2.Text = USER;
-            shadowLabel3.Text = DateTime.Now.ToString("hh:mm:ss");
+            shadowLabel3.Text = DateTime.Now.ToString("HH:mm:ss");
             Console.WriteLine(mnsns + "Initializing overlay...");           
             Console.WriteLine(hooknotif + "Setuping GetWindow hooks...");
             Console.WriteLine(hooknotif + "Getting WindowRect...");
             Thread.Sleep(200);
             Console.WriteLine(hooknotif + "Finished!");
             Console.WriteLine(mnsns + "Finished overlay!");
+            
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)

@@ -77,7 +77,7 @@
             this.shadowLabel3.EnableShadow = false;
             this.shadowLabel3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shadowLabel3.ForeColor = System.Drawing.Color.White;
-            this.shadowLabel3.Location = new System.Drawing.Point(212, 16);
+            this.shadowLabel3.Location = new System.Drawing.Point(209, 16);
             this.shadowLabel3.Name = "shadowLabel3";
             this.shadowLabel3.ShadowColor = System.Drawing.Color.LightGray;
             this.shadowLabel3.ShadowOffset = 1;
@@ -87,14 +87,17 @@
             // 
             // watermark
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(297, 43);
+            this.ClientSize = new System.Drawing.Size(283, 42);
             this.Controls.Add(this.shadowLabel3);
             this.Controls.Add(this.shadowLabel2);
             this.Controls.Add(this.shadowLabel1);
+            this.Enabled = false;
             this.Name = "watermark";
+            this.ShowInTaskbar = false;
             this.Text = "m1n3s3n53";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

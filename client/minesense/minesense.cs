@@ -11,6 +11,8 @@ using SkeetUI;
 using Memory;
 using System.Security.Cryptography;
 using WindowsFormsApp1.minesense.feature.overlays;
+using DiscordRPC;
+using System.Diagnostics;
 
 namespace WindowsFormsApp1
 {
@@ -29,30 +31,35 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+
+            
         }
 
-        
+        private string detail = "Cheating on Minecraft";
 
         public void reachRandomizeTimer_Tick(object sender, EventArgs e)
         {
             int minReach = Convert.ToInt32(skeetSlider6.Value);
             int maxReach = Convert.ToInt32(skeetSlider5.Value);
-            int randomizedReach = rnd.Next(minReach, maxReach);
+            int v = rnd.Next(minReach, maxReach);            
         }
+                
 
-        
         private void Form1_Load(object sender, EventArgs e)
         {
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
                 Console.WriteLine(hooknotif + "Minecraft.Windows.exe now attached");     // Not actually necessary, just makes shit clearer
                 Console.WriteLine(mnsns + "MineSense now ready to use.");                // console logging :D
+                
             }
             else
             {
                 Console.WriteLine(eNotif + "Couldn't hook to Minecraft. Please open Minecraft, or if the issue persists, contact support.");
                 attachTimer.Start();
             }
+
+            
 
             CombatTabButton.ForeColor = Color.WhiteSmoke;
             VisualTabButton.ForeColor = Color.DarkGray;
@@ -178,6 +185,7 @@ namespace WindowsFormsApp1
 
             CombatTab.Visible = false;
             VisualTab.Visible = true;
+            SettingsTab.Visible = false;
             form.ResumeLayout();
         }
 
@@ -190,10 +198,11 @@ namespace WindowsFormsApp1
                 {
                     if (skeetCheckbox11.Checked == true)
                     {
+
                         Console.WriteLine(mnsns + "Reach RandomizeTimer init...");
-                        reachRandomizeTimer.Enabled = true;
+                        
                         Console.WriteLine(mnsns + "Done with RandomizeTimer. Reach init...");
-                        m.WriteMemory("base+3FAE0D0", "float", "");
+                        m.WriteMemory("base+3FAE0D0", "float","");
                         Console.WriteLine(mnsns + "Done. Reach now enabled.");
                     }
                     else
@@ -236,7 +245,7 @@ namespace WindowsFormsApp1
             
             CombatTab.Visible = true;
             VisualTab.Visible = false;
-            
+            SettingsTab.Visible = false;
             form.ResumeLayout();
             
         }
@@ -248,8 +257,9 @@ namespace WindowsFormsApp1
             VisualTabButton.ForeColor = Color.DarkGray;
             CustomizationTabButton.ForeColor = Color.DarkGray;
             CombatTabButton.ForeColor = Color.DarkGray;
-            
-            
+            SettingsTab.Visible = true;
+            VisualTab.Visible = false;
+            CombatTab.Visible = false;
             form.ResumeLayout();
         }
 
@@ -279,13 +289,63 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox17.Checked == true && m.OpenProcess("Minecraft.Windows.exe"))
             {
-                watermark.Show();       
+                watermark.Show();
+                watermark.Activate();
+                Console.WriteLine(hooknotif + "Watermark now active.");
             }
             else
             {
                 Console.WriteLine(hooknotif + "Fatal error while attempting watermark render...");
                 Console.WriteLine(hooknotif + "Please open Minecraft before attempting to enable this module.");
                 Console.WriteLine(mnsns + "No hook opened.");
+            }
+        }
+
+        private void RPCAnimTimer_Tick(object sender, EventArgs e)
+        {
+                       
+        }
+
+        private void RPCAnimTimer2_Tick(object sender, EventArgs e)
+        {
+                      
+        }
+
+        private void skeetCheckbox11_Click(object sender, EventArgs e)
+        {
+            reachRandomizeTimer.Start();
+        }
+
+        private void skeetSlider13_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void skeetSlider13_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Opacity = Convert.ToInt32(skeetSlider13.Value);
+        }
+
+        private void DestructButton_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void DestructButton_Click(object sender, EventArgs e)
+        {
+            string message = "Are you sure you want to self-destruct? This will delete minesense from your computer.";
+            string title = "minesense";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.No)
+            {
+                this.Close();
+            }
+            else
+            {
+                Process.Start("cmd.exe", "/C choice /C Y /N /D Y /T 3 & Del " + Application.ExecutablePath);
+                Application.Exit();
             }
         }
     }
