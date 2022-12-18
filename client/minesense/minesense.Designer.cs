@@ -92,6 +92,7 @@
             this.attachTimer = new System.Windows.Forms.Timer(this.components);
             this.SettingsTab = new System.Windows.Forms.Panel();
             this.skeetGroupBox10 = new SkeetUI.skeetGroupBox();
+            this.skeetCheckbox32 = new SkeetUI.skeetCheckbox();
             this.skeetSlider13 = new SkeetUI.skeetSlider();
             this.skeetCheckbox30 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox29 = new SkeetUI.skeetCheckbox();
@@ -103,7 +104,7 @@
             this.skeetGroupBox14 = new SkeetUI.skeetGroupBox();
             this.skeetCheckbox22 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox17 = new SkeetUI.skeetCheckbox();
-            this.skeetCheckbox32 = new SkeetUI.skeetCheckbox();
+            this.obsHideTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.skeetGroupBox1.SuspendLayout();
             this.skeetGroupBox2.SuspendLayout();
@@ -1007,6 +1008,20 @@
             this.skeetGroupBox10.Size = new System.Drawing.Size(195, 315);
             this.skeetGroupBox10.TabIndex = 5;
             // 
+            // skeetCheckbox32
+            // 
+            this.skeetCheckbox32.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox32.BackgroundImage")));
+            this.skeetCheckbox32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.skeetCheckbox32.CheckBoxTitle = "Always on top";
+            this.skeetCheckbox32.Checked = true;
+            this.skeetCheckbox32.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.skeetCheckbox32.Location = new System.Drawing.Point(9, 180);
+            this.skeetCheckbox32.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
+            this.skeetCheckbox32.Name = "skeetCheckbox32";
+            this.skeetCheckbox32.Size = new System.Drawing.Size(91, 16);
+            this.skeetCheckbox32.TabIndex = 12;
+            this.skeetCheckbox32.Click += new System.EventHandler(this.skeetCheckbox32_Click);
+            // 
             // skeetSlider13
             // 
             this.skeetSlider13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1117,6 +1132,7 @@
             this.skeetCheckbox24.Name = "skeetCheckbox24";
             this.skeetCheckbox24.Size = new System.Drawing.Size(104, 16);
             this.skeetCheckbox24.TabIndex = 4;
+            this.skeetCheckbox24.Click += new System.EventHandler(this.skeetCheckbox24_Click);
             // 
             // skeetGroupBox14
             // 
@@ -1159,19 +1175,9 @@
             this.skeetCheckbox17.Load += new System.EventHandler(this.skeetCheckbox17_Load);
             this.skeetCheckbox17.Click += new System.EventHandler(this.skeetCheckbox17_Click);
             // 
-            // skeetCheckbox32
+            // obsHideTimer
             // 
-            this.skeetCheckbox32.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox32.BackgroundImage")));
-            this.skeetCheckbox32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.skeetCheckbox32.CheckBoxTitle = "Always on top";
-            this.skeetCheckbox32.Checked = true;
-            this.skeetCheckbox32.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox32.Location = new System.Drawing.Point(9, 180);
-            this.skeetCheckbox32.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
-            this.skeetCheckbox32.Name = "skeetCheckbox32";
-            this.skeetCheckbox32.Size = new System.Drawing.Size(91, 16);
-            this.skeetCheckbox32.TabIndex = 12;
-            this.skeetCheckbox32.Click += new System.EventHandler(this.skeetCheckbox32_Click);
+            this.obsHideTimer.Tick += new System.EventHandler(this.obsHideTimer_Tick);
             // 
             // Form1
             // 
@@ -1179,7 +1185,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(529, 610);
+            this.ClientSize = new System.Drawing.Size(528, 610);
             this.Controls.Add(this.CombatTab);
             this.Controls.Add(this.VisualTab);
             this.Controls.Add(this.panel1);
@@ -1288,6 +1294,7 @@
         private SkeetUI.skeetSlider skeetSlider13;
         private SkeetUI.skeetButton DestructButton;
         private SkeetUI.skeetCheckbox skeetCheckbox32;
+        private System.Windows.Forms.Timer obsHideTimer;
     }
 }
 

@@ -9,7 +9,7 @@ namespace WindowsFormsApp1
 {
     public static class global
     {
-        public static string USER { get; set; }
+        public static string USER = Console.ReadLine();
 
             
     }

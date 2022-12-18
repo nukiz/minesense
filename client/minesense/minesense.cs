@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SkeetUI;
 using Memory;
-using System.Security.Cryptography;
 using WindowsFormsApp1.minesense.feature.overlays;
-using DiscordRPC;
 using System.Diagnostics;
-using System.Net.Security;
+using DiscordRPC;
 
 namespace WindowsFormsApp1
 {
@@ -370,6 +362,37 @@ namespace WindowsFormsApp1
             else
             {
                 this.TopMost = true;
+            }
+        }
+
+        private void skeetCheckbox24_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox24.Checked == true)
+            {
+                obsHideTimer.Start();
+                Console.WriteLine(mnsns + "Hide from OBS now active. This module may be unstable.");
+            }
+            else
+            {
+                obsHideTimer.Stop();
+                this.Show();               
+            }
+        }
+
+        private void obsHideTimer_Tick(object sender, EventArgs e)
+        {
+            string obsproc = "obs64";
+            
+            if (Process.GetProcessesByName(obsproc).Length > 0)
+            {
+                this.Hide();
+                watermark.Hide();
+                Console.WriteLine(mnsns + "OBS DETECTED! HIDING...");
+            }
+            else
+            {
+                this.Show();
+                Console.WriteLine(mnsns + "OBS no longer detectable. Showing.");
             }
         }
     }

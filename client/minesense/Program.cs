@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using DiscordRPC;
 using System.Runtime.Remoting.Messaging;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using System.Reflection;
 
 namespace WindowsFormsApp1
 {
@@ -26,12 +28,13 @@ namespace WindowsFormsApp1
             string mnsns = "[MINESENSE] ";
             string hooknotif = "[HOOK] ";
             string eNotif = "[ERROR] ";
-
-            
+            string[] titles = { "bWluZXNlbnNlIG9uIHRvcCE=", "bWluZXNlbnNlIGRlc3Ryb3lzIGhvcmlvbg==", "c2lnbWEgbWluZXNlbnNlIHVzZXI=", "bWFkZSBieSB5b3VyIGRlYXJlc3QgbnVraXo=", "bWluZXNlbnNlIC0gdGhlIHNwYWdoZXR0aSBjb2RlIGhlcm8gb2YgYWxsIGdob3N0IGNsaWVudHM=" };
+            Random rnd = new Random(); // to select a random one of those titles :D
+            int result = rnd.Next(titles.Length);
+            Console.Title = $"{titles[result]}"; // random title selector for CMD window :D
 
             Console.WriteLine("Welcome to MineSense. What will we call you?");
             var USER = global.USER;
-            Console.ReadLine(); //still buggy
             Console.WriteLine("Hello, " + USER + ". We are happy to see you using our cheats. Don't get banned.");
             
             Thread.Sleep(1000);
