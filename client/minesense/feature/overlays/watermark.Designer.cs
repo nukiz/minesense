@@ -72,7 +72,7 @@
             this.dateLabel.BackColor = System.Drawing.Color.Transparent;
             this.dateLabel.Font = new System.Drawing.Font("Verdana", 8F);
             this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dateLabel.Location = new System.Drawing.Point(181, 15);
+            this.dateLabel.Location = new System.Drawing.Point(176, 15);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(59, 13);
             this.dateLabel.TabIndex = 2;
@@ -89,7 +89,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(254, 42);
+            this.ClientSize = new System.Drawing.Size(248, 42);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
