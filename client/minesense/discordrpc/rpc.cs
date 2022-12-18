@@ -22,8 +22,8 @@ namespace WindowsFormsApp1
 
             presence = new RichPresence() //presence details
             {
-                Details = "Waiting for Minecraft...",
-                State = "Waiting for state...",
+                Details = "Cheating in MC:BE",
+                State = "Waiting...",
                 Timestamps = rpctimestamp,
                 Buttons = button,
 

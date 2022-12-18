@@ -13,6 +13,7 @@ using System.Security.Cryptography;
 using WindowsFormsApp1.minesense.feature.overlays;
 using DiscordRPC;
 using System.Diagnostics;
+using System.Net.Security;
 
 namespace WindowsFormsApp1
 {
@@ -231,6 +232,10 @@ namespace WindowsFormsApp1
                 Console.WriteLine(hooknotif + "Minecraft.Windows.exe now attached"); // console logging pt2 :D
                 Console.WriteLine(mnsns + "MineSense now engaged. Happy cheating!");
                 attachTimer.Stop();
+            }
+            else
+            {
+                attachTimer.Start();
             }            
         }
 
@@ -287,17 +292,24 @@ namespace WindowsFormsApp1
 
         private void skeetCheckbox17_Click(object sender, EventArgs e)
         {
-            if (skeetCheckbox17.Checked == true && m.OpenProcess("Minecraft.Windows.exe"))
+            if (skeetCheckbox17.Checked == true)
             {
+                if (m.OpenProcess("Minecraft.Windows.exe"))
+                { 
                 watermark.Show();
                 watermark.Activate();
                 Console.WriteLine(hooknotif + "Watermark now active.");
+                }
+                else
+                {
+                    Console.WriteLine(eNotif + "Failed to get window position.");
+                    Console.WriteLine(hooknotif + "Please open Minecraft before trying to enable this module.");
+                }
             }
             else
             {
-                Console.WriteLine(hooknotif + "Fatal error while attempting watermark render...");
-                Console.WriteLine(hooknotif + "Please open Minecraft before attempting to enable this module.");
-                Console.WriteLine(mnsns + "No hook opened.");
+                watermark.Hide();
+                Console.WriteLine(hooknotif + "Watermark disabled.");
             }
         }
 
@@ -322,9 +334,9 @@ namespace WindowsFormsApp1
         }
 
         private void skeetSlider13_Click(object sender, EventArgs e)
-        {
+        {            
             Form1 form = new Form1();
-            form.Opacity = Convert.ToInt32(skeetSlider13.Value);
+            form.Opacity = Convert.ToInt32(skeetSlider13.Value);            
         }
 
         private void DestructButton_Load(object sender, EventArgs e)
@@ -338,14 +350,26 @@ namespace WindowsFormsApp1
             string title = "minesense";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.No)
-            {
-                this.Close();
-            }
-            else
+            if (result == DialogResult.Yes)
             {
                 Process.Start("cmd.exe", "/C choice /C Y /N /D Y /T 3 & Del " + Application.ExecutablePath);
                 Application.Exit();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void skeetCheckbox32_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox32.Checked == false)
+            {
+                this.TopMost = false;
+            }
+            else
+            {
+                this.TopMost = true;
             }
         }
     }

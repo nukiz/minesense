@@ -28,62 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(watermark));
-            this.shadowLabel1 = new SkeetUI.shadowLabel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.shadowLabel2 = new SkeetUI.shadowLabel();
-            this.shadowLabel3 = new SkeetUI.shadowLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.dateTimer = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
-            // 
-            // shadowLabel1
-            // 
-            this.shadowLabel1.AutoSize = true;
-            this.shadowLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.shadowLabel1.EnableShadow = false;
-            this.shadowLabel1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shadowLabel1.ForeColor = System.Drawing.Color.White;
-            this.shadowLabel1.Location = new System.Drawing.Point(15, 16);
-            this.shadowLabel1.Name = "shadowLabel1";
-            this.shadowLabel1.ShadowColor = System.Drawing.Color.LightGray;
-            this.shadowLabel1.ShadowOffset = 1;
-            this.shadowLabel1.Size = new System.Drawing.Size(106, 13);
-            this.shadowLabel1.TabIndex = 0;
-            this.shadowLabel1.Text = "minesense beta |";
             // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
-            // shadowLabel2
+            // label1
             // 
-            this.shadowLabel2.AutoSize = true;
-            this.shadowLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.shadowLabel2.EnableShadow = false;
-            this.shadowLabel2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shadowLabel2.ForeColor = System.Drawing.Color.White;
-            this.shadowLabel2.Location = new System.Drawing.Point(120, 16);
-            this.shadowLabel2.Name = "shadowLabel2";
-            this.shadowLabel2.ShadowColor = System.Drawing.Color.LightGray;
-            this.shadowLabel2.ShadowOffset = 1;
-            this.shadowLabel2.Size = new System.Drawing.Size(86, 13);
-            this.shadowLabel2.TabIndex = 1;
-            this.shadowLabel2.Text = "USER_NAME |";
-            this.shadowLabel2.Click += new System.EventHandler(this.shadowLabel2_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Verdana", 8F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.Location = new System.Drawing.Point(13, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "minesense beta |";
             // 
-            // shadowLabel3
+            // label2
             // 
-            this.shadowLabel3.AutoSize = true;
-            this.shadowLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.shadowLabel3.EnableShadow = false;
-            this.shadowLabel3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shadowLabel3.ForeColor = System.Drawing.Color.White;
-            this.shadowLabel3.Location = new System.Drawing.Point(209, 16);
-            this.shadowLabel3.Name = "shadowLabel3";
-            this.shadowLabel3.ShadowColor = System.Drawing.Color.LightGray;
-            this.shadowLabel3.ShadowOffset = 1;
-            this.shadowLabel3.Size = new System.Drawing.Size(59, 13);
-            this.shadowLabel3.TabIndex = 2;
-            this.shadowLabel3.Text = "21:14:20";
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Verdana", 8F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label2.Location = new System.Drawing.Point(115, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "nukkkiz |";
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.BackColor = System.Drawing.Color.Transparent;
+            this.dateLabel.Font = new System.Drawing.Font("Verdana", 8F);
+            this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dateLabel.Location = new System.Drawing.Point(181, 15);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(59, 13);
+            this.dateLabel.TabIndex = 2;
+            this.dateLabel.Text = "21:22:41";
+            // 
+            // dateTimer
+            // 
+            this.dateTimer.Interval = 1000;
+            this.dateTimer.Tick += new System.EventHandler(this.dateTimer_Tick);
             // 
             // watermark
             // 
@@ -91,10 +89,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(283, 42);
-            this.Controls.Add(this.shadowLabel3);
-            this.Controls.Add(this.shadowLabel2);
-            this.Controls.Add(this.shadowLabel1);
+            this.ClientSize = new System.Drawing.Size(254, 42);
+            this.Controls.Add(this.dateLabel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Enabled = false;
             this.Name = "watermark";
             this.ShowInTaskbar = false;
@@ -106,10 +104,11 @@
         }
 
         #endregion
-
-        private SkeetUI.shadowLabel shadowLabel1;
-        private SkeetUI.shadowLabel shadowLabel2;
-        private SkeetUI.shadowLabel shadowLabel3;
         public System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Timer dateTimer;
+        private System.Windows.Forms.Timer timer1;
     }
 }

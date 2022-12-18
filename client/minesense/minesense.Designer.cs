@@ -103,6 +103,7 @@
             this.skeetGroupBox14 = new SkeetUI.skeetGroupBox();
             this.skeetCheckbox22 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox17 = new SkeetUI.skeetCheckbox();
+            this.skeetCheckbox32 = new SkeetUI.skeetCheckbox();
             this.panel1.SuspendLayout();
             this.skeetGroupBox1.SuspendLayout();
             this.skeetGroupBox2.SuspendLayout();
@@ -194,9 +195,9 @@
             this.CombatTabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CombatTabButton.Font = new System.Drawing.Font("badcache", 34F);
             this.CombatTabButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.CombatTabButton.Location = new System.Drawing.Point(3, 142);
+            this.CombatTabButton.Location = new System.Drawing.Point(2, 142);
             this.CombatTabButton.Name = "CombatTabButton";
-            this.CombatTabButton.Size = new System.Drawing.Size(85, 55);
+            this.CombatTabButton.Size = new System.Drawing.Size(86, 55);
             this.CombatTabButton.TabIndex = 0;
             this.CombatTabButton.Text = " A";
             this.CombatTabButton.UseVisualStyleBackColor = false;
@@ -746,7 +747,7 @@
             this.VisualTab.Controls.Add(this.skeetGroupBox11);
             this.VisualTab.Controls.Add(this.skeetGroupBox9);
             this.VisualTab.Controls.Add(this.skeetGroupBox12);
-            this.VisualTab.Location = new System.Drawing.Point(99, 17);
+            this.VisualTab.Location = new System.Drawing.Point(98, 17);
             this.VisualTab.Name = "VisualTab";
             this.VisualTab.Size = new System.Drawing.Size(417, 581);
             this.VisualTab.TabIndex = 7;
@@ -991,6 +992,7 @@
             this.skeetGroupBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.skeetGroupBox10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetGroupBox10.BackgroundImage")));
             this.skeetGroupBox10.ButtonText = "Software";
+            this.skeetGroupBox10.Controls.Add(this.skeetCheckbox32);
             this.skeetGroupBox10.Controls.Add(this.skeetSlider13);
             this.skeetGroupBox10.Controls.Add(this.skeetCheckbox30);
             this.skeetGroupBox10.Controls.Add(this.skeetCheckbox29);
@@ -1157,13 +1159,27 @@
             this.skeetCheckbox17.Load += new System.EventHandler(this.skeetCheckbox17_Load);
             this.skeetCheckbox17.Click += new System.EventHandler(this.skeetCheckbox17_Click);
             // 
+            // skeetCheckbox32
+            // 
+            this.skeetCheckbox32.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox32.BackgroundImage")));
+            this.skeetCheckbox32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.skeetCheckbox32.CheckBoxTitle = "Always on top";
+            this.skeetCheckbox32.Checked = true;
+            this.skeetCheckbox32.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.skeetCheckbox32.Location = new System.Drawing.Point(9, 180);
+            this.skeetCheckbox32.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
+            this.skeetCheckbox32.Name = "skeetCheckbox32";
+            this.skeetCheckbox32.Size = new System.Drawing.Size(91, 16);
+            this.skeetCheckbox32.TabIndex = 12;
+            this.skeetCheckbox32.Click += new System.EventHandler(this.skeetCheckbox32_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(528, 610);
+            this.ClientSize = new System.Drawing.Size(529, 610);
             this.Controls.Add(this.CombatTab);
             this.Controls.Add(this.VisualTab);
             this.Controls.Add(this.panel1);
@@ -1271,6 +1287,7 @@
         private SkeetUI.skeetCheckbox skeetCheckbox24;
         private SkeetUI.skeetSlider skeetSlider13;
         private SkeetUI.skeetButton DestructButton;
+        private SkeetUI.skeetCheckbox skeetCheckbox32;
     }
 }
 
