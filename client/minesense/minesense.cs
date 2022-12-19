@@ -55,13 +55,14 @@ namespace WindowsFormsApp1
             {
                 if (skeetCheckbox12.Checked == true)
                 {
-                    m.WriteMemory("base+3FAE0D0", "float", "7");
+                    m.WriteMemory("base+3FAE0D0", "float", Convert.ToString(result));
                    
                 }
                 else
                 { 
                     m.WriteMemory("base+3FAE0D0", "float", "3");
-                    Console.WriteLine(module + "Reach disabled.");
+                    reachRandomizeTimer.Stop();
+                    Console.WriteLine(module + "Randomizer disabled.");
                 }
             }
         }
@@ -241,7 +242,7 @@ namespace WindowsFormsApp1
             {
                 if (skeetCheckbox12.Checked == true)
                 {                                                     
-                    m.WriteMemory("base+3FAE0D0", "float", "7");
+                    m.WriteMemory("base+3FAE0D0", "float", Convert.ToString(skeetSlider6.Value));
                     Console.WriteLine(mnsns + "Reach enabled.");                    
                 }
                 else
@@ -252,7 +253,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                Console.WriteLine(eNotif + "Fatal error while enabling module, Minecraft is not currently open.");
+                Console.WriteLine(eNotif + "Please enable minecraft before attempting to enable modules.");
                 return;
             }
         }
