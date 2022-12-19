@@ -14,9 +14,18 @@ namespace WindowsFormsApp1
         string mnsns = "[MINESENSE] ";
         string hooknotif = "[HOOK] ";
         string eNotif = "[ERROR] ";
+        string discord = "[DISCORD] ";
+        string module = "[MODULE] ";
         Color enabledColor = Color.FromArgb(17, 17, 17);
         Color disabledColor = Color.FromArgb(15, 15, 15);
         Color DEFAULTBUTTON = Color.FromArgb(154, 197, 39);
+        // RAINBOW COLOR
+        
+
+        // THANKS Bitterblue on STACKOVERFLOW.COM :)
+
+
+        public static Timestamps rpctimestamp { get; set; }
 
         Color GradientColor1 = Color.FromArgb(55, 177, 218);
         Color GradientColor2 = Color.FromArgb(204, 91, 184);
@@ -31,26 +40,54 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-            
+
         }
 
-        private string detail = "Cheating on Minecraft";
+        
 
         public void reachRandomizeTimer_Tick(object sender, EventArgs e)
         {
             int minReach = Convert.ToInt32(skeetSlider6.Value);
-            int maxReach = Convert.ToInt32(skeetSlider5.Value);
-            int v = rnd.Next(minReach, maxReach);            
+            int maxReach = Convert.ToInt32(skeetSlider5.Value);        // REACH - DO NOT TOUCH - VALUES FOR 1.19.50/51
+            float result = rnd.Next(minReach, maxReach);               // THIS COULD ALSO BE DIFFERENT; I DONT CARE THOUGH LOL
+
+            if (m.OpenProcess("Minecraft.Windows.exe"))
+            {
+                if (skeetCheckbox12.Checked == true)
+                {
+                    m.WriteMemory("base+3FAE0D0", "float", "7");
+                   
+                }
+                else
+                { 
+                    m.WriteMemory("base+3FAE0D0", "float", "3");
+                    Console.WriteLine(module + "Reach disabled.");
+                }
+            }
         }
-                
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
                 Console.WriteLine(hooknotif + "Minecraft.Windows.exe now attached");     // Not actually necessary, just makes shit clearer
-                Console.WriteLine(mnsns + "MineSense now ready to use.");                // console logging :D
-                
+                Console.WriteLine(mnsns + "MineSense now ready to use.");
+
+                RPC.client.SetPresence(new RichPresence()
+                {
+                    Details = "Cheating in MC:BE",
+                    State = "as " + global.USER,
+                    Assets = new Assets()
+                    {
+                        LargeImageKey = "large",
+                        LargeImageText = "minesense beta",
+                        SmallImageKey = "large",
+                        SmallImageText = "b1.5"
+                    }
+
+                });                                                                     // console logging :D
+                Console.WriteLine(discord + "RPC Updated. ");
             }
             else
             {
@@ -58,7 +95,7 @@ namespace WindowsFormsApp1
                 attachTimer.Start();
             }
 
-            
+
 
             CombatTabButton.ForeColor = Color.WhiteSmoke;
             VisualTabButton.ForeColor = Color.DarkGray;
@@ -104,7 +141,7 @@ namespace WindowsFormsApp1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label6_MouseEnter(object sender, EventArgs e)
@@ -159,17 +196,20 @@ namespace WindowsFormsApp1
 
         private void skeetCheckbox12_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void skeetCheckbox11_Load(object sender, EventArgs e)
         {
             if (skeetCheckbox11.Checked == true)
             {
-                reachRandomizeTimer.Enabled = true;
+                reachRandomizeTimer.Start();
             }
-
-            new Reach();
+            else
+            {
+                reachRandomizeTimer.Stop();
+            }
+            
             Console.WriteLine(mnsns + "Modules initialized.");
         }
 
@@ -180,7 +220,7 @@ namespace WindowsFormsApp1
             VisualTabButton.ForeColor = Color.WhiteSmoke;
             SettingsTabButton.ForeColor = Color.DarkGray;
             CustomizationTabButton.ForeColor = Color.DarkGray;
-            VisualTabButton.BackColor = enabledColor;           
+            VisualTabButton.BackColor = enabledColor;
             CombatTabButton.BackColor = disabledColor;
             CustomizationTabButton.BackColor = disabledColor;
             SettingsTabButton.BackColor = disabledColor;
@@ -200,21 +240,9 @@ namespace WindowsFormsApp1
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
                 if (skeetCheckbox12.Checked == true)
-                {
-                    if (skeetCheckbox11.Checked == true)
-                    {
-
-                        Console.WriteLine(mnsns + "Reach RandomizeTimer init...");
-                        
-                        Console.WriteLine(mnsns + "Done with RandomizeTimer. Reach init...");
-                        m.WriteMemory("base+3FAE0D0", "float","");
-                        Console.WriteLine(mnsns + "Done. Reach now enabled.");
-                    }
-                    else
-                    {
-                        m.WriteMemory("base+3FAE0D0", "float", Convert.ToString(skeetSlider5.Value));
-                        Console.WriteLine(mnsns + "Reach enabled.");
-                    }
+                {                                                     
+                    m.WriteMemory("base+3FAE0D0", "float", "7");
+                    Console.WriteLine(mnsns + "Reach enabled.");                    
                 }
                 else
                 {
@@ -240,7 +268,7 @@ namespace WindowsFormsApp1
             else
             {
                 attachTimer.Start();
-            }            
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -250,7 +278,7 @@ namespace WindowsFormsApp1
             CombatTabButton.BackColor = enabledColor;
             VisualTabButton.ForeColor = Color.DarkGray;
             CustomizationTabButton.ForeColor = Color.DarkGray;
-            SettingsTabButton.ForeColor = Color.DarkGray;            
+            SettingsTabButton.ForeColor = Color.DarkGray;
             CustomizationTabButton.BackColor = disabledColor;
             VisualTabButton.BackColor = disabledColor; ;
             SettingsTabButton.BackColor = disabledColor;
@@ -260,7 +288,7 @@ namespace WindowsFormsApp1
             SettingsTab.Visible = false;
             CustomizationTab.Visible = false;
             form.ResumeLayout();
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -286,7 +314,7 @@ namespace WindowsFormsApp1
         {
             form.SuspendLayout();
             CustomizationTabButton.ForeColor = Color.WhiteSmoke;
-            CustomizationTabButton.BackColor = enabledColor;    
+            CustomizationTabButton.BackColor = enabledColor;
             VisualTabButton.ForeColor = Color.DarkGray;
             SettingsTabButton.ForeColor = Color.DarkGray;
             CombatTabButton.ForeColor = Color.DarkGray;
@@ -298,18 +326,18 @@ namespace WindowsFormsApp1
             SettingsTab.Visible = false;
             VisualTab.Visible = false;
             CombatTab.Visible = false;
-            form.ResumeLayout(); 
+            form.ResumeLayout();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
-       
+
 
         private void skeetCheckbox17_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void skeetCheckbox17_Click(object sender, EventArgs e)
@@ -317,10 +345,10 @@ namespace WindowsFormsApp1
             if (skeetCheckbox17.Checked == true)
             {
                 if (m.OpenProcess("Minecraft.Windows.exe"))
-                { 
-                watermark.Show();
-                watermark.Activate();
-                Console.WriteLine(hooknotif + "Watermark now active.");
+                {
+                    watermark.Show();
+                    watermark.Activate();
+                    Console.WriteLine(hooknotif + "Watermark now active.");
                 }
                 else
                 {
@@ -337,12 +365,12 @@ namespace WindowsFormsApp1
 
         private void RPCAnimTimer_Tick(object sender, EventArgs e)
         {
-                       
+
         }
 
         private void RPCAnimTimer2_Tick(object sender, EventArgs e)
         {
-                      
+
         }
 
         private void skeetCheckbox11_Click(object sender, EventArgs e)
@@ -356,13 +384,14 @@ namespace WindowsFormsApp1
         }
 
         private void skeetSlider13_Click(object sender, EventArgs e)
-        {            
-            
+        {
+            double WINDOWOPACITY = skeetSlider13.Value / 100;
+            form.Opacity = WINDOWOPACITY;
         }
 
         private void DestructButton_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void DestructButton_Click(object sender, EventArgs e)
@@ -405,16 +434,16 @@ namespace WindowsFormsApp1
             else // this is rather simple for now, since i don't yet know how to remove a specific window from obs' hooks or something  
             {
                 obsHideTimer.Stop();
-                this.Show();               
+                this.Show();
             }
         }
 
         private void obsHideTimer_Tick(object sender, EventArgs e)
         {
             string obsproc = "obs64";
-            
+
             if (Process.GetProcessesByName(obsproc).Length > 0)
-            {               
+            {
                 this.Hide();
                 watermark.Hide();
                 Console.WriteLine(mnsns + "OBS DETECTED! HIDING...");
@@ -428,12 +457,12 @@ namespace WindowsFormsApp1
             }
         }
 
-        
-        private void panel3_Click(object sender, EventArgs e)
-        {                      
-            colorDialog1.AnyColor = true;            
 
-            if (colorDialog1.ShowDialog() == DialogResult.OK) 
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            colorDialog1.AnyColor = true;
+
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 panel3.BackColor = colorDialog1.Color;
                 skeetCheckbox1.ColorChecked = colorDialog1.Color;
@@ -460,7 +489,6 @@ namespace WindowsFormsApp1
                 skeetCheckbox22.ColorChecked = colorDialog1.Color;
                 skeetCheckbox23.ColorChecked = colorDialog1.Color;
                 skeetCheckbox24.ColorChecked = colorDialog1.Color;
-                skeetCheckbox25.ColorChecked = colorDialog1.Color;
                 skeetCheckbox26.ColorChecked = colorDialog1.Color;
                 skeetCheckbox27.ColorChecked = colorDialog1.Color;
                 skeetCheckbox28.ColorChecked = colorDialog1.Color;
@@ -480,7 +508,7 @@ namespace WindowsFormsApp1
                 skeetSlider10.SliderColor = colorDialog1.Color;
                 skeetSlider11.SliderColor = colorDialog1.Color;
                 skeetSlider12.SliderColor = colorDialog1.Color;
-                skeetSlider13.SliderColor = colorDialog1.Color;               
+                skeetSlider13.SliderColor = colorDialog1.Color;
             }
         }
 
@@ -508,24 +536,15 @@ namespace WindowsFormsApp1
             form.Opacity = WindowOpacity;
         }
 
-        bool mousedown = false;
+        
         private void skeetSlider13_MouseDown(object sender, MouseEventArgs e)
         {
-            mousedown = true;
-
-            if (mousedown == true) 
-            { 
-                opacityTimer.Start();
-            }
-            else 
-            { 
-                opacityTimer.Stop();
-            }
+            
         }
 
         private void skeetSlider13_MouseUp(object sender, MouseEventArgs e)
         {
-            mousedown = false;
+            
         }
 
         private void panel2_Click(object sender, EventArgs e)
@@ -559,7 +578,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void skeetButton1_Load(object sender, EventArgs e) 
+        private void skeetButton1_Load(object sender, EventArgs e)
         {
 
         }
@@ -569,7 +588,7 @@ namespace WindowsFormsApp1
             form.SuspendLayout();
             form.GradientColor1 = GradientColor1;
             form.GradientColor2 = GradientColor2;
-            form.GradientColor3 = GradientColor3;      
+            form.GradientColor3 = GradientColor3;
             gradientColor1.BackColor = GradientColor1;
             panel4.BackColor = GradientColor2;
             panel5.BackColor = GradientColor3;
@@ -619,7 +638,132 @@ namespace WindowsFormsApp1
             skeetSlider11.SliderColor = DEFAULTBUTTON;
             skeetSlider12.SliderColor = DEFAULTBUTTON;
             skeetSlider13.SliderColor = DEFAULTBUTTON;
+            skeetCheckbox25.Checked = false;
+            rgbTimer.Stop();
             form.ResumeLayout();
+        }
+
+        private void skeetCheckbox26_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox26.Checked == false)
+            {
+                Console.WriteLine(discord + "RPC Cleared´.");
+                RPC.client.SetPresence(new RichPresence()
+                {
+                    Details = "",
+                    State = "",
+                    Timestamps = rpctimestamp,
+                    Assets = new Assets()
+                    {
+                        LargeImageKey = "",
+                        LargeImageText = "",
+                        SmallImageKey = ""
+                    }
+
+                });
+            }
+            else
+            {
+                RPC.client.SetPresence(new RichPresence()
+                {
+                    Details = "Cheating in MC:BE",
+                    State = "as " + global.USER,
+                    Assets = new Assets()
+                    {
+                        LargeImageKey = "large",
+                        LargeImageText = "minesense beta",
+                        SmallImageKey = "large",
+                        SmallImageText = "b1.5"
+                    }
+                    
+                });
+                Console.WriteLine(discord + "RPC active again.");
+            }
+        }
+
+        private void skeetCheckbox25_Click(object sender, EventArgs e)
+        {
+            rnbSpeed.Visible = true;
+            if (skeetCheckbox25.Checked == true)
+            {
+                rgbTimer.Start();
+            }
+            else
+            {
+                rnbSpeed.Visible = false;
+                rgbTimer.Stop();
+            }
+        }
+
+        int r = 255, g = 0, b = 0;
+
+        private void rgbTimer_Tick(object sender, EventArgs e)
+        {
+            rgbTimer.Interval = Convert.ToInt32(rnbSpeed.Value);
+
+            panel3.BackColor = Color.FromArgb(r, g, b);
+            rnbSpeed.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider1.SliderColor = Color.FromArgb(r,g,b);
+            skeetSlider2.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider3.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider4.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider5.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider6.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider7.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider8.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider9.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider10.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider11.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider12.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider13.SliderColor = Color.FromArgb(r, g, b);
+            skeetCheckbox1.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox2.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox3.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox4.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox5.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox6.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox7.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox8.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox9.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox10.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox11.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox12.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox13.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox14.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox15.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox16.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox17.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox18.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox19.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox20.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox21.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox22.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox23.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox24.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox26.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox27.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox28.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox29.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox30.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox31.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox32.ColorChecked = Color.FromArgb(r, g, b);
+
+            if (r > 0 && b==0) 
+            {
+                r--;
+                g++;
+            }
+            if (g > 0 && r==0) 
+            {
+                g--;
+                b++;
+            }
+            if (b > 0 && g==0) 
+            {
+                b--;
+                r++;
+            }
+
         }
     }
 }

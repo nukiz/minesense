@@ -22,8 +22,8 @@ namespace WindowsFormsApp1
 
             presence = new RichPresence() //presence details
             {
-                Details = "Cheating in MC:BE",
-                State = "Waiting...",
+                Details = "Waiting for MC:BE...",
+                State = "Waiting for username...",
                 Timestamps = rpctimestamp,
                 Buttons = button,
 
@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
                     LargeImageKey = "large",
                     LargeImageText = "minesense beta",
                     SmallImageKey = "large",
-                    SmallImageText = "b1.2"
+                    SmallImageText = "b1.5"
                 }
                 
         };

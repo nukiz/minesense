@@ -76,7 +76,6 @@
     <Compile Include="minesense\feature\overlays\watermark.Designer.cs">
       <DependentUpon>watermark.cs</DependentUpon>
     </Compile>
-    <Compile Include="minesense\feature\Reach.cs" />
     <Compile Include="minesense\global\global.cs" />
     <Compile Include="minesense\minesense.cs">
       <SubType>Form</SubType>

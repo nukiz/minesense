@@ -95,7 +95,6 @@
             this.skeetGroupBox14 = new SkeetUI.skeetGroupBox();
             this.skeetCheckbox22 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox17 = new SkeetUI.skeetCheckbox();
-            this.skeetGroupBox13 = new SkeetUI.skeetGroupBox();
             this.skeetGroupBox10 = new SkeetUI.skeetGroupBox();
             this.skeetCheckbox32 = new SkeetUI.skeetCheckbox();
             this.skeetSlider13 = new SkeetUI.skeetSlider();
@@ -104,11 +103,14 @@
             this.skeetCheckbox28 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox27 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox26 = new SkeetUI.skeetCheckbox();
-            this.skeetCheckbox25 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox24 = new SkeetUI.skeetCheckbox();
+            this.skeetGroupBox13 = new SkeetUI.skeetGroupBox();
             this.obsHideTimer = new System.Windows.Forms.Timer(this.components);
             this.CustomizationTab = new System.Windows.Forms.Panel();
+            this.skeetGroupBox16 = new SkeetUI.skeetGroupBox();
             this.skeetGroupBox15 = new SkeetUI.skeetGroupBox();
+            this.skeetCheckbox25 = new SkeetUI.skeetCheckbox();
+            this.skeetButton1 = new SkeetUI.skeetButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -120,7 +122,8 @@
             this.gradient1 = new System.Windows.Forms.ColorDialog();
             this.gradient2 = new System.Windows.Forms.ColorDialog();
             this.gradient3 = new System.Windows.Forms.ColorDialog();
-            this.skeetButton1 = new SkeetUI.skeetButton();
+            this.rgbTimer = new System.Windows.Forms.Timer(this.components);
+            this.rnbSpeed = new SkeetUI.skeetSlider();
             this.panel1.SuspendLayout();
             this.skeetGroupBox1.SuspendLayout();
             this.skeetGroupBox2.SuspendLayout();
@@ -367,7 +370,7 @@
             this.skeetSlider2.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
             this.skeetSlider2.TabIndex = 1;
             this.skeetSlider2.Title = "Maximum CPS";
-            this.skeetSlider2.Value = 1D;
+            this.skeetSlider2.Value = 13D;
             this.skeetSlider2.ValueSuffix = "CPS";
             this.skeetSlider2.Load += new System.EventHandler(this.skeetSlider2_Load);
             // 
@@ -385,7 +388,7 @@
             this.skeetSlider1.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
             this.skeetSlider1.TabIndex = 0;
             this.skeetSlider1.Title = "Minimum CPS";
-            this.skeetSlider1.Value = 1D;
+            this.skeetSlider1.Value = 10D;
             this.skeetSlider1.ValueSuffix = "CPS";
             this.skeetSlider1.Load += new System.EventHandler(this.skeetSlider1_Load);
             // 
@@ -481,7 +484,7 @@
             this.skeetSlider5.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
             this.skeetSlider5.TabIndex = 1;
             this.skeetSlider5.Title = "Maximum";
-            this.skeetSlider5.Value = 1D;
+            this.skeetSlider5.Value = 3.8D;
             // 
             // skeetSlider6
             // 
@@ -497,7 +500,7 @@
             this.skeetSlider6.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
             this.skeetSlider6.TabIndex = 0;
             this.skeetSlider6.Title = "Minimum";
-            this.skeetSlider6.Value = 1D;
+            this.skeetSlider6.Value = 3D;
             // 
             // skeetGroupBox3
             // 
@@ -601,7 +604,7 @@
             this.skeetSlider8.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
             this.skeetSlider8.TabIndex = 1;
             this.skeetSlider8.Title = "Vertical";
-            this.skeetSlider8.Value = 100D;
+            this.skeetSlider8.Value = 90D;
             this.skeetSlider8.ValueSuffix = "%";
             // 
             // skeetSlider9
@@ -1017,6 +1020,7 @@
             // 
             this.SettingsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.SettingsTab.Controls.Add(this.skeetGroupBox14);
+            this.SettingsTab.Controls.Add(this.skeetGroupBox10);
             this.SettingsTab.Controls.Add(this.skeetGroupBox13);
             this.SettingsTab.Location = new System.Drawing.Point(98, 17);
             this.SettingsTab.Name = "SettingsTab";
@@ -1064,17 +1068,6 @@
             this.skeetCheckbox17.Load += new System.EventHandler(this.skeetCheckbox17_Load);
             this.skeetCheckbox17.Click += new System.EventHandler(this.skeetCheckbox17_Click);
             // 
-            // skeetGroupBox13
-            // 
-            this.skeetGroupBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.skeetGroupBox13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetGroupBox13.BackgroundImage")));
-            this.skeetGroupBox13.ButtonText = "Configuration";
-            this.skeetGroupBox13.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.skeetGroupBox13.Location = new System.Drawing.Point(210, 13);
-            this.skeetGroupBox13.Name = "skeetGroupBox13";
-            this.skeetGroupBox13.Size = new System.Drawing.Size(195, 315);
-            this.skeetGroupBox13.TabIndex = 5;
-            // 
             // skeetGroupBox10
             // 
             this.skeetGroupBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1087,12 +1080,11 @@
             this.skeetGroupBox10.Controls.Add(this.skeetCheckbox28);
             this.skeetGroupBox10.Controls.Add(this.skeetCheckbox27);
             this.skeetGroupBox10.Controls.Add(this.skeetCheckbox26);
-            this.skeetGroupBox10.Controls.Add(this.skeetCheckbox25);
             this.skeetGroupBox10.Controls.Add(this.skeetCheckbox24);
             this.skeetGroupBox10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.skeetGroupBox10.Location = new System.Drawing.Point(210, 13);
+            this.skeetGroupBox10.Location = new System.Drawing.Point(9, 96);
             this.skeetGroupBox10.Name = "skeetGroupBox10";
-            this.skeetGroupBox10.Size = new System.Drawing.Size(195, 214);
+            this.skeetGroupBox10.Size = new System.Drawing.Size(195, 232);
             this.skeetGroupBox10.TabIndex = 5;
             // 
             // skeetCheckbox32
@@ -1102,7 +1094,7 @@
             this.skeetCheckbox32.CheckBoxTitle = "Always on top";
             this.skeetCheckbox32.Checked = true;
             this.skeetCheckbox32.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox32.Location = new System.Drawing.Point(9, 180);
+            this.skeetCheckbox32.Location = new System.Drawing.Point(9, 162);
             this.skeetCheckbox32.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
             this.skeetCheckbox32.Name = "skeetCheckbox32";
             this.skeetCheckbox32.Size = new System.Drawing.Size(91, 16);
@@ -1114,7 +1106,7 @@
             this.skeetSlider13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.skeetSlider13.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
             this.skeetSlider13.FormatDecimal = 0;
-            this.skeetSlider13.Location = new System.Drawing.Point(9, 148);
+            this.skeetSlider13.Location = new System.Drawing.Point(9, 130);
             this.skeetSlider13.MaxValue = 100D;
             this.skeetSlider13.MinimumSize = new System.Drawing.Size(100, 40);
             this.skeetSlider13.MinValue = 0D;
@@ -1125,6 +1117,7 @@
             this.skeetSlider13.TabIndex = 11;
             this.skeetSlider13.Title = "Form Opacity";
             this.skeetSlider13.Value = 100D;
+            this.skeetSlider13.ValueSuffix = "%";
             this.skeetSlider13.Load += new System.EventHandler(this.skeetSlider13_Load);
             this.skeetSlider13.Click += new System.EventHandler(this.skeetSlider13_Click);
             this.skeetSlider13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.skeetSlider13_MouseDown);
@@ -1137,7 +1130,7 @@
             this.skeetCheckbox30.CheckBoxTitle = "X/X Modules";
             this.skeetCheckbox30.Checked = false;
             this.skeetCheckbox30.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox30.Location = new System.Drawing.Point(16, 125);
+            this.skeetCheckbox30.Location = new System.Drawing.Point(16, 107);
             this.skeetCheckbox30.Margin = new System.Windows.Forms.Padding(28, 17, 28, 17);
             this.skeetCheckbox30.Name = "skeetCheckbox30";
             this.skeetCheckbox30.Size = new System.Drawing.Size(117, 16);
@@ -1150,7 +1143,7 @@
             this.skeetCheckbox29.CheckBoxTitle = "Allow joins";
             this.skeetCheckbox29.Checked = false;
             this.skeetCheckbox29.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox29.Location = new System.Drawing.Point(16, 109);
+            this.skeetCheckbox29.Location = new System.Drawing.Point(16, 91);
             this.skeetCheckbox29.Margin = new System.Windows.Forms.Padding(21, 14, 21, 14);
             this.skeetCheckbox29.Name = "skeetCheckbox29";
             this.skeetCheckbox29.Size = new System.Drawing.Size(75, 16);
@@ -1163,7 +1156,7 @@
             this.skeetCheckbox28.CheckBoxTitle = "Name";
             this.skeetCheckbox28.Checked = true;
             this.skeetCheckbox28.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox28.Location = new System.Drawing.Point(16, 92);
+            this.skeetCheckbox28.Location = new System.Drawing.Point(16, 74);
             this.skeetCheckbox28.Margin = new System.Windows.Forms.Padding(16, 11, 16, 11);
             this.skeetCheckbox28.Name = "skeetCheckbox28";
             this.skeetCheckbox28.Size = new System.Drawing.Size(75, 16);
@@ -1177,7 +1170,7 @@
             this.skeetCheckbox27.CheckBoxTitle = "Server IP";
             this.skeetCheckbox27.Checked = false;
             this.skeetCheckbox27.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox27.Location = new System.Drawing.Point(16, 75);
+            this.skeetCheckbox27.Location = new System.Drawing.Point(16, 57);
             this.skeetCheckbox27.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
             this.skeetCheckbox27.Name = "skeetCheckbox27";
             this.skeetCheckbox27.Size = new System.Drawing.Size(75, 16);
@@ -1190,24 +1183,12 @@
             this.skeetCheckbox26.CheckBoxTitle = "Discord RPC";
             this.skeetCheckbox26.Checked = true;
             this.skeetCheckbox26.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox26.Location = new System.Drawing.Point(9, 56);
+            this.skeetCheckbox26.Location = new System.Drawing.Point(9, 38);
             this.skeetCheckbox26.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.skeetCheckbox26.Name = "skeetCheckbox26";
             this.skeetCheckbox26.Size = new System.Drawing.Size(104, 16);
             this.skeetCheckbox26.TabIndex = 6;
-            // 
-            // skeetCheckbox25
-            // 
-            this.skeetCheckbox25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox25.BackgroundImage")));
-            this.skeetCheckbox25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.skeetCheckbox25.CheckBoxTitle = "Custom Colors";
-            this.skeetCheckbox25.Checked = false;
-            this.skeetCheckbox25.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox25.Location = new System.Drawing.Point(9, 39);
-            this.skeetCheckbox25.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.skeetCheckbox25.Name = "skeetCheckbox25";
-            this.skeetCheckbox25.Size = new System.Drawing.Size(92, 16);
-            this.skeetCheckbox25.TabIndex = 5;
+            this.skeetCheckbox26.Click += new System.EventHandler(this.skeetCheckbox26_Click);
             // 
             // skeetCheckbox24
             // 
@@ -1216,12 +1197,23 @@
             this.skeetCheckbox24.CheckBoxTitle = "Hide from OBS";
             this.skeetCheckbox24.Checked = false;
             this.skeetCheckbox24.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox24.Location = new System.Drawing.Point(9, 21);
+            this.skeetCheckbox24.Location = new System.Drawing.Point(9, 20);
             this.skeetCheckbox24.Margin = new System.Windows.Forms.Padding(5);
             this.skeetCheckbox24.Name = "skeetCheckbox24";
             this.skeetCheckbox24.Size = new System.Drawing.Size(104, 16);
             this.skeetCheckbox24.TabIndex = 4;
             this.skeetCheckbox24.Click += new System.EventHandler(this.skeetCheckbox24_Click);
+            // 
+            // skeetGroupBox13
+            // 
+            this.skeetGroupBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.skeetGroupBox13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetGroupBox13.BackgroundImage")));
+            this.skeetGroupBox13.ButtonText = "Configuration";
+            this.skeetGroupBox13.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skeetGroupBox13.Location = new System.Drawing.Point(210, 13);
+            this.skeetGroupBox13.Name = "skeetGroupBox13";
+            this.skeetGroupBox13.Size = new System.Drawing.Size(195, 315);
+            this.skeetGroupBox13.TabIndex = 5;
             // 
             // obsHideTimer
             // 
@@ -1230,18 +1222,31 @@
             // CustomizationTab
             // 
             this.CustomizationTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.CustomizationTab.Controls.Add(this.skeetGroupBox16);
             this.CustomizationTab.Controls.Add(this.skeetGroupBox15);
-            this.CustomizationTab.Controls.Add(this.skeetGroupBox10);
             this.CustomizationTab.Location = new System.Drawing.Point(98, 17);
             this.CustomizationTab.Name = "CustomizationTab";
             this.CustomizationTab.Size = new System.Drawing.Size(417, 581);
             this.CustomizationTab.TabIndex = 9;
+            // 
+            // skeetGroupBox16
+            // 
+            this.skeetGroupBox16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.skeetGroupBox16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetGroupBox16.BackgroundImage")));
+            this.skeetGroupBox16.ButtonText = "Memes";
+            this.skeetGroupBox16.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skeetGroupBox16.Location = new System.Drawing.Point(210, 13);
+            this.skeetGroupBox16.Name = "skeetGroupBox16";
+            this.skeetGroupBox16.Size = new System.Drawing.Size(195, 315);
+            this.skeetGroupBox16.TabIndex = 7;
             // 
             // skeetGroupBox15
             // 
             this.skeetGroupBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.skeetGroupBox15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetGroupBox15.BackgroundImage")));
             this.skeetGroupBox15.ButtonText = "Colors";
+            this.skeetGroupBox15.Controls.Add(this.rnbSpeed);
+            this.skeetGroupBox15.Controls.Add(this.skeetCheckbox25);
             this.skeetGroupBox15.Controls.Add(this.skeetButton1);
             this.skeetGroupBox15.Controls.Add(this.panel5);
             this.skeetGroupBox15.Controls.Add(this.panel4);
@@ -1254,6 +1259,33 @@
             this.skeetGroupBox15.Name = "skeetGroupBox15";
             this.skeetGroupBox15.Size = new System.Drawing.Size(195, 214);
             this.skeetGroupBox15.TabIndex = 6;
+            // 
+            // skeetCheckbox25
+            // 
+            this.skeetCheckbox25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox25.BackgroundImage")));
+            this.skeetCheckbox25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.skeetCheckbox25.CheckBoxTitle = "Rainbow";
+            this.skeetCheckbox25.Checked = false;
+            this.skeetCheckbox25.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.skeetCheckbox25.Location = new System.Drawing.Point(15, 63);
+            this.skeetCheckbox25.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.skeetCheckbox25.Name = "skeetCheckbox25";
+            this.skeetCheckbox25.Size = new System.Drawing.Size(77, 16);
+            this.skeetCheckbox25.TabIndex = 10;
+            this.skeetCheckbox25.Click += new System.EventHandler(this.skeetCheckbox25_Click);
+            // 
+            // skeetButton1
+            // 
+            this.skeetButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetButton1.BackgroundImage")));
+            this.skeetButton1.ButtonEnabled = true;
+            this.skeetButton1.ButtonText = "Restore";
+            this.skeetButton1.Location = new System.Drawing.Point(102, 179);
+            this.skeetButton1.Margin = new System.Windows.Forms.Padding(5);
+            this.skeetButton1.Name = "skeetButton1";
+            this.skeetButton1.Size = new System.Drawing.Size(71, 25);
+            this.skeetButton1.TabIndex = 9;
+            this.skeetButton1.Load += new System.EventHandler(this.skeetButton1_Load);
+            this.skeetButton1.Click += new System.EventHandler(this.skeetButton1_Click);
             // 
             // panel5
             // 
@@ -1324,18 +1356,26 @@
             // 
             this.opacityTimer.Tick += new System.EventHandler(this.opacityTimer_Tick);
             // 
-            // skeetButton1
+            // rgbTimer
             // 
-            this.skeetButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetButton1.BackgroundImage")));
-            this.skeetButton1.ButtonEnabled = true;
-            this.skeetButton1.ButtonText = "Restore";
-            this.skeetButton1.Location = new System.Drawing.Point(102, 64);
-            this.skeetButton1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.skeetButton1.Name = "skeetButton1";
-            this.skeetButton1.Size = new System.Drawing.Size(71, 25);
-            this.skeetButton1.TabIndex = 9;
-            this.skeetButton1.Load += new System.EventHandler(this.skeetButton1_Load);
-            this.skeetButton1.Click += new System.EventHandler(this.skeetButton1_Click);
+            this.rgbTimer.Tick += new System.EventHandler(this.rgbTimer_Tick);
+            // 
+            // rnbSpeed
+            // 
+            this.rnbSpeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.rnbSpeed.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
+            this.rnbSpeed.FormatDecimal = 0;
+            this.rnbSpeed.Location = new System.Drawing.Point(3, 86);
+            this.rnbSpeed.MaxValue = 1000D;
+            this.rnbSpeed.MinimumSize = new System.Drawing.Size(100, 40);
+            this.rnbSpeed.Name = "rnbSpeed";
+            this.rnbSpeed.Size = new System.Drawing.Size(158, 40);
+            this.rnbSpeed.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.rnbSpeed.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.rnbSpeed.TabIndex = 12;
+            this.rnbSpeed.Title = "Rainbow Speed";
+            this.rnbSpeed.Value = 10D;
+            this.rnbSpeed.ValueSuffix = "ms";
             // 
             // Form1
             // 
@@ -1343,7 +1383,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(528, 610);
+            this.ClientSize = new System.Drawing.Size(526, 610);
             this.Controls.Add(this.CombatTab);
             this.Controls.Add(this.VisualTab);
             this.Controls.Add(this.panel1);
@@ -1451,7 +1491,6 @@
         private SkeetUI.skeetCheckbox skeetCheckbox28;
         private SkeetUI.skeetCheckbox skeetCheckbox27;
         private SkeetUI.skeetCheckbox skeetCheckbox26;
-        private SkeetUI.skeetCheckbox skeetCheckbox25;
         private SkeetUI.skeetCheckbox skeetCheckbox24;
         private SkeetUI.skeetSlider skeetSlider13;
         private SkeetUI.skeetButton DestructButton;
@@ -1473,6 +1512,10 @@
         private System.Windows.Forms.ColorDialog gradient2;
         private System.Windows.Forms.ColorDialog gradient3;
         private SkeetUI.skeetButton skeetButton1;
+        private SkeetUI.skeetGroupBox skeetGroupBox16;
+        private SkeetUI.skeetCheckbox skeetCheckbox25;
+        private System.Windows.Forms.Timer rgbTimer;
+        private SkeetUI.skeetSlider rnbSpeed;
     }
 }
 
