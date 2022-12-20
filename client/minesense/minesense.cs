@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
         {
             int minReach = Convert.ToInt32(skeetSlider6.Value);
             int maxReach = Convert.ToInt32(skeetSlider5.Value);        // REACH - DO NOT TOUCH - VALUES FOR 1.19.50/51
-            float result = rnd.Next(minReach, maxReach);               // THIS COULD ALSO BE DIFFERENT; I DONT CARE THOUGH LOL
+            float result = rnd.Next(minReach, maxReach);               
 
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
@@ -259,27 +259,22 @@ namespace WindowsFormsApp1
 
         private void skeetCheckbox12_Click(object sender, EventArgs e)
         {
-            
-            if (m.OpenProcess("Minecraft.Windows.exe"))
+            if (skeetCheckbox12.Checked == true)
             {
-                if (skeetCheckbox12.Checked == true)
+                if(skeetCheckbox11.Checked == true)
                 {
-                    global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
-                    m.WriteMemory("base+3FAE0D0", "float", Convert.ToString(skeetSlider6.Value));
-                    Console.WriteLine(mnsns + "Reach enabled.");                    
+                    reach.randomizeCps();
                 }
                 else
                 {
-                    global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
-                    m.WriteMemory("base+3FAE0D0", "float", "3");
-                    Console.WriteLine(mnsns + "Reach disabled.");
-                }
+                    reach.Enable();
+                }                
             }
             else
             {
-                Console.WriteLine(eNotif + "Please enable minecraft before attempting to enable modules.");
-                return;
+                reach.Disable();
             }
+        
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -873,8 +868,7 @@ namespace WindowsFormsApp1
 
         private void ModuleAmtTimer_Tick(object sender, EventArgs e)
         {
-            RPC.SetState(global.MODULEAMOUNT + "/" + global.MAXMODULES);
-            Thread.Sleep(100);
+            RPC.SetState(global.MODULEAMOUNT + "/" + global.MAXMODULES + " modules active");
             NameTimer.Start();
             ModuleAmtTimer.Stop();
         }
@@ -896,6 +890,8 @@ namespace WindowsFormsApp1
             else
             {
                 RPC.SetState("as " + global.USER);
+                ModuleAmtTimer.Stop();
+                NameTimer.Stop();
             }
         }
 
@@ -1023,6 +1019,7 @@ namespace WindowsFormsApp1
             skeetCheckbox22.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox23.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox24.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox25.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox26.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox27.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox28.ColorChecked = Color.FromArgb(r, g, b);

@@ -12,14 +12,15 @@ namespace WindowsFormsApp1.minesense.feature.module
     {
         public static void Enable()
         {
-            global.MODULEAMOUNT ++;
+            
             string module = "[MODULE] ";
             Form1 form = new Form1();
 
-            if (form.autoclickTimer.Enabled == true)
+            if (form.skeetCheckbox1.Checked == true)
             {
                 Console.WriteLine(module + "Autoclicker enabled.");
             }
+            
             
             
             if (form.skeetCheckbox2.Checked == true)
@@ -44,15 +45,15 @@ namespace WindowsFormsApp1.minesense.feature.module
             string module = "[MODULE] ";
             Form1 form = new Form1();
 
-            if (form.autoclickTimer.Enabled == true)
+            if (form.skeetCheckbox1.Checked == false)
             {
+                Console.WriteLine(module + "Autoclicker disabled.");
                 form.autoclickTimer.Stop();
                 form.randomizeCps.Stop();
-                Console.WriteLine(module + "Autoclicker disabled.");
             }
 
 
-          
+
 
 
         }

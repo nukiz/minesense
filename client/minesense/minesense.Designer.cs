@@ -1416,7 +1416,7 @@
         '\'',
         '\''};
             this.ScriptTextBox.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>.+)\r\n";
-            this.ScriptTextBox.AutoScrollMinSize = new System.Drawing.Size(193, 12);
+            this.ScriptTextBox.AutoScrollMinSize = new System.Drawing.Size(170, 12);
             this.ScriptTextBox.BackBrush = null;
             this.ScriptTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ScriptTextBox.BookmarkColor = System.Drawing.Color.BlueViolet;
@@ -1524,6 +1524,7 @@
             // 
             // NameTimer
             // 
+            this.NameTimer.Interval = 5000;
             this.NameTimer.Tick += new System.EventHandler(this.NameTimer_Tick);
             // 
             // Form1
@@ -1580,10 +1581,6 @@
         private SkeetUI.skeetGroupBox skeetGroupBox2;
         private SkeetUI.skeetSlider skeetSlider4;
         private SkeetUI.skeetCheckbox skeetCheckbox10;
-        private SkeetUI.skeetCheckbox skeetCheckbox11;
-        private SkeetUI.skeetCheckbox skeetCheckbox12;
-        private SkeetUI.skeetSlider skeetSlider5;
-        private SkeetUI.skeetSlider skeetSlider6;
         private SkeetUI.skeetGroupBox skeetGroupBox3;
         private SkeetUI.skeetSlider skeetSlider7;
         private SkeetUI.skeetCheckbox skeetCheckbox9;
@@ -1680,6 +1677,10 @@
         public SkeetUI.skeetSlider skeetSlider3;
         private System.Windows.Forms.Timer ModuleAmtTimer;
         private System.Windows.Forms.Timer NameTimer;
+        public SkeetUI.skeetCheckbox skeetCheckbox11;
+        public SkeetUI.skeetCheckbox skeetCheckbox12;
+        public SkeetUI.skeetSlider skeetSlider5;
+        public SkeetUI.skeetSlider skeetSlider6;
     }
 }
 

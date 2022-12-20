@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
     {
         public static string USER = Console.ReadLine();
         public static int MODULEAMOUNT = 0;
-        public static int MAXMODULES = 20;
+        public static int MAXMODULES = 10;
         
 
     }

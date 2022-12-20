@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="minesense\discordrpc\rpc.cs" />
     <Compile Include="minesense\feature\module\clicker.cs" />
+    <Compile Include="minesense\feature\module\reach.cs" />
     <Compile Include="minesense\feature\overlays\watermark.cs">
       <SubType>Form</SubType>
     </Compile>
