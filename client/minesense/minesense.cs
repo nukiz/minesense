@@ -6,11 +6,37 @@ using Memory;
 using WindowsFormsApp1.minesense.feature.overlays;
 using System.Diagnostics;
 using DiscordRPC;
+using FastColoredTextBoxNS;
+using System.IO;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using WindowsFormsApp1.minesense.feature.module;
+using System.Threading;
+using static System.Windows.Forms.AxHost;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : skeetForm
     {
+         // autoclicker utils!
+         
+        [DllImport("User32.Dll", EntryPoint = "PostMessageA")]
+        private static extern bool PostMessage(IntPtr hWnd, uint msg, int wParam, int lParam);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("User32.dll")]
+        private static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey);
+
+        // autoclicker utils!
+
+        api ScriptApi = new api();
         string mnsns = "[MINESENSE] ";
         string hooknotif = "[HOOK] ";
         string eNotif = "[ERROR] ";
@@ -19,11 +45,6 @@ namespace WindowsFormsApp1
         Color enabledColor = Color.FromArgb(17, 17, 17);
         Color disabledColor = Color.FromArgb(15, 15, 15);
         Color DEFAULTBUTTON = Color.FromArgb(154, 197, 39);
-        // RAINBOW COLOR
-        
-
-        // THANKS Bitterblue on STACKOVERFLOW.COM :)
-
 
         public static Timestamps rpctimestamp { get; set; }
 
@@ -227,7 +248,8 @@ namespace WindowsFormsApp1
             SettingsTabButton.BackColor = disabledColor;
             CustomizationTabButton.ForeColor = Color.DarkGray;
             SettingsTabButton.ForeColor = Color.DarkGray;
-
+            ScriptTabButton.BackColor = disabledColor;
+            ScriptTab.Visible = false;
             CombatTab.Visible = false;
             VisualTab.Visible = true;
             SettingsTab.Visible = false;
@@ -237,16 +259,18 @@ namespace WindowsFormsApp1
 
         private void skeetCheckbox12_Click(object sender, EventArgs e)
         {
-
+            
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
                 if (skeetCheckbox12.Checked == true)
-                {                                                     
+                {
+                    global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
                     m.WriteMemory("base+3FAE0D0", "float", Convert.ToString(skeetSlider6.Value));
                     Console.WriteLine(mnsns + "Reach enabled.");                    
                 }
                 else
                 {
+                    global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
                     m.WriteMemory("base+3FAE0D0", "float", "3");
                     Console.WriteLine(mnsns + "Reach disabled.");
                 }
@@ -283,7 +307,8 @@ namespace WindowsFormsApp1
             CustomizationTabButton.BackColor = disabledColor;
             VisualTabButton.BackColor = disabledColor; ;
             SettingsTabButton.BackColor = disabledColor;
-
+            ScriptTabButton.BackColor = disabledColor;
+            ScriptTab.Visible = false;
             CombatTab.Visible = true;
             VisualTab.Visible = false;
             SettingsTab.Visible = false;
@@ -303,7 +328,8 @@ namespace WindowsFormsApp1
             CombatTabButton.BackColor = disabledColor;
             CustomizationTabButton.BackColor = disabledColor;
             VisualTabButton.BackColor = disabledColor;
-
+            ScriptTabButton.BackColor = disabledColor;
+            ScriptTab.Visible = false;
             SettingsTab.Visible = true;
             VisualTab.Visible = false;
             CombatTab.Visible = false;
@@ -322,7 +348,8 @@ namespace WindowsFormsApp1
             CombatTabButton.BackColor = disabledColor;
             VisualTabButton.BackColor = disabledColor;
             SettingsTabButton.BackColor = disabledColor;
-
+            ScriptTabButton.BackColor = disabledColor;
+            ScriptTab.Visible = false;
             CustomizationTab.Visible = true;
             SettingsTab.Visible = false;
             VisualTab.Visible = false;
@@ -428,12 +455,14 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox24.Checked == true)
             {
+                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
                 obsHideTimer.Start();
                 Console.WriteLine(mnsns + "Hide from OBS now active. This module may be unstable.");
                 Console.WriteLine(mnsns + "Make sure to only use this module after configuring the client. You will not be able to interact with this client if OBS is open.");
             }
             else // this is rather simple for now, since i don't yet know how to remove a specific window from obs' hooks or something  
             {
+                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
                 obsHideTimer.Stop();
                 this.Show();
             }
@@ -465,13 +494,14 @@ namespace WindowsFormsApp1
 
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
+                ScriptTextBox.LineNumberColor = colorDialog1.Color;
                 panel3.BackColor = colorDialog1.Color;
                 skeetCheckbox1.ColorChecked = colorDialog1.Color;
                 skeetCheckbox2.ColorChecked = colorDialog1.Color;
                 skeetCheckbox3.ColorChecked = colorDialog1.Color;
-                skeetCheckbox4.ColorChecked = colorDialog1.Color;
-                skeetCheckbox5.ColorChecked = colorDialog1.Color;
-                skeetCheckbox6.ColorChecked = colorDialog1.Color;
+                // skeetCheckbox4.ColorChecked = colorDialog1.Color;
+                // skeetCheckbox5.ColorChecked = colorDialog1.Color;
+                // skeetCheckbox6.ColorChecked = colorDialog1.Color;
                 skeetCheckbox7.ColorChecked = colorDialog1.Color;
                 skeetCheckbox8.ColorChecked = colorDialog1.Color;
                 skeetCheckbox9.ColorChecked = colorDialog1.Color;
@@ -587,6 +617,7 @@ namespace WindowsFormsApp1
         private void skeetButton1_Click(object sender, EventArgs e)// 154; 197; 39 - RGB for default color...
         {
             form.SuspendLayout();
+            ScriptTextBox.LineNumberColor = DEFAULTBUTTON;
             form.GradientColor1 = GradientColor1;
             form.GradientColor2 = GradientColor2;
             form.GradientColor3 = GradientColor3;
@@ -597,9 +628,9 @@ namespace WindowsFormsApp1
             skeetCheckbox1.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox2.ColorChecked = DEFAULTBUTTON;              // there's probably a more efficient way to do this, but i don't care
             skeetCheckbox3.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox4.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox5.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox6.ColorChecked = DEFAULTBUTTON;
+            // skeetCheckbox4.ColorChecked = DEFAULTBUTTON;
+            // skeetCheckbox5.ColorChecked = DEFAULTBUTTON;
+            // skeetCheckbox6.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox7.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox8.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox9.ColorChecked = DEFAULTBUTTON;
@@ -626,6 +657,11 @@ namespace WindowsFormsApp1
             skeetCheckbox30.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox31.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox32.ColorChecked = DEFAULTBUTTON;
+            skeetCheckbox33.ColorChecked = DEFAULTBUTTON;
+            skeetCheckbox34.ColorChecked = DEFAULTBUTTON;
+            skeetCheckbox35.ColorChecked = DEFAULTBUTTON;
+            skeetCheckbox37.ColorChecked = DEFAULTBUTTON;            
+            skeetCheckbox36.ColorChecked = DEFAULTBUTTON;
             skeetSlider1.SliderColor = DEFAULTBUTTON;
             skeetSlider2.SliderColor = DEFAULTBUTTON;
             skeetSlider3.SliderColor = DEFAULTBUTTON;
@@ -648,23 +684,13 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox26.Checked == false)
             {
+                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
                 Console.WriteLine(discord + "RPC Cleared´.");
-                RPC.client.SetPresence(new RichPresence()
-                {
-                    Details = "",
-                    State = "",
-                    Timestamps = rpctimestamp,
-                    Assets = new Assets()
-                    {
-                        LargeImageKey = "",
-                        LargeImageText = "",
-                        SmallImageKey = ""
-                    }
-
-                });
+                RPC.client.Dispose();
             }
             else
             {
+                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
                 RPC.client.SetPresence(new RichPresence()
                 {
                     Details = "Cheating in MC:BE",
@@ -698,6 +724,262 @@ namespace WindowsFormsApp1
 
         int r = 255, g = 0, b = 0;
 
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void skeetButton6_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void skeetButton6_Click(object sender, EventArgs e)
+        {
+            ScriptTextBox.Text = "// minesense script menu";
+        }
+
+        private void skeetCheckbox35_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void skeetCheckbox35_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox35.Checked == true)
+            {
+                
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void skeetButton4_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void skeetButton4_Click(object sender, EventArgs e)
+        {
+
+            if (skeetCheckbox37.Checked == true)
+            {
+                ScriptTextBox.AppendText("");
+                ScriptTextBox.AppendText("written by " + global.USER + ". // script written with minesense.");
+                api.Execute();
+            }
+        }
+
+        private void skeetButton5_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                ScriptTextBox.Text = File.ReadAllText(openFileDialog1.FileName);
+            }
+        }
+
+        private void skeetCheckbox33_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox33.Checked == true)
+            {               
+                
+            }
+        }
+
+        private void skeetCheckbox1_Click(object sender, EventArgs e) //AUTOCLICKING :)))
+        {
+            if (skeetCheckbox1.Checked == true)
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                clicker.Enable();             
+            }
+            else
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                clicker.Disable();
+            }
+        }
+
+        private void skeetCheckbox2_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox2.Checked == true)
+            {
+                randomizeCps.Start();
+            }
+            else
+            {
+                randomizeCps.Stop();
+            }
+        }
+
+            public void randomizeCps_Tick(object sender, EventArgs e) // autoclicker needs this ! might do a clicker rewrite where all of these are in clicker.cs class
+            {
+                int minimumCps = Convert.ToInt32(skeetSlider1.Value);
+                int maximumCps = Convert.ToInt32(skeetSlider2.Value);
+                skeetSlider3.Value = rnd.Next(minimumCps, maximumCps);
+            }
+
+        IntPtr hwnd;
+        string currentwin;
+        public string getActiveWindowName()
+        {
+            try
+            {
+                var activateHandle = GetForegroundWindow();
+
+                Process[] processes = Process.GetProcesses();
+                foreach (Process clsProcess in processes)
+                {
+                    if(activateHandle == clsProcess.MainWindowHandle)
+                    {
+                        string processName = clsProcess.ProcessName;
+                        return processName;
+                    }
+                }
+            }
+            catch
+            {
+
+            }return null;
+        }
+        public async void autoclickTimer_Tick(object sender, EventArgs e)
+        {
+            
+
+            Process[] processes = Process.GetProcessesByName("Minecraft.Windows");
+                foreach (Process process in processes)
+                {
+                    hwnd = FindWindow(null, process.MainWindowTitle);
+                }
+
+                string currentwin = getActiveWindowName();
+                if(currentwin == null)
+                {
+                    return;
+                }
+
+                if (currentwin.Contains("Minecraft.Windows"))
+                {
+                    if(MouseButtons == MouseButtons.Left)
+                    {
+                        PostMessage(hwnd, 0x0201, 0, 0);
+                        await Task.Delay(30);
+                        PostMessage(hwnd, 0x0202, 0, 0);
+                    }
+            }
+        }
+
+        private void ModuleAmtTimer_Tick(object sender, EventArgs e)
+        {
+            RPC.SetState(global.MODULEAMOUNT + "/" + global.MAXMODULES);
+            Thread.Sleep(100);
+            NameTimer.Start();
+            ModuleAmtTimer.Stop();
+        }
+
+        private void NameTimer_Tick(object sender, EventArgs e)
+        {
+            RPC.SetState("as " + global.USER);
+            Thread.Sleep(100);
+            ModuleAmtTimer.Start();
+            NameTimer.Stop();
+        }
+
+        private void skeetCheckbox30_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox30.Checked == true)
+            {
+                ModuleAmtTimer.Start();
+            }
+            else
+            {
+                RPC.SetState("as " + global.USER);
+            }
+        }
+
+        private void skeetCheckbox36_Click(object sender, EventArgs e)
+        {
+            if(skeetCheckbox36.Checked == true)
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+            }
+            else
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+            }
+        }
+
+        private void skeetCheckbox31_Click(object sender, EventArgs e)
+        {
+            if(skeetCheckbox31.Checked == true)
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+            }
+            else
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+            }
+        }
+
+        private void skeetCheckbox8_Click(object sender, EventArgs e)
+        {
+            if(skeetCheckbox8.Checked == true)
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+            }
+            else
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+            }
+        }
+
+        private void skeetCheckbox23_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox23.Checked == true)
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+            }
+            else
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+            }
+        }
+
+        private void skeetCheckbox15_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox15.Checked == true)
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+            }
+            else
+            {
+                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {            
+            ScriptTabButton.ForeColor = Color.WhiteSmoke;
+            CombatTabButton.ForeColor = Color.DarkGray;
+            VisualTabButton.ForeColor = Color.DarkGray;
+            CustomizationTabButton.ForeColor = Color.DarkGray;
+            SettingsTabButton.ForeColor = Color.DarkGray;
+
+            ScriptTabButton.BackColor = enabledColor;
+            SettingsTabButton.BackColor = disabledColor;
+            CustomizationTabButton.BackColor = disabledColor;
+            CombatTabButton.BackColor = disabledColor;
+            VisualTabButton.BackColor = disabledColor;
+
+            ScriptTab.Visible = true;
+            VisualTab.Visible = false;
+            CombatTab.Visible = false;
+            CustomizationTab.Visible = false;
+            SettingsTab.Visible = false;
+        }
+
         private void rgbTimer_Tick(object sender, EventArgs e)
         {
             rgbTimer.Interval = Convert.ToInt32(rnbSpeed.Value);
@@ -720,9 +1002,9 @@ namespace WindowsFormsApp1
             skeetCheckbox1.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox2.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox3.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox4.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox5.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox6.ColorChecked = Color.FromArgb(r, g, b);
+            // skeetCheckbox4.ColorChecked = Color.FromArgb(r, g, b);
+            // skeetCheckbox5.ColorChecked = Color.FromArgb(r, g, b);
+            // skeetCheckbox6.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox7.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox8.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox9.ColorChecked = Color.FromArgb(r, g, b);
@@ -748,6 +1030,12 @@ namespace WindowsFormsApp1
             skeetCheckbox30.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox31.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox32.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox33.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox34.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox35.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox36.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox37.ColorChecked = Color.FromArgb(r, g, b);
+            ScriptTextBox.LineNumberColor = Color.FromArgb(r, g, b);
 
             if (r > 0 && b==0) 
             {

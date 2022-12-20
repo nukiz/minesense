@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         [STAThread]
         static void Main()
         {
-            
+            api api = new api();
             string discord = "[DISCORD] ";
             string mnsns = "[MINESENSE] ";
             string hooknotif = "[HOOK] ";
@@ -54,6 +54,7 @@ namespace WindowsFormsApp1
             Console.WriteLine(mnsns + "Beginning MineSense initialization.");
             RPC.rpctimestamp = Timestamps.Now;
             RPC.InitializeRPC();
+            api.Initialize();
             Console.WriteLine(mnsns + "Registering Console prefixes... ");
             Thread.Sleep(400);
             Console.WriteLine(hooknotif + "REGISTERED HOOK PREFIX.");
