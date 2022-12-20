@@ -5,26 +5,38 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
+using DiscordRPC;
+using System.Runtime.Remoting.Messaging;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using System.Reflection;
 
 namespace WindowsFormsApp1
 {
+    
     internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        
         [STAThread]
         static void Main()
         {
-             
+            api api = new api();
+            string discord = "[DISCORD] ";
             string mnsns = "[MINESENSE] ";
             string hooknotif = "[HOOK] ";
             string eNotif = "[ERROR] ";
+            string[] titles = { "bWluZXNlbnNlIG9uIHRvcCE=", "bWluZXNlbnNlIGRlc3Ryb3lzIGhvcmlvbg==", "c2lnbWEgbWluZXNlbnNlIHVzZXI=", "bWFkZSBieSB5b3VyIGRlYXJlc3QgbnVraXo=", "bWluZXNlbnNlIC0gdGhlIHNwYWdoZXR0aSBjb2RlIGhlcm8gb2YgYWxsIGdob3N0IGNsaWVudHM=" };
+            Random rnd = new Random(); // to select a random one of those titles :D
+            int result = rnd.Next(titles.Length);
+            Console.Title = $"{titles[result]}"; // random title selector for CMD window :D
 
-            Console.Title = "TUlORVNFTlNFIE9XTlMgVEhFIENIRUFUIEdBTUU=";
             Console.WriteLine("Welcome to MineSense. What will we call you?");
-            var USER = Console.ReadLine();
+            var USER = global.USER;
             Console.WriteLine("Hello, " + USER + ". We are happy to see you using our cheats. Don't get banned.");
+            
             Thread.Sleep(1000);
 
             Console.Clear();
@@ -39,18 +51,24 @@ namespace WindowsFormsApp1
             Console.WriteLine(" ");
             Console.WriteLine("__________________________________________________________________________________________________");
             Console.WriteLine(" ");
-            Console.WriteLine(mnsns + "Beginning MineSense utilization...");
+            Console.WriteLine(mnsns + "Beginning MineSense initialization.");
+            RPC.rpctimestamp = Timestamps.Now;
+            RPC.InitializeRPC();
+            api.Initialize();
             Console.WriteLine(mnsns + "Registering Console prefixes... ");
             Thread.Sleep(400);
-            Console.WriteLine(hooknotif + "REGISTERED HOOK PREFIX...");
-            Console.WriteLine(eNotif + "REGISTERED ERROR PREFIX...");
+            Console.WriteLine(hooknotif + "REGISTERED HOOK PREFIX.");
+            Console.WriteLine(eNotif + "REGISTERED ERROR PREFIX.");
+            Console.WriteLine(discord + "REGISTERED DISCORD PREFIX.");
+            RPC.SetState("as " + USER);
+            Console.WriteLine(discord + "Discord RPC updated");
             Thread.Sleep(1000);
-            Console.Clear();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());            
-            Console.WriteLine(mnsns + "MineSense utilized. Beginning utilization of modules...");
+            Console.WriteLine(mnsns + "MineSense initialized. Beginning initialization of modules...");
                        
+            
 
         }
     }
