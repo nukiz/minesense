@@ -6,15 +6,11 @@ using Memory;
 using WindowsFormsApp1.minesense.feature.overlays;
 using System.Diagnostics;
 using DiscordRPC;
-using FastColoredTextBoxNS;
 using System.IO;
-using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using WindowsFormsApp1.minesense.feature.module;
 using System.Threading;
-using static System.Windows.Forms.AxHost;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WindowsFormsApp1
 {
