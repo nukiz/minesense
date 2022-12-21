@@ -23,6 +23,14 @@ namespace WindowsFormsApp1
         [STAThread]
         static void Main()
         {
+
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();
+                InitializeMineSense();
+        }
+        public static void InitializeMineSense()
+        {
+                   
             api api = new api();
             string discord = "[DISCORD] ";
             string mnsns = "[MINESENSE] ";
@@ -33,10 +41,10 @@ namespace WindowsFormsApp1
             int result = rnd.Next(titles.Length);
             Console.Title = $"{titles[result]}"; // random title selector for CMD window :D
 
-            Console.WriteLine("Welcome to MineSense. What will we call you?");
+            global.GetUser();
             var USER = global.USER;
             Console.WriteLine("Hello, " + USER + ". We are happy to see you using our cheats. Don't get banned.");
-            
+
             Thread.Sleep(1000);
 
             Console.Clear();
@@ -63,13 +71,9 @@ namespace WindowsFormsApp1
             RPC.SetState("as " + USER);
             Console.WriteLine(discord + "Discord RPC updated");
             Thread.Sleep(1000);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());            
+            Application.Run(new Form1());
             Console.WriteLine(mnsns + "MineSense initialized. Beginning initialization of modules...");
-                       
-            
-
         }
+
     }
 }

@@ -9,63 +9,45 @@ using System.Timers;
 using System.Threading.Tasks;
 using System.Runtime.Remoting.Messaging;
 using System.Runtime.InteropServices;
+using NLua;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows.Forms;
+using Memory;
 
 namespace WindowsFormsApp1
 {
     public class api
     {
 
-
+        static Lua state;
         public static void Initialize()
         {
+            Form1 form = new Form1();
             string api = "[API] ";
-            var script = "[SCRIPT] ";
+            Mem m = new Mem();
 
-            Console.WriteLine(api + "Beginning API initialization...");
-            Console.WriteLine(script + "No scripts loaded.");
-
-            // register api stuff... wip
-
-            // if () // WIP
-            Console.WriteLine(api + "Initialization complete.");
+            Console.WriteLine(api + "Initialize lua scripting API...");
+            
         }
 
         public static void Execute()
         {
             Form1 form = new Form1();
-            var exec = form.ScriptTextBox;
-            string api = "[API] ";
-            string script = "[SCRIPT] ";
+            Lua lua = new Lua();
 
-            Console.WriteLine(api + "Attempting to execute...");
-            if (exec.Text.Length < 25)
-            {
-                Console.WriteLine(script + "Error while trying to execute - you have not written enough.");
-            }
-            else
-            {
-                Funcs();
-            }
-            Console.WriteLine(script + "Script loaded.");
+
+
+            lua.DoString(form.ScriptTextBox.Text);
         }
 
         public static void Funcs()
         {
-            Form1 form = new Form1();
-                
-           // form.ScriptTextBox.
-
-                
+                            
         }
 
         public static void Error()
         {
-            Form1 form = new Form1();
-
-            // form.ScriptTextBox -- figuring shit out..?
-
-
-
+            
         }
 
     }

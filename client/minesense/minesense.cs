@@ -54,6 +54,7 @@ namespace WindowsFormsApp1
 
         skeetForm form = new skeetForm();
         watermark watermark = new watermark();
+        arraylist arLst = new arraylist();
 
         Mem m = new Mem();
         Random rnd = new Random();
@@ -71,6 +72,24 @@ namespace WindowsFormsApp1
             int minReach = Convert.ToInt32(skeetSlider6.Value);
             int maxReach = Convert.ToInt32(skeetSlider5.Value);        // REACH - DO NOT TOUCH - VALUES FOR 1.19.50/51
             float result = rnd.Next(minReach, maxReach);               
+
+            if (result > 5)
+            {
+                arLst.ReachArLst.ForeColor = Color.Red;
+            }
+            else
+            {
+                if(skeetCheckbox25.Checked == true)
+                {
+                    arLst.ReachArLst.ForeColor = Color.FromArgb(r, g, b);
+                }
+                else
+                {
+                    arLst.ReachArLst.ForeColor = Color.FromArgb(154, 197, 39);
+                }
+
+            }
+
 
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
@@ -262,16 +281,17 @@ namespace WindowsFormsApp1
             if (skeetCheckbox12.Checked == true)
             {
                 if(skeetCheckbox11.Checked == true)
-                {
-                    reach.randomizeCps();
+                { // start timer that writes a diff. reach value every now and then
+                    reach.reachRandomizer();
                 }
                 else
                 {
+                    // enable just reach...
                     reach.Enable();
                 }                
             }
             else
-            {
+            { // disable reach (ofc)
                 reach.Disable();
             }
         
@@ -654,7 +674,7 @@ namespace WindowsFormsApp1
             skeetCheckbox32.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox33.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox34.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox35.ColorChecked = DEFAULTBUTTON;
+            // skeetCheckbox35.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox37.ColorChecked = DEFAULTBUTTON;            
             skeetCheckbox36.ColorChecked = DEFAULTBUTTON;
             skeetSlider1.SliderColor = DEFAULTBUTTON;
@@ -731,7 +751,7 @@ namespace WindowsFormsApp1
 
         private void skeetButton6_Click(object sender, EventArgs e)
         {
-            ScriptTextBox.Text = "// minesense script menu";
+            ScriptTextBox.Text = "";
         }
 
         private void skeetCheckbox35_Load(object sender, EventArgs e)
@@ -741,14 +761,7 @@ namespace WindowsFormsApp1
 
         private void skeetCheckbox35_Click(object sender, EventArgs e)
         {
-            if (skeetCheckbox35.Checked == true)
-            {
-                
-            }
-            else
-            {
-                
-            }
+            
         }
 
         private void skeetButton4_Load(object sender, EventArgs e)
@@ -762,7 +775,11 @@ namespace WindowsFormsApp1
             if (skeetCheckbox37.Checked == true)
             {
                 ScriptTextBox.AppendText("");
-                ScriptTextBox.AppendText("written by " + global.USER + ". // script written with minesense.");
+                ScriptTextBox.AppendText("// written by " + global.USER + ". script written with minesense.");
+                api.Execute();
+            }
+            else
+            {
                 api.Execute();
             }
         }
@@ -817,7 +834,6 @@ namespace WindowsFormsApp1
             }
 
         IntPtr hwnd;
-        string currentwin;
         public string getActiveWindowName()
         {
             try
@@ -955,6 +971,23 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void skeetCheckbox37_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void skeetCheckbox22_Click(object sender, EventArgs e)
+        {
+            if (skeetCheckbox22.Checked == true)
+            {
+                arLst.Show();
+            }
+            else
+            {
+                arLst.Hide();
+            }
+        }
+
         private void button2_Click_1(object sender, EventArgs e)
         {            
             ScriptTabButton.ForeColor = Color.WhiteSmoke;
@@ -1029,7 +1062,7 @@ namespace WindowsFormsApp1
             skeetCheckbox32.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox33.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox34.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox35.ColorChecked = Color.FromArgb(r, g, b);
+            // skeetCheckbox35.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox36.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox37.ColorChecked = Color.FromArgb(r, g, b);
             ScriptTextBox.LineNumberColor = Color.FromArgb(r, g, b);
