@@ -170,10 +170,7 @@ namespace WindowsFormsApp1
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.RShiftKey)
-            {
-                this.WindowState = FormWindowState.Minimized;
-            }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -414,7 +411,15 @@ namespace WindowsFormsApp1
 
         private void skeetCheckbox11_Click(object sender, EventArgs e)
         {
-            reachRandomizeTimer.Start();
+            if (skeetCheckbox11.Checked == true & skeetCheckbox12.Checked == true)
+            {
+                reachRandomizeTimer.Start();
+            }
+            else
+            {
+                return;
+            }
+            
         }
 
         private void skeetSlider13_Load(object sender, EventArgs e)
@@ -506,6 +511,10 @@ namespace WindowsFormsApp1
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 ScriptTextBox.LineNumberColor = colorDialog1.Color;
+                arLst.AcArLst.ForeColor = colorDialog1.Color;
+                arLst.ReachArLst.ForeColor = colorDialog1.Color;
+                arLst.VeloArLst.ForeColor = colorDialog1.Color;
+                arLst.FakeLagArLst.ForeColor = colorDialog1.Color;
                 panel3.BackColor = colorDialog1.Color;
                 skeetCheckbox1.ColorChecked = colorDialog1.Color;
                 skeetCheckbox2.ColorChecked = colorDialog1.Color;
@@ -628,6 +637,7 @@ namespace WindowsFormsApp1
         private void skeetButton1_Click(object sender, EventArgs e)// 154; 197; 39 - RGB for default color...
         {
             form.SuspendLayout();
+            arLst.AcArLst.ForeColor = DEFAULTBUTTON;
             ScriptTextBox.LineNumberColor = DEFAULTBUTTON;
             form.GradientColor1 = GradientColor1;
             form.GradientColor2 = GradientColor2;
@@ -854,6 +864,22 @@ namespace WindowsFormsApp1
         public async void autoclickTimer_Tick(object sender, EventArgs e)
         {
             
+            if (skeetSlider3.Value > 14)
+            {
+                arLst.AcArLst.ForeColor = Color.Red;
+            }
+            else
+            {
+                 if(skeetCheckbox25.Checked == true)
+                 {
+                    return;
+                 }
+                 else
+                 {
+
+                 }
+            }
+
 
             Process[] processes = Process.GetProcessesByName("Minecraft.Windows");
                 foreach (Process process in processes)
@@ -1062,6 +1088,7 @@ namespace WindowsFormsApp1
             skeetCheckbox36.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox37.ColorChecked = Color.FromArgb(r, g, b);
             ScriptTextBox.LineNumberColor = Color.FromArgb(r, g, b);
+            arLst.AcArLst.ForeColor = Color.FromArgb(r, g, b);
 
             if (r > 0 && b==0) 
             {

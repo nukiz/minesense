@@ -10,6 +10,7 @@ using DiscordRPC;
 using System.Runtime.Remoting.Messaging;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Reflection;
+using WindowsFormsApp1.minesense.feature.overlays;
 
 namespace WindowsFormsApp1
 {
@@ -30,7 +31,7 @@ namespace WindowsFormsApp1
         }
         public static void InitializeMineSense()
         {
-                   
+            arraylist arlst = new arraylist();      
             api api = new api();
             string discord = "[DISCORD] ";
             string mnsns = "[MINESENSE] ";
@@ -44,7 +45,7 @@ namespace WindowsFormsApp1
             global.GetUser();
             var USER = global.USER;
             Console.WriteLine("Hello, " + USER + ". We are happy to see you using our cheats. Don't get banned.");
-
+            arlst.Show();
             Thread.Sleep(1000);
 
             Console.Clear();

@@ -59,8 +59,8 @@ namespace WindowsFormsApp1.minesense.feature.overlays
 
             int initialStyle = GetWindowLong(this.Handle, -40);
             SetWindowLong(this.Handle, -40, initialStyle | 0x8000 | 0x20);
-            this.MaximumSize = new System.Drawing.Size(329, 308);
-            this.MinimumSize = new System.Drawing.Size(329, 308);
+            this.MaximumSize = new System.Drawing.Size(113, 143);
+            this.MinimumSize = new System.Drawing.Size(113, 143);
             GetWindowRect(handle, out rect);
             this.Size = new Size(rect.right - rect.left, rect.bottom - rect.top);
             this.Left = rect.left;
@@ -73,6 +73,11 @@ namespace WindowsFormsApp1.minesense.feature.overlays
             Thread.Sleep(200);
             Console.WriteLine(hooknotif + "Finished!");
             Console.WriteLine(mnsns + "Finished arraylist!");
+
+            AcArLst.Hide();
+            VeloArLst.Hide();
+            ReachArLst.Hide();
+            FakeLagArLst.Hide();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -80,8 +85,8 @@ namespace WindowsFormsApp1.minesense.feature.overlays
             while (true)
             {
                 GetWindowRect(handle, out rect);
-                this.Left = rect.left + 8;
-                this.Top = rect.top + 90;
+                this.Left = rect.left + 7;
+                this.Top = rect.top + 210;
                 Thread.Sleep(100);
 
             }

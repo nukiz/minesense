@@ -41,14 +41,13 @@
             this.AcArLst.EnableShadow = false;
             this.AcArLst.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AcArLst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.AcArLst.Location = new System.Drawing.Point(12, 187);
+            this.AcArLst.Location = new System.Drawing.Point(9, 69);
             this.AcArLst.Name = "AcArLst";
             this.AcArLst.ShadowColor = System.Drawing.Color.LightGray;
             this.AcArLst.ShadowOffset = 1;
             this.AcArLst.Size = new System.Drawing.Size(55, 32);
             this.AcArLst.TabIndex = 0;
             this.AcArLst.Text = "AC";
-            this.AcArLst.Visible = false;
             // 
             // ReachArLst
             // 
@@ -56,14 +55,13 @@
             this.ReachArLst.EnableShadow = false;
             this.ReachArLst.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReachArLst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.ReachArLst.Location = new System.Drawing.Point(12, 157);
+            this.ReachArLst.Location = new System.Drawing.Point(9, 39);
             this.ReachArLst.Name = "ReachArLst";
             this.ReachArLst.ShadowColor = System.Drawing.Color.LightGray;
             this.ReachArLst.ShadowOffset = 1;
             this.ReachArLst.Size = new System.Drawing.Size(78, 32);
             this.ReachArLst.TabIndex = 1;
             this.ReachArLst.Text = "RCH";
-            this.ReachArLst.Visible = false;
             // 
             // VeloArLst
             // 
@@ -71,14 +69,13 @@
             this.VeloArLst.EnableShadow = false;
             this.VeloArLst.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VeloArLst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.VeloArLst.Location = new System.Drawing.Point(12, 127);
+            this.VeloArLst.Location = new System.Drawing.Point(9, 9);
             this.VeloArLst.Name = "VeloArLst";
             this.VeloArLst.ShadowColor = System.Drawing.Color.LightGray;
             this.VeloArLst.ShadowOffset = 1;
             this.VeloArLst.Size = new System.Drawing.Size(70, 32);
             this.VeloArLst.TabIndex = 2;
             this.VeloArLst.Text = "VEL";
-            this.VeloArLst.Visible = false;
             // 
             // FakeLagArLst
             // 
@@ -86,14 +83,13 @@
             this.FakeLagArLst.EnableShadow = false;
             this.FakeLagArLst.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FakeLagArLst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.FakeLagArLst.Location = new System.Drawing.Point(12, 219);
+            this.FakeLagArLst.Location = new System.Drawing.Point(9, 101);
             this.FakeLagArLst.Name = "FakeLagArLst";
             this.FakeLagArLst.ShadowColor = System.Drawing.Color.LightGray;
             this.FakeLagArLst.ShadowOffset = 1;
             this.FakeLagArLst.Size = new System.Drawing.Size(92, 32);
             this.FakeLagArLst.TabIndex = 3;
             this.FakeLagArLst.Text = "FAKE";
-            this.FakeLagArLst.Visible = false;
             // 
             // backgroundWorker1
             // 
@@ -103,8 +99,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Lime;
-            this.ClientSize = new System.Drawing.Size(329, 308);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(113, 143);
             this.Controls.Add(this.FakeLagArLst);
             this.Controls.Add(this.VeloArLst);
             this.Controls.Add(this.ReachArLst);
@@ -114,7 +110,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.TopMost = true;
-            this.TransparencyKey = System.Drawing.Color.Lime;
             this.Load += new System.EventHandler(this.arraylist_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
