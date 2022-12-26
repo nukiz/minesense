@@ -40,6 +40,7 @@ namespace WindowsFormsApp1.minesense.feature.module
             if (form.skeetCheckbox12.Checked == false)
             {
                 arlst.ReachArLst.Hide();
+                form.reachRandomizeTimer.Stop();
                 global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
                 m.WriteMemory("base+3FAE0D0", "float", "3");
                 Console.WriteLine(module + "Reach disabled.");

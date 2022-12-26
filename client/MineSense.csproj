@@ -95,6 +95,12 @@
     <Compile Include="minesense\feature\overlays\watermark.Designer.cs">
       <DependentUpon>watermark.cs</DependentUpon>
     </Compile>
+    <Compile Include="minesense\feature\overlays\WelcomeUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="minesense\feature\overlays\WelcomeUser.Designer.cs">
+      <DependentUpon>WelcomeUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="minesense\global\global.cs" />
     <Compile Include="minesense\minesense.cs">
       <SubType>Form</SubType>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="minesense\feature\overlays\watermark.resx">
       <DependentUpon>watermark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="minesense\feature\overlays\WelcomeUser.resx">
+      <DependentUpon>WelcomeUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="minesense\minesense.resx">
       <DependentUpon>minesense.cs</DependentUpon>

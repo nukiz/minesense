@@ -74,7 +74,7 @@ namespace WindowsFormsApp1.minesense.feature.overlays
             Console.WriteLine(hooknotif + "Finished!");
             Console.WriteLine(mnsns + "Finished arraylist!");
 
-            AcArLst.Hide();
+            AcArLst.Show();
             VeloArLst.Hide();
             ReachArLst.Hide();
             FakeLagArLst.Hide();
@@ -84,10 +84,39 @@ namespace WindowsFormsApp1.minesense.feature.overlays
         {
             while (true)
             {
+                Form1 form = new Form1();
                 GetWindowRect(handle, out rect);
                 this.Left = rect.left + 7;
                 this.Top = rect.top + 210;
                 Thread.Sleep(100);
+
+                if (form.skeetCheckbox15.Checked == true)
+                {
+                    VeloArLst.Show();
+                }
+                else
+                {
+                    VeloArLst.Hide();
+                }
+
+                if (form.skeetCheckbox12.Checked == true) // i know its painful to watch ;)
+                {
+                    ReachArLst.Show();
+                }
+                else
+                {
+                    ReachArLst.Hide();
+                }
+
+                if (form.skeetCheckbox1.Checked == true)
+                {
+                    AcArLst.Show();
+                }
+                else
+                {
+                    AcArLst.Hide();
+                }
+
 
             }
         }

@@ -45,9 +45,8 @@ namespace WindowsFormsApp1
             global.GetUser();
             var USER = global.USER;
             Console.WriteLine("Hello, " + USER + ". We are happy to see you using our cheats. Don't get banned.");
-            arlst.Show();
             Thread.Sleep(1000);
-
+            arlst.Show();
             Console.Clear();
             Console.WriteLine(" /$$      /$$ /$$$$$$ /$$   /$$ /$$$$$$$$  /$$$$$$  /$$$$$$$$ /$$   /$$  /$$$$$$  /$$$$$$$$");
             Console.WriteLine("| $$$    /$$$|_  $$_/| $$$ | $$| $$_____/ /$$__  $$| $$_____/| $$$ | $$ /$$__  $$| $$_____/");

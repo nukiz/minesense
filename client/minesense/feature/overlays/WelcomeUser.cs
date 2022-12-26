@@ -9,11 +9,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SkeetUI;
 
 namespace WindowsFormsApp1.minesense.feature.overlays
 {
-    public partial class watermark : skeetForm
+    public partial class WelcomeUser : Form
     {
         string mnsns = "[MINESENSE] ";
         string hooknotif = "[HOOK] ";
@@ -44,61 +43,51 @@ namespace WindowsFormsApp1.minesense.feature.overlays
         public struct RECT
         {
             public int left, top, right, bottom;
-            
+
         }
-        public watermark()
+
+
+        public WelcomeUser()
         {
             InitializeComponent();
         }
 
-        
-        private void Form1_Load(object sender, EventArgs e)
+        private void WelcomeUser_Load(object sender, EventArgs e)
         {
             this.ShowInTaskbar = false;
             this.TopMost = true;
-            string USER = global.USER + " |"; // MADE IT! Watermark now uses a global variable stored in the class global.cs which is gotten from Program.cs on load!
+
+            shadowLabel1.Text = global.USER;
+
 
             int initialStyle = GetWindowLong(this.Handle, -40);
             SetWindowLong(this.Handle, -40, initialStyle | 0x8000 | 0x20);
-            this.MaximumSize = new System.Drawing.Size(283, 42);
-            this.MinimumSize = new System.Drawing.Size(283, 42);
+            this.MaximumSize = new System.Drawing.Size(113, 143);
+            this.MinimumSize = new System.Drawing.Size(113, 143);
             GetWindowRect(handle, out rect);
             this.Size = new Size(rect.right - rect.left, rect.bottom - rect.top);
             this.Left = rect.left;
             this.Top = rect.top;
-            backgroundWorker1.RunWorkerAsync();           
-            label2.Text = USER;
-            dateTimer.Start();
-            Console.WriteLine(mnsns + "Initializing overlay...");           
+            backgroundWorker1.RunWorkerAsync();
+
+            Console.WriteLine(mnsns + "Initializing username renderer...");
             Console.WriteLine(hooknotif + "Setuping GetWindow hooks...");
             Console.WriteLine(hooknotif + "Getting WindowRect...");
             Thread.Sleep(200);
             Console.WriteLine(hooknotif + "Finished!");
-            Console.WriteLine(mnsns + "Finished overlay!");
-            
+            Console.WriteLine(mnsns + "Finished!");
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
-                GetWindowRect(handle, out rect);                
-                this.Left = rect.left + 15;
-                this.Top = rect.top + 37;
-                Thread.Sleep(100);               
+                Form1 form = new Form1();
+                GetWindowRect(handle, out rect);
+                this.Left = rect.left + 870;
+                this.Top = rect.top + 10;
+                Thread.Sleep(100);
             }
-        }
-
-        
-
-        private void shadowLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimer_Tick(object sender, EventArgs e)
-        {
-            dateLabel.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

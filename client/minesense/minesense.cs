@@ -11,6 +11,8 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using WindowsFormsApp1.minesense.feature.module;
 using System.Threading;
+using System.Security.Cryptography.X509Certificates;
+using System.Drawing.Text;
 
 namespace WindowsFormsApp1
 {
@@ -50,7 +52,7 @@ namespace WindowsFormsApp1
 
         skeetForm form = new skeetForm();
         watermark watermark = new watermark();
-        arraylist arLst = new arraylist();
+        arraylist arlst = new arraylist();
 
         Mem m = new Mem();
         Random rnd = new Random();
@@ -71,17 +73,17 @@ namespace WindowsFormsApp1
 
             if (result > 5)
             {
-                arLst.ReachArLst.ForeColor = Color.Red;
+                arlst.ReachArLst.ForeColor = Color.Red;
             }
             else
             {
                 if(skeetCheckbox25.Checked == true)
                 {
-                    arLst.ReachArLst.ForeColor = Color.FromArgb(r, g, b);
+                    arlst.ReachArLst.ForeColor = Color.FromArgb(r, g, b);
                 }
                 else
                 {
-                    arLst.ReachArLst.ForeColor = Color.FromArgb(154, 197, 39);
+                    arlst.ReachArLst.ForeColor = Color.FromArgb(154, 197, 39);
                 }
 
             }
@@ -271,6 +273,11 @@ namespace WindowsFormsApp1
 
         private void skeetCheckbox12_Click(object sender, EventArgs e)
         {
+            if (skeetSlider6.Value > skeetSlider5.Value)
+            {
+                skeetSlider5.Value = skeetSlider6.Value;
+            }
+
             if (skeetCheckbox12.Checked == true)
             {
                 if(skeetCheckbox11.Checked == true)
@@ -511,10 +518,10 @@ namespace WindowsFormsApp1
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 ScriptTextBox.LineNumberColor = colorDialog1.Color;
-                arLst.AcArLst.ForeColor = colorDialog1.Color;
-                arLst.ReachArLst.ForeColor = colorDialog1.Color;
-                arLst.VeloArLst.ForeColor = colorDialog1.Color;
-                arLst.FakeLagArLst.ForeColor = colorDialog1.Color;
+                arlst.AcArLst.ForeColor = colorDialog1.Color;
+                arlst.ReachArLst.ForeColor = colorDialog1.Color;
+                arlst.VeloArLst.ForeColor = colorDialog1.Color;
+                arlst.FakeLagArLst.ForeColor = colorDialog1.Color;
                 panel3.BackColor = colorDialog1.Color;
                 skeetCheckbox1.ColorChecked = colorDialog1.Color;
                 skeetCheckbox2.ColorChecked = colorDialog1.Color;
@@ -637,7 +644,7 @@ namespace WindowsFormsApp1
         private void skeetButton1_Click(object sender, EventArgs e)// 154; 197; 39 - RGB for default color...
         {
             form.SuspendLayout();
-            arLst.AcArLst.ForeColor = DEFAULTBUTTON;
+            arlst.AcArLst.ForeColor = DEFAULTBUTTON;
             ScriptTextBox.LineNumberColor = DEFAULTBUTTON;
             form.GradientColor1 = GradientColor1;
             form.GradientColor2 = GradientColor2;
@@ -866,18 +873,11 @@ namespace WindowsFormsApp1
             
             if (skeetSlider3.Value > 14)
             {
-                arLst.AcArLst.ForeColor = Color.Red;
+                arlst.AcArLst.ForeColor = Color.Red;
             }
             else
             {
-                 if(skeetCheckbox25.Checked == true)
-                 {
-                    return;
-                 }
-                 else
-                 {
-
-                 }
+                return;
             }
 
 
@@ -1002,11 +1002,71 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox22.Checked == true)
             {
-                arLst.Show();
+                Console.WriteLine(mnsns + "Arraylist updated.");
+                arlst.Show();
+                ArrayListUpdateTimer.Start();
             }
             else
             {
-                arLst.Hide();
+                ArrayListUpdateTimer.Stop();
+                arlst.Hide();
+                Console.WriteLine(mnsns + "Arraylist updated.");
+            }
+        }
+        private void ArrayListUpdateTimer_Tick(object sender, EventArgs e) // arraylist updater - will be rewritten sooner or later
+        {
+            //REACH
+            if (m.OpenProcess("Minecraft.Windows.exe"))
+            {
+                if (skeetCheckbox12.Checked == true)
+                {
+                    arlst.ReachArLst.Show();
+                }
+                else
+                {
+                    arlst.ReachArLst.Hide();
+                }
+            } 
+            else
+            {
+                return;
+            }            
+
+            
+            // CLICKER
+            if (skeetCheckbox1.Checked == true)
+            {
+                arlst.AcArLst.Show();
+            }
+            else
+            {
+                arlst.AcArLst.Hide();             // to zyph - ur code is written by ai shut it
+            }
+            // VELOCITY
+            if (skeetCheckbox15.Checked == true)
+            {
+                arlst.VeloArLst.Show();
+
+            }
+            else
+            {
+                arlst.VeloArLst.Hide();           // to a cracker - dont laugh i know its bad LMAO
+
+            }
+
+        }
+
+        private void skeetCheckbox43_Click(object sender, EventArgs e)
+        {
+            WelcomeUser wlcm = new WelcomeUser();
+
+            if(skeetCheckbox43.Checked == true)
+            {
+                wlcm.Show();
+            }
+            else
+            {
+                wlcm.Hide();
             }
         }
 
@@ -1053,9 +1113,9 @@ namespace WindowsFormsApp1
             skeetCheckbox1.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox2.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox3.ColorChecked = Color.FromArgb(r, g, b);
-            // skeetCheckbox4.ColorChecked = Color.FromArgb(r, g, b);
-            // skeetCheckbox5.ColorChecked = Color.FromArgb(r, g, b);
-            // skeetCheckbox6.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox4.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox5.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox6.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox7.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox8.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox9.ColorChecked = Color.FromArgb(r, g, b);
@@ -1084,11 +1144,14 @@ namespace WindowsFormsApp1
             skeetCheckbox32.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox33.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox34.ColorChecked = Color.FromArgb(r, g, b);
-            // skeetCheckbox35.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox35.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox36.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox37.ColorChecked = Color.FromArgb(r, g, b);
             ScriptTextBox.LineNumberColor = Color.FromArgb(r, g, b);
-            arLst.AcArLst.ForeColor = Color.FromArgb(r, g, b);
+            arlst.AcArLst.ForeColor = Color.FromArgb(r, g, b);
+            arlst.ReachArLst.ForeColor = Color.FromArgb(r, g, b);
+            arlst.FakeLagArLst.ForeColor = Color.FromArgb(r, g, b);
+            arlst.VeloArLst.ForeColor = Color.FromArgb(r, g, b);
 
             if (r > 0 && b==0) 
             {

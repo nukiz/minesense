@@ -110,6 +110,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.TopMost = true;
+            this.TransparencyKey = System.Drawing.Color.Black;
             this.Load += new System.EventHandler(this.arraylist_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
