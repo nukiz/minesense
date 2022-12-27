@@ -81,8 +81,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="minesense\discordrpc\rpc.cs" />
+    <Compile Include="minesense\feature\module\antivoid.cs" />
     <Compile Include="minesense\feature\module\clicker.cs" />
+    <Compile Include="minesense\feature\module\comebackassist.cs" />
+    <Compile Include="minesense\feature\module\fakelag.cs" />
     <Compile Include="minesense\feature\module\reach.cs" />
+    <Compile Include="minesense\feature\module\throwpot.cs" />
+    <Compile Include="minesense\feature\module\velocity.cs" />
     <Compile Include="minesense\feature\overlays\arraylist.cs">
       <SubType>Form</SubType>
     </Compile>

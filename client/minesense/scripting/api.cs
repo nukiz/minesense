@@ -28,16 +28,13 @@ namespace WindowsFormsApp1
 
             Console.WriteLine(api + "Initialize lua scripting API...");
             
+            
         }
 
         public static void Execute()
         {
-            Form1 form = new Form1();
-            Lua lua = new Lua();
-
-
-
-            lua.DoString(form.ScriptTextBox.Text);
+            Form1 form = new Form1();            
+            state.DoString(form.ScriptTextBox.Text);
         }
 
         public static void Funcs()

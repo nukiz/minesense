@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.minesense.feature.overlays
+namespace WindowsFormsApp1
 {
     public partial class WelcomeUser : Form
     {
@@ -57,8 +57,7 @@ namespace WindowsFormsApp1.minesense.feature.overlays
             this.ShowInTaskbar = false;
             this.TopMost = true;
 
-            shadowLabel1.Text = global.USER;
-
+            
 
             int initialStyle = GetWindowLong(this.Handle, -40);
             SetWindowLong(this.Handle, -40, initialStyle | 0x8000 | 0x20);

@@ -70,24 +70,8 @@ namespace WindowsFormsApp1
             int minReach = Convert.ToInt32(skeetSlider6.Value);
             int maxReach = Convert.ToInt32(skeetSlider5.Value);        // REACH - DO NOT TOUCH - VALUES FOR 1.19.50/51
             float result = rnd.Next(minReach, maxReach);               
-
-            if (result > 5)
-            {
-                arlst.ReachArLst.ForeColor = Color.Red;
-            }
-            else
-            {
-                if(skeetCheckbox25.Checked == true)
-                {
-                    arlst.ReachArLst.ForeColor = Color.FromArgb(r, g, b);
-                }
-                else
-                {
-                    arlst.ReachArLst.ForeColor = Color.FromArgb(154, 197, 39);
-                }
-
-            }
-
+            
+            arlst.ReachAmt.Text = result.ToString();                      
 
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
@@ -262,6 +246,7 @@ namespace WindowsFormsApp1
             SettingsTabButton.BackColor = disabledColor;
             CustomizationTabButton.ForeColor = Color.DarkGray;
             SettingsTabButton.ForeColor = Color.DarkGray;
+            ScriptTabButton.ForeColor = Color.DarkGray;
             ScriptTabButton.BackColor = disabledColor;
             ScriptTab.Visible = false;
             CombatTab.Visible = false;
@@ -271,7 +256,7 @@ namespace WindowsFormsApp1
             form.ResumeLayout();
         }
 
-        private void skeetCheckbox12_Click(object sender, EventArgs e)
+        private void skeetCheckbox12_Click(object sender, EventArgs e) // REACH !!!!
         {
             if (skeetSlider6.Value > skeetSlider5.Value)
             {
@@ -280,20 +265,19 @@ namespace WindowsFormsApp1
 
             if (skeetCheckbox12.Checked == true)
             {
-                if(skeetCheckbox11.Checked == true)
-                { // start timer that writes a diff. reach value every now and then
+                reach.Enable();
+
+                if (skeetCheckbox11.Checked == true) //enable reach
+                { 
                     reach.reachRandomizer();
                 }
-                else
-                {
-                    // enable just reach...
-                    reach.Enable();
-                }                
+
             }
             else
-            { // disable reach (ofc)
+            {
                 reach.Disable();
             }
+            
         
         }
 
@@ -319,6 +303,7 @@ namespace WindowsFormsApp1
             VisualTabButton.ForeColor = Color.DarkGray;
             CustomizationTabButton.ForeColor = Color.DarkGray;
             SettingsTabButton.ForeColor = Color.DarkGray;
+            ScriptTabButton.ForeColor = Color.DarkGray;
             CustomizationTabButton.BackColor = disabledColor;
             VisualTabButton.BackColor = disabledColor; ;
             SettingsTabButton.BackColor = disabledColor;
@@ -340,6 +325,7 @@ namespace WindowsFormsApp1
             VisualTabButton.ForeColor = Color.DarkGray;
             CustomizationTabButton.ForeColor = Color.DarkGray;
             CombatTabButton.ForeColor = Color.DarkGray;
+            ScriptTabButton.ForeColor = Color.DarkGray;
             CombatTabButton.BackColor = disabledColor;
             CustomizationTabButton.BackColor = disabledColor;
             VisualTabButton.BackColor = disabledColor;
@@ -360,6 +346,7 @@ namespace WindowsFormsApp1
             VisualTabButton.ForeColor = Color.DarkGray;
             SettingsTabButton.ForeColor = Color.DarkGray;
             CombatTabButton.ForeColor = Color.DarkGray;
+            ScriptTabButton.ForeColor = Color.DarkGray;
             CombatTabButton.BackColor = disabledColor;
             VisualTabButton.BackColor = disabledColor;
             SettingsTabButton.BackColor = disabledColor;
@@ -526,9 +513,9 @@ namespace WindowsFormsApp1
                 skeetCheckbox1.ColorChecked = colorDialog1.Color;
                 skeetCheckbox2.ColorChecked = colorDialog1.Color;
                 skeetCheckbox3.ColorChecked = colorDialog1.Color;
-                // skeetCheckbox4.ColorChecked = colorDialog1.Color;
-                // skeetCheckbox5.ColorChecked = colorDialog1.Color;
-                // skeetCheckbox6.ColorChecked = colorDialog1.Color;
+                skeetCheckbox4.ColorChecked = colorDialog1.Color;
+                skeetCheckbox5.ColorChecked = colorDialog1.Color;
+                skeetCheckbox6.ColorChecked = colorDialog1.Color;
                 skeetCheckbox7.ColorChecked = colorDialog1.Color;
                 skeetCheckbox8.ColorChecked = colorDialog1.Color;
                 skeetCheckbox9.ColorChecked = colorDialog1.Color;
@@ -656,9 +643,9 @@ namespace WindowsFormsApp1
             skeetCheckbox1.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox2.ColorChecked = DEFAULTBUTTON;              // there's probably a more efficient way to do this, but i don't care
             skeetCheckbox3.ColorChecked = DEFAULTBUTTON;
-            // skeetCheckbox4.ColorChecked = DEFAULTBUTTON;
-            // skeetCheckbox5.ColorChecked = DEFAULTBUTTON;
-            // skeetCheckbox6.ColorChecked = DEFAULTBUTTON;
+            skeetCheckbox4.ColorChecked = DEFAULTBUTTON;
+            skeetCheckbox5.ColorChecked = DEFAULTBUTTON;
+            skeetCheckbox6.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox7.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox8.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox9.ColorChecked = DEFAULTBUTTON;
@@ -831,11 +818,11 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox2.Checked == true)
             {
-                randomizeCps.Start();
+                clicker.RandomizerEnable();
             }
             else
             {
-                randomizeCps.Stop();
+                clicker.RandomizerDisable();
             }
         }
 
@@ -1004,12 +991,13 @@ namespace WindowsFormsApp1
             {
                 Console.WriteLine(mnsns + "Arraylist updated.");
                 arlst.Show();
+                arlst.Activate();
                 ArrayListUpdateTimer.Start();
             }
             else
             {
                 ArrayListUpdateTimer.Stop();
-                arlst.Hide();
+                arlst.Close();
                 Console.WriteLine(mnsns + "Arraylist updated.");
             }
         }
