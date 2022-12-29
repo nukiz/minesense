@@ -18,8 +18,7 @@ namespace WindowsFormsApp1.minesense.feature.overlays
     public partial class arraylist : Form
     {
         string mnsns = "[MINESENSE] ";
-        string hooknotif = "[HOOK] ";
-        string eNotif = "[ERROR] ";
+        
         public const string WINDOW_NAME = "Minecraft";
 
         [DllImport("user32.dll")]
@@ -69,12 +68,7 @@ namespace WindowsFormsApp1.minesense.feature.overlays
             this.Top = rect.top;
             backgroundWorker1.RunWorkerAsync();
             
-            Console.WriteLine(mnsns + "Initializing arraylist...");
-            Console.WriteLine(hooknotif + "Setuping GetWindow hooks...");
-            Console.WriteLine(hooknotif + "Getting WindowRect...");
-            Thread.Sleep(200);
-            Console.WriteLine(hooknotif + "Finished!");
-            Console.WriteLine(mnsns + "Finished arraylist!");
+            
 
             AcArLst.Show();
             VeloArLst.Show();

@@ -80,9 +80,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="minesense\config\configlistmanager.cs" />
-    <Compile Include="minesense\config\configmanager.cs" />
-    <Compile Include="minesense\discordrpc\rpc.cs" />
+    <Compile Include="minesense\feature\customization\colorhandler.cs" />
+    <Compile Include="minesense\utils\config\configlistmanager.cs" />
+    <Compile Include="minesense\utils\config\configmanager.cs" />
+    <Compile Include="minesense\utils\discordrpc\rpc.cs" />
     <Compile Include="minesense\feature\module\antivoid.cs" />
     <Compile Include="minesense\feature\module\clicker.cs" />
     <Compile Include="minesense\feature\module\comebackassist.cs" />
@@ -108,7 +109,7 @@
     <Compile Include="minesense\feature\overlays\WelcomeUser.Designer.cs">
       <DependentUpon>WelcomeUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="minesense\global\global.cs" />
+    <Compile Include="minesense\feature\global\global.cs" />
     <Compile Include="minesense\minesense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,7 +117,7 @@
       <DependentUpon>minesense.cs</DependentUpon>
     </Compile>
     <Compile Include="minesense\Program.cs" />
-    <Compile Include="minesense\scripting\api.cs" />
+    <Compile Include="minesense\utils\scripting\api.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="minesense\feature\overlays\arraylist.resx">
       <DependentUpon>arraylist.cs</DependentUpon>
