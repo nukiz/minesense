@@ -13,6 +13,7 @@ using WindowsFormsApp1.minesense.feature.module;
 using System.Threading;
 using System.Security.Cryptography.X509Certificates;
 using System.Drawing.Text;
+using WindowsFormsApp1.minesense.config;
 
 namespace WindowsFormsApp1
 {
@@ -43,7 +44,6 @@ namespace WindowsFormsApp1
         Color enabledColor = Color.FromArgb(17, 17, 17);
         Color disabledColor = Color.FromArgb(15, 15, 15);
         Color DEFAULTBUTTON = Color.FromArgb(154, 197, 39);
-
         public static Timestamps rpctimestamp { get; set; }
 
         Color GradientColor1 = Color.FromArgb(55, 177, 218);
@@ -81,7 +81,7 @@ namespace WindowsFormsApp1
                    
                 }
                 else
-                { 
+                {                     
                     m.WriteMemory("base+3FAE0D0", "float", "3");
                     reachRandomizeTimer.Stop();
                     Console.WriteLine(module + "Randomizer disabled.");
@@ -1056,6 +1056,27 @@ namespace WindowsFormsApp1
             {
                 wlcm.Hide();
             }
+        }
+
+        private void skeetButton8_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void skeetButton9_Click(object sender, EventArgs e)
+        {
+            CfgList.Items.Clear();
+            configlistmanager.Populate(CfgList, "./Config", "*.txt");
+        }
+
+        private void RefreshBtn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void skeetButton8_Click(object sender, EventArgs e)
+        {
+            configmanager.SaveConfig();
         }
 
         private void button2_Click_1(object sender, EventArgs e)

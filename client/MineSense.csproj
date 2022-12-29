@@ -80,6 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="minesense\config\configlistmanager.cs" />
+    <Compile Include="minesense\config\configmanager.cs" />
     <Compile Include="minesense\discordrpc\rpc.cs" />
     <Compile Include="minesense\feature\module\antivoid.cs" />
     <Compile Include="minesense\feature\module\clicker.cs" />

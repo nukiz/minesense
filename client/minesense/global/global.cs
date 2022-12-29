@@ -19,7 +19,9 @@ namespace WindowsFormsApp1
             USER = Console.ReadLine();
         }
 
-      public static int MODULEAMOUNT = 0;
+        public static string CONFIGNAME;
+
+        public static int MODULEAMOUNT = 0;
         public static int MAXMODULES = 10;
     }
 }
