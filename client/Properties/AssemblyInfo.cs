@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompany("minesense software")]
 [assembly: AssemblyProduct("minesense")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
-[assembly: AssemblyTrademark("minesense software")]
+[assembly: AssemblyTrademark("Black Boys LLC")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
