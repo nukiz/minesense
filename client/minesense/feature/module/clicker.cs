@@ -24,6 +24,7 @@ namespace WindowsFormsApp1.minesense.feature.module
 
                 Console.WriteLine(module + "Autoclicker enabled.");
                 form.autoclickTimer.Enabled = true;
+                form.autoclickTimer.Start();
             }
                                                                                                
         }

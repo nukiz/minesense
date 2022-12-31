@@ -856,16 +856,6 @@ namespace WindowsFormsApp1
         public async void autoclickTimer_Tick(object sender, EventArgs e)
         {
             
-            if (skeetSlider3.Value > 14)
-            {
-                // arlst.AcArLst.ForeColor = Color.Red;
-            }
-            else
-            {
-                return;
-            }
-
-
             Process[] processes = Process.GetProcessesByName("Minecraft.Windows");
                 foreach (Process process in processes)
                 {
@@ -878,14 +868,14 @@ namespace WindowsFormsApp1
                     return;
                 }
 
-                if (currentwin.Contains("Minecraft.Windows"))
-                {
-                    if(MouseButtons == MouseButtons.Left)
-                    {
-                        PostMessage(hwnd, 0x0201, 0, 0);
-                        await Task.Delay(30);
-                        PostMessage(hwnd, 0x0202, 0, 0);
-                    }
+            if (currentwin.Contains("Minecraft"))
+            {
+            if (MouseButtons == MouseButtons.Left)
+            {
+                PostMessage(hwnd, 0x0201, 0, 0);
+                await Task.Delay(30);
+                PostMessage(hwnd, 0x0202, 0, 0);
+            }
             }
         }
 
