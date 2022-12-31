@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("minesense")]
 [assembly: AssemblyDescription("minesense")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("nukiz software")]
+[assembly: AssemblyCompany("minesense software")]
 [assembly: AssemblyProduct("minesense")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
-[assembly: AssemblyTrademark("nukiz software")]
+[assembly: AssemblyTrademark("minesense software")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
