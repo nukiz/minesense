@@ -1,20 +1,17 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using SkeetUI;
+﻿using DiscordRPC;
 using Memory;
-using WindowsFormsApp1.minesense.feature.overlays;
+using SkeetUI;
+using System;
 using System.Diagnostics;
-using DiscordRPC;
+using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using WindowsFormsApp1.minesense.feature.module;
 using System.Threading;
-using System.Security.Cryptography.X509Certificates;
-using System.Drawing.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using WindowsFormsApp1.minesense.config;
-using WindowsFormsApp1.minesense.feature.customization;
+using WindowsFormsApp1.minesense.feature.module;
+using WindowsFormsApp1.minesense.feature.overlays;
 
 namespace WindowsFormsApp1
 {
@@ -52,6 +49,7 @@ namespace WindowsFormsApp1
         skeetForm form = new skeetForm();
         watermark watermark = new watermark();
         // arraylist arlst = new arraylist();
+        
 
         Mem m = new Mem();
         Random rnd = new Random();
@@ -422,7 +420,7 @@ namespace WindowsFormsApp1
 
         private void skeetSlider13_Click(object sender, EventArgs e)
         {
-            double WINDOWOPACITY = skeetSlider13.Value / 100;
+            int WINDOWOPACITY = Convert.ToInt32(skeetSlider13.Value) / 100;
             form.Opacity = WINDOWOPACITY;
         }
 
@@ -439,8 +437,9 @@ namespace WindowsFormsApp1
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                Process.Start("cmd.exe", "/C choice /C Y /N /D Y /T 3 & Del " + Application.ExecutablePath); // we start a cmd process with required commands to delete
-                Application.Exit(); // trying to delete just the app path with this app may result in access violation, cause a running program is deleting itself and also closing itself
+                Process.Start("cmd.exe", "/C choice /C Y /N /D Y /T 1 & Del " + Application.StartupPath);
+                Process.Start("cmd.exe", "/C choice /C Y /N /D Y /T 1 & Del " + Application.ExecutablePath); // we start a cmd process with required commands to delete
+                Application.Exit();  // trying to delete just the app path with this app may result in access violation, cause a running program is deleting itself and also closing itself
             }
             else
             {
@@ -699,7 +698,7 @@ namespace WindowsFormsApp1
             if (skeetCheckbox26.Checked == false)
             {
                 global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
-                Console.WriteLine(discord + "RPC Cleared´.");
+                Console.WriteLine(discord + "RPC Cleared´'.");
                 RPC.client.Dispose();
             }
             else
@@ -736,7 +735,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        int r = 255, g = 0, b = 0;
+        
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
@@ -1104,11 +1103,418 @@ namespace WindowsFormsApp1
             SettingsTab.Visible = false;
         }
 
+        int r = 255, g = 0, b = 0;
+
+        private void skeetCheckbox24_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi.Text = "Hides the client when" +
+                " \r\nOBS is running.";
+        }
+
+        private void skeetCheckbox26_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi.Text = "Enables Discord integration.";
+        }
+
+        private void skeetSlider13_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi.Text = "Set client opacity.";
+        }
+
+        private void skeetCheckbox32_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi.Text = "When enabled, the client" +
+                " \r\nwont go under anything.";
+        }
+
+        private void skeetCheckbox44_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi.Text = "This toggle hides the client" +
+                " \r\ntemporarily in an emergency.";
+        }
+
+        private void skeetCheckbox17_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi.Text = "Draws minesense watermark in " +
+                "\r\ntop left corner. A bit buggy.";
+        }
+
+        private void skeetCheckbox22_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi.Text = "Draws enabled modules." +
+                " \r\nVery buggy.";
+        }
+
+        private void skeetCheckbox43_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi.Text = "Draws your username.";
+        }
+
+        private void skeetCheckbox36_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Raises your gamma" +
+                " \r\nbrightness.";
+        }
+
+        private void skeetCheckbox31_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Changes clientside" +
+                " \r\ntime to night.";
+        }
+
+        private void skeetCheckbox8_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Makes you look" +
+                " \r\nchoppier.";
+        }
+
+        private void skeetCheckbox4_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Essentially blink, but" +
+                " \r\nmay cause disconnects.";
+        }
+
+        private void skeetSlider17_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Because lagswitch is a" +
+                " \r\ntoggle, this is the duration of it.";
+        }
+
+        private void skeetSlider11_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Maximum amount of delay" +
+                " \r\nfor FakeLag.";
+        }
+
+        private void skeetSlider12_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Minimum amount of delay" +
+                " \r\nfor FakeLag.";
+        }
+
+        private void skeetCheckbox5_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Toggles fluctuation for FakeLag." +
+                " \r\nMultiplies FakeLag delay when" +
+                " \r\nset triggers are true.";
+        }
+
+        private void skeetSlider14_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Multiplier for fluctuation.";
+        }
+
+        private void skeetCheckbox18_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Walk on water like " +
+                "\r\nJesus himself.";
+        }
+
+        private void skeetCheckbox19_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Speed for water.";
+        }
+
+        private void skeetSlider15_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Speed multiplier for" +
+                " \r\nwaterspeed.";
+        }
+
+        private void skeetCheckbox20_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Attempts to negate fall damage" +
+                " \r\nby canceling packets/NOPing memory" +
+                " \r\naddress for fall damage.";
+        }
+
+        private void skeetCheckbox35_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Sprint in all directions!";
+        }
+
+        private void skeetCheckbox21_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "OnGround speed mode. Good for" +
+                " \r\nvanilla, probably wont bypass" +
+                " \r\nservers.";
+        }
+
+        private void skeetSlider16_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Multiplier for OnGround" +
+                " \r\nspeed";
+        }
+
+        private void skeetCheckbox23_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Allows you to jump infinitely." +
+                " \r\nLess blatant fly, but might" +
+                " \r\nnot bypass.";
+        }
+
+        private void skeetCheckbox38_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Attempts to negate damage from airjump." +
+                " \r\nRather buggy, also doubles" +
+                " \r\nas a sort of strafe.";
+        }
+
+        private void skeetCheckbox39_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Freely move in air at" +
+                " \r\nfull speed.";
+        }
+
+        private void skeetCheckbox40_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi2.Text = "Locks your Y axis coordinate." +
+                " \r\nVery buggy, causes noclip" +
+                " \r\nover time.";
+        }
+
+        private void skeetCheckbox1_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Very customizable clicker.";
+        }
+
+        private void skeetSlider1_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Minimum CPS that the clicker" +
+                " \r\nrandomizes between if randomizer" +
+                " \r\nis enabled.";
+        }
+
+        private void skeetSlider2_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Maximum CPS for clicker to" +
+                " \r\nuse in randomizing.";
+        }
+
+        private void skeetCheckbox2_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Toggles randomizer" +
+                " \r\nfor clicker.";
+        }
+
+        private void skeetCheckbox3_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Allows clicker to send right" +
+                " \r\nclicks when MB2 is down.";
+        }
+
+        private void skeetSlider3_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "This slider shows the result" +
+                " \r\nof the randomizer.";
+        }
+
+        private void skeetCheckbox15_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Modifies your horizontal/vertical" +
+                " \r\nknockback velocity.";
+        }
+
+        private void skeetCheckbox14_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Randomizes knockback amount." +
+                " \r\nPretty much makes you undetectable.";
+        }
+
+        private void skeetSlider9_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Horizontal knockback %" +
+                " \r\nmodifier.";
+        }
+
+        private void skeetSlider8_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Vertical knockback %" +
+                " \r\nmodifier.";
+        }
+
+        private void skeetCheckbox13_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "When enabled and after being " +
+                "\r\nin the air for" +
+                " \r\nsome time will negate all knockback.";
+        }
+
+        private void skeetCheckbox9_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Chance of negating " +
+                "\r\nknockback for velocity.";
+        }
+
+        private void skeetSlider7_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Customize % of" +
+                " \r\nshit happening.";
+        }
+
+        private void skeetCheckbox42_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Automatically throws" +
+                " \r\npots in NoDebuff.";
+        }
+
+        private void shadowLabel5_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Choose which of your" +
+                " \r\nhotbar slots have pots.";
+        }
+
+        private void skeetCheckbox12_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Modifies the amount" +
+                " \r\nof reach you have.";
+        }
+
+        private void skeetCheckbox11_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Randomize reach between" +
+                " \r\nmin/max values.";
+        }
+
+        private void skeetSlider6_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Minimum reach for" +
+                " \r\nrandomizer.";
+        }
+
+        private void skeetSlider5_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Maxiumum reach for" +
+                " randomizer.";
+        }
+
+        private void skeetCheckbox10_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Attempts to misplace enemies" +
+                " \r\ncloser to you." +
+                " \r\nGreat in streams/videos.";
+        }
+
+        private void skeetSlider4_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Amount to use for" +
+                " \r\nmisplace.";
+        }
+
+        private void skeetGroupBox5_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Snaps you back to" +
+                " \r\nyour original Y" +
+                " \r\nlevel if you fall too far.";
+        }
+
+        private void skeetGroupBox11_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "When enabled and going below HP" +
+                " \r\nthreshold will crank your" +
+                " \r\nsettings to the max.";
+        }
+
+        private void DestructButton_MouseHover(object sender, EventArgs e)
+        {
+            ToolTipExhi3.Text = "Deletes minesense and" +
+                "\r\nrelated dlls.";
+        }
+
+        private void skeetButton9_Click_1(object sender, EventArgs e)
+        {
+            configmanager.SaveConfig();
+            global.CONFIGNAME = configName.Text;
+        }
+
         private void rgbTimer_Tick(object sender, EventArgs e)
         {
             rgbTimer.Interval = Convert.ToInt32(rnbSpeed.Value);
 
-            colorhandler.RgbManager();
+            if (r > 0 && b == 0)
+            {
+                r--;
+                g++;
+            }
+            if (g > 0 && r == 0)
+            {
+                g--;
+                b++;
+            }
+            if (b > 0 && g == 0)
+            {
+                b--;
+                r++;
+            }
+
+            panel3.BackColor = Color.FromArgb(r, g, b);
+            rnbSpeed.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider1.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider2.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider3.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider4.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider5.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider6.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider7.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider8.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider9.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider10.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider11.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider12.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider13.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider14.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider15.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider16.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider17.SliderColor = Color.FromArgb(r, g, b);
+            skeetSlider18.SliderColor = Color.FromArgb(r, g, b);
+            skeetCheckbox1.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox2.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox3.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox4.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox5.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox6.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox7.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox8.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox9.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox10.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox11.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox12.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox13.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox14.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox15.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox16.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox17.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox18.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox19.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox20.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox21.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox22.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox23.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox24.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox25.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox26.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox27.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox28.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox29.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox30.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox31.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox32.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox33.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox34.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox35.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox36.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox37.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox38.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox39.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox40.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox41.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox42.ColorChecked = Color.FromArgb(r, g, b);
+            skeetCheckbox43.ColorChecked = Color.FromArgb(r, g, b);
+            ScriptTextBox.LineNumberColor = Color.FromArgb(r, g, b);
+            // arlst.AcArLst.ForeColor = Color.FromArgb(r, g, b);
+            // arlst.ReachArLst.ForeColor = Color.FromArgb(r, g, b);
+            // arlst.FakeLagArLst.ForeColor = Color.FromArgb(r, g, b);
+            // arlst.VeloArLst.ForeColor = Color.FromArgb(r, g, b);
 
         }
     }

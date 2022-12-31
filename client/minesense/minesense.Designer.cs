@@ -68,6 +68,7 @@
             this.skeetCheckbox7 = new SkeetUI.skeetCheckbox();
             this.reachRandomizeTimer = new System.Windows.Forms.Timer(this.components);
             this.CombatTab = new System.Windows.Forms.Panel();
+            this.ToolTipExhi3 = new SkeetUI.shadowLabel();
             this.skeetGroupBox20 = new SkeetUI.skeetGroupBox();
             this.shadowLabel5 = new SkeetUI.shadowLabel();
             this.slot9 = new System.Windows.Forms.CheckBox();
@@ -82,6 +83,7 @@
             this.shadowLabel4 = new SkeetUI.shadowLabel();
             this.skeetCheckbox42 = new SkeetUI.skeetCheckbox();
             this.VisualTab = new System.Windows.Forms.Panel();
+            this.ToolTipExhi2 = new SkeetUI.shadowLabel();
             this.skeetGroupBox6 = new SkeetUI.skeetGroupBox();
             this.skeetCheckbox40 = new SkeetUI.skeetCheckbox();
             this.skeetSlider16 = new SkeetUI.skeetSlider();
@@ -112,11 +114,14 @@
             this.skeetCheckbox36 = new SkeetUI.skeetCheckbox();
             this.attachTimer = new System.Windows.Forms.Timer(this.components);
             this.SettingsTab = new System.Windows.Forms.Panel();
+            this.ToolTipExhi = new SkeetUI.shadowLabel();
             this.skeetGroupBox14 = new SkeetUI.skeetGroupBox();
             this.skeetCheckbox43 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox22 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox17 = new SkeetUI.skeetCheckbox();
             this.skeetGroupBox10 = new SkeetUI.skeetGroupBox();
+            this.shadowLabel6 = new SkeetUI.shadowLabel();
+            this.skeetCheckbox44 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox32 = new SkeetUI.skeetCheckbox();
             this.skeetSlider13 = new SkeetUI.skeetSlider();
             this.skeetCheckbox30 = new SkeetUI.skeetCheckbox();
@@ -126,7 +131,7 @@
             this.skeetCheckbox26 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox24 = new SkeetUI.skeetCheckbox();
             this.skeetGroupBox13 = new SkeetUI.skeetGroupBox();
-            this.skeetButton9 = new SkeetUI.skeetButton();
+            this.ConfigSaveBtn = new SkeetUI.skeetButton();
             this.RefreshBtn = new SkeetUI.skeetButton();
             this.CfgList = new System.Windows.Forms.ListBox();
             this.skeetButton8 = new SkeetUI.skeetButton();
@@ -330,6 +335,7 @@
             this.skeetSlider3.Title = "Randomizer Result";
             this.skeetSlider3.Value = 13D;
             this.skeetSlider3.ValueSuffix = "CPS";
+            this.skeetSlider3.MouseHover += new System.EventHandler(this.skeetSlider3_MouseHover);
             // 
             // skeetCheckbox3
             // 
@@ -343,6 +349,7 @@
             this.skeetCheckbox3.Name = "skeetCheckbox3";
             this.skeetCheckbox3.Size = new System.Drawing.Size(95, 16);
             this.skeetCheckbox3.TabIndex = 4;
+            this.skeetCheckbox3.MouseHover += new System.EventHandler(this.skeetCheckbox3_MouseHover);
             // 
             // skeetCheckbox2
             // 
@@ -358,6 +365,7 @@
             this.skeetCheckbox2.Size = new System.Drawing.Size(120, 16);
             this.skeetCheckbox2.TabIndex = 3;
             this.skeetCheckbox2.Click += new System.EventHandler(this.skeetCheckbox2_Click);
+            this.skeetCheckbox2.MouseHover += new System.EventHandler(this.skeetCheckbox2_MouseHover);
             // 
             // skeetCheckbox1
             // 
@@ -372,6 +380,7 @@
             this.skeetCheckbox1.Size = new System.Drawing.Size(95, 16);
             this.skeetCheckbox1.TabIndex = 2;
             this.skeetCheckbox1.Click += new System.EventHandler(this.skeetCheckbox1_Click);
+            this.skeetCheckbox1.MouseHover += new System.EventHandler(this.skeetCheckbox1_MouseHover);
             // 
             // skeetSlider2
             // 
@@ -390,6 +399,7 @@
             this.skeetSlider2.Value = 13D;
             this.skeetSlider2.ValueSuffix = "CPS";
             this.skeetSlider2.Load += new System.EventHandler(this.skeetSlider2_Load);
+            this.skeetSlider2.MouseHover += new System.EventHandler(this.skeetSlider2_MouseHover);
             // 
             // skeetSlider1
             // 
@@ -408,6 +418,7 @@
             this.skeetSlider1.Value = 10D;
             this.skeetSlider1.ValueSuffix = "CPS";
             this.skeetSlider1.Load += new System.EventHandler(this.skeetSlider1_Load);
+            this.skeetSlider1.MouseHover += new System.EventHandler(this.skeetSlider1_MouseHover);
             // 
             // skeetGroupBox2
             // 
@@ -442,6 +453,7 @@
             this.skeetSlider4.Title = "Misplace Amount";
             this.skeetSlider4.Value = 1D;
             this.skeetSlider4.Load += new System.EventHandler(this.skeetSlider4_Load);
+            this.skeetSlider4.MouseHover += new System.EventHandler(this.skeetSlider4_MouseHover);
             // 
             // skeetCheckbox10
             // 
@@ -456,6 +468,7 @@
             this.skeetCheckbox10.Size = new System.Drawing.Size(87, 16);
             this.skeetCheckbox10.TabIndex = 4;
             this.skeetCheckbox10.Load += new System.EventHandler(this.skeetCheckbox10_Load);
+            this.skeetCheckbox10.MouseHover += new System.EventHandler(this.skeetCheckbox10_MouseHover);
             // 
             // skeetCheckbox11
             // 
@@ -471,6 +484,7 @@
             this.skeetCheckbox11.TabIndex = 3;
             this.skeetCheckbox11.Load += new System.EventHandler(this.skeetCheckbox11_Load);
             this.skeetCheckbox11.Click += new System.EventHandler(this.skeetCheckbox11_Click);
+            this.skeetCheckbox11.MouseHover += new System.EventHandler(this.skeetCheckbox11_MouseHover);
             // 
             // skeetCheckbox12
             // 
@@ -486,6 +500,7 @@
             this.skeetCheckbox12.TabIndex = 2;
             this.skeetCheckbox12.Load += new System.EventHandler(this.skeetCheckbox12_Load);
             this.skeetCheckbox12.Click += new System.EventHandler(this.skeetCheckbox12_Click);
+            this.skeetCheckbox12.MouseHover += new System.EventHandler(this.skeetCheckbox12_MouseHover);
             // 
             // skeetSlider5
             // 
@@ -502,6 +517,7 @@
             this.skeetSlider5.TabIndex = 1;
             this.skeetSlider5.Title = "Maximum";
             this.skeetSlider5.Value = 3.8D;
+            this.skeetSlider5.MouseHover += new System.EventHandler(this.skeetSlider5_MouseHover);
             // 
             // skeetSlider6
             // 
@@ -518,6 +534,7 @@
             this.skeetSlider6.TabIndex = 0;
             this.skeetSlider6.Title = "Minimum";
             this.skeetSlider6.Value = 3D;
+            this.skeetSlider6.MouseHover += new System.EventHandler(this.skeetSlider6_MouseHover);
             // 
             // skeetGroupBox3
             // 
@@ -553,6 +570,7 @@
             this.skeetSlider7.Title = "Chance";
             this.skeetSlider7.Value = 60D;
             this.skeetSlider7.ValueSuffix = "%";
+            this.skeetSlider7.MouseHover += new System.EventHandler(this.skeetSlider7_MouseHover);
             // 
             // skeetCheckbox9
             // 
@@ -566,6 +584,7 @@
             this.skeetCheckbox9.Name = "skeetCheckbox9";
             this.skeetCheckbox9.Size = new System.Drawing.Size(95, 16);
             this.skeetCheckbox9.TabIndex = 5;
+            this.skeetCheckbox9.MouseHover += new System.EventHandler(this.skeetCheckbox9_MouseHover);
             // 
             // skeetCheckbox13
             // 
@@ -579,6 +598,7 @@
             this.skeetCheckbox13.Name = "skeetCheckbox13";
             this.skeetCheckbox13.Size = new System.Drawing.Size(80, 16);
             this.skeetCheckbox13.TabIndex = 4;
+            this.skeetCheckbox13.MouseHover += new System.EventHandler(this.skeetCheckbox13_MouseHover);
             // 
             // skeetCheckbox14
             // 
@@ -592,6 +612,7 @@
             this.skeetCheckbox14.Name = "skeetCheckbox14";
             this.skeetCheckbox14.Size = new System.Drawing.Size(95, 16);
             this.skeetCheckbox14.TabIndex = 3;
+            this.skeetCheckbox14.MouseHover += new System.EventHandler(this.skeetCheckbox14_MouseHover);
             // 
             // skeetCheckbox15
             // 
@@ -606,6 +627,7 @@
             this.skeetCheckbox15.Size = new System.Drawing.Size(62, 16);
             this.skeetCheckbox15.TabIndex = 2;
             this.skeetCheckbox15.Click += new System.EventHandler(this.skeetCheckbox15_Click);
+            this.skeetCheckbox15.MouseHover += new System.EventHandler(this.skeetCheckbox15_MouseHover);
             // 
             // skeetSlider8
             // 
@@ -624,6 +646,7 @@
             this.skeetSlider8.Title = "Vertical";
             this.skeetSlider8.Value = 90D;
             this.skeetSlider8.ValueSuffix = "%";
+            this.skeetSlider8.MouseHover += new System.EventHandler(this.skeetSlider8_MouseHover);
             // 
             // skeetSlider9
             // 
@@ -642,6 +665,7 @@
             this.skeetSlider9.Title = "Horizontal";
             this.skeetSlider9.Value = 60D;
             this.skeetSlider9.ValueSuffix = "%";
+            this.skeetSlider9.MouseHover += new System.EventHandler(this.skeetSlider9_MouseHover);
             // 
             // skeetGroupBox4
             // 
@@ -654,7 +678,7 @@
             this.skeetGroupBox4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.skeetGroupBox4.Location = new System.Drawing.Point(215, 251);
             this.skeetGroupBox4.Name = "skeetGroupBox4";
-            this.skeetGroupBox4.Size = new System.Drawing.Size(195, 314);
+            this.skeetGroupBox4.Size = new System.Drawing.Size(195, 268);
             this.skeetGroupBox4.TabIndex = 5;
             // 
             // skeetGroupBox11
@@ -669,6 +693,7 @@
             this.skeetGroupBox11.Name = "skeetGroupBox11";
             this.skeetGroupBox11.Size = new System.Drawing.Size(180, 87);
             this.skeetGroupBox11.TabIndex = 9;
+            this.skeetGroupBox11.MouseHover += new System.EventHandler(this.skeetGroupBox11_MouseHover);
             // 
             // skeetSlider18
             // 
@@ -705,13 +730,14 @@
             this.DestructButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DestructButton.BackgroundImage")));
             this.DestructButton.ButtonEnabled = true;
             this.DestructButton.ButtonText = "Self-Destruct";
-            this.DestructButton.Location = new System.Drawing.Point(29, 260);
+            this.DestructButton.Location = new System.Drawing.Point(27, 216);
             this.DestructButton.Margin = new System.Windows.Forms.Padding(4);
             this.DestructButton.Name = "DestructButton";
             this.DestructButton.Size = new System.Drawing.Size(139, 40);
             this.DestructButton.TabIndex = 8;
             this.DestructButton.Load += new System.EventHandler(this.DestructButton_Load);
             this.DestructButton.Click += new System.EventHandler(this.DestructButton_Click);
+            this.DestructButton.MouseHover += new System.EventHandler(this.DestructButton_MouseHover);
             // 
             // skeetGroupBox5
             // 
@@ -725,6 +751,7 @@
             this.skeetGroupBox5.Name = "skeetGroupBox5";
             this.skeetGroupBox5.Size = new System.Drawing.Size(180, 96);
             this.skeetGroupBox5.TabIndex = 6;
+            this.skeetGroupBox5.MouseHover += new System.EventHandler(this.skeetGroupBox5_MouseHover);
             // 
             // skeetSlider10
             // 
@@ -764,6 +791,7 @@
             // CombatTab
             // 
             this.CombatTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.CombatTab.Controls.Add(this.ToolTipExhi3);
             this.CombatTab.Controls.Add(this.skeetGroupBox20);
             this.CombatTab.Controls.Add(this.skeetGroupBox2);
             this.CombatTab.Controls.Add(this.skeetGroupBox3);
@@ -773,6 +801,20 @@
             this.CombatTab.Name = "CombatTab";
             this.CombatTab.Size = new System.Drawing.Size(417, 581);
             this.CombatTab.TabIndex = 6;
+            // 
+            // ToolTipExhi3
+            // 
+            this.ToolTipExhi3.AutoSize = true;
+            this.ToolTipExhi3.EnableShadow = false;
+            this.ToolTipExhi3.Font = new System.Drawing.Font("Verdana", 7.25F);
+            this.ToolTipExhi3.ForeColor = System.Drawing.Color.White;
+            this.ToolTipExhi3.Location = new System.Drawing.Point(213, 528);
+            this.ToolTipExhi3.Name = "ToolTipExhi3";
+            this.ToolTipExhi3.ShadowColor = System.Drawing.Color.Black;
+            this.ToolTipExhi3.ShadowOffset = 1;
+            this.ToolTipExhi3.Size = new System.Drawing.Size(145, 24);
+            this.ToolTipExhi3.TabIndex = 17;
+            this.ToolTipExhi3.Text = "This tooltip is inspired by\r\nExhibition.\r\n";
             // 
             // skeetGroupBox20
             // 
@@ -810,6 +852,7 @@
             this.shadowLabel5.Size = new System.Drawing.Size(84, 12);
             this.shadowLabel5.TabIndex = 21;
             this.shadowLabel5.Text = "slots with pots";
+            this.shadowLabel5.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // slot9
             // 
@@ -820,6 +863,7 @@
             this.slot9.Size = new System.Drawing.Size(15, 14);
             this.slot9.TabIndex = 20;
             this.slot9.UseVisualStyleBackColor = true;
+            this.slot9.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // slot8
             // 
@@ -830,6 +874,7 @@
             this.slot8.Size = new System.Drawing.Size(15, 14);
             this.slot8.TabIndex = 19;
             this.slot8.UseVisualStyleBackColor = true;
+            this.slot8.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // slot7
             // 
@@ -840,6 +885,7 @@
             this.slot7.Size = new System.Drawing.Size(15, 14);
             this.slot7.TabIndex = 18;
             this.slot7.UseVisualStyleBackColor = true;
+            this.slot7.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // slot6
             // 
@@ -850,6 +896,7 @@
             this.slot6.Size = new System.Drawing.Size(15, 14);
             this.slot6.TabIndex = 17;
             this.slot6.UseVisualStyleBackColor = true;
+            this.slot6.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // slot5
             // 
@@ -860,6 +907,7 @@
             this.slot5.Size = new System.Drawing.Size(15, 14);
             this.slot5.TabIndex = 16;
             this.slot5.UseVisualStyleBackColor = true;
+            this.slot5.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // slot4
             // 
@@ -870,6 +918,7 @@
             this.slot4.Size = new System.Drawing.Size(15, 14);
             this.slot4.TabIndex = 15;
             this.slot4.UseVisualStyleBackColor = true;
+            this.slot4.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // slot3
             // 
@@ -880,6 +929,7 @@
             this.slot3.Size = new System.Drawing.Size(15, 14);
             this.slot3.TabIndex = 14;
             this.slot3.UseVisualStyleBackColor = true;
+            this.slot3.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // slot2
             // 
@@ -890,6 +940,7 @@
             this.slot2.Size = new System.Drawing.Size(15, 14);
             this.slot2.TabIndex = 13;
             this.slot2.UseVisualStyleBackColor = true;
+            this.slot2.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // slot1
             // 
@@ -900,6 +951,7 @@
             this.slot1.Size = new System.Drawing.Size(15, 14);
             this.slot1.TabIndex = 12;
             this.slot1.UseVisualStyleBackColor = true;
+            this.slot1.MouseHover += new System.EventHandler(this.shadowLabel5_MouseHover);
             // 
             // shadowLabel4
             // 
@@ -914,6 +966,7 @@
             this.shadowLabel4.Size = new System.Drawing.Size(72, 12);
             this.shadowLabel4.TabIndex = 11;
             this.shadowLabel4.Text = "[not bound]";
+            this.shadowLabel4.MouseHover += new System.EventHandler(this.skeetCheckbox42_MouseHover);
             // 
             // skeetCheckbox42
             // 
@@ -927,10 +980,12 @@
             this.skeetCheckbox42.Name = "skeetCheckbox42";
             this.skeetCheckbox42.Size = new System.Drawing.Size(81, 16);
             this.skeetCheckbox42.TabIndex = 5;
+            this.skeetCheckbox42.MouseHover += new System.EventHandler(this.skeetCheckbox42_MouseHover);
             // 
             // VisualTab
             // 
             this.VisualTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.VisualTab.Controls.Add(this.ToolTipExhi2);
             this.VisualTab.Controls.Add(this.skeetGroupBox6);
             this.VisualTab.Controls.Add(this.skeetGroupBox7);
             this.VisualTab.Controls.Add(this.skeetGroupBox9);
@@ -940,6 +995,20 @@
             this.VisualTab.Size = new System.Drawing.Size(417, 581);
             this.VisualTab.TabIndex = 7;
             this.VisualTab.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // ToolTipExhi2
+            // 
+            this.ToolTipExhi2.AutoSize = true;
+            this.ToolTipExhi2.EnableShadow = false;
+            this.ToolTipExhi2.Font = new System.Drawing.Font("Verdana", 7.25F);
+            this.ToolTipExhi2.ForeColor = System.Drawing.Color.White;
+            this.ToolTipExhi2.Location = new System.Drawing.Point(11, 547);
+            this.ToolTipExhi2.Name = "ToolTipExhi2";
+            this.ToolTipExhi2.ShadowColor = System.Drawing.Color.Black;
+            this.ToolTipExhi2.ShadowOffset = 1;
+            this.ToolTipExhi2.Size = new System.Drawing.Size(145, 24);
+            this.ToolTipExhi2.TabIndex = 16;
+            this.ToolTipExhi2.Text = "This tooltip is inspired by\r\nExhibition.\r\n";
             // 
             // skeetGroupBox6
             // 
@@ -971,6 +1040,7 @@
             this.skeetCheckbox40.Name = "skeetCheckbox40";
             this.skeetCheckbox40.Size = new System.Drawing.Size(95, 16);
             this.skeetCheckbox40.TabIndex = 15;
+            this.skeetCheckbox40.MouseHover += new System.EventHandler(this.skeetCheckbox40_MouseHover);
             // 
             // skeetSlider16
             // 
@@ -985,8 +1055,9 @@
             this.skeetSlider16.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.skeetSlider16.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
             this.skeetSlider16.TabIndex = 14;
-            this.skeetSlider16.Title = "Waterspeed multiplier";
+            this.skeetSlider16.Title = "Speed multiplier";
             this.skeetSlider16.Value = 1D;
+            this.skeetSlider16.MouseHover += new System.EventHandler(this.skeetSlider16_MouseHover);
             // 
             // skeetCheckbox39
             // 
@@ -1000,6 +1071,7 @@
             this.skeetCheckbox39.Name = "skeetCheckbox39";
             this.skeetCheckbox39.Size = new System.Drawing.Size(73, 16);
             this.skeetCheckbox39.TabIndex = 7;
+            this.skeetCheckbox39.MouseHover += new System.EventHandler(this.skeetCheckbox39_MouseHover);
             // 
             // skeetCheckbox38
             // 
@@ -1013,6 +1085,7 @@
             this.skeetCheckbox38.Name = "skeetCheckbox38";
             this.skeetCheckbox38.Size = new System.Drawing.Size(117, 16);
             this.skeetCheckbox38.TabIndex = 6;
+            this.skeetCheckbox38.MouseHover += new System.EventHandler(this.skeetCheckbox38_MouseHover);
             // 
             // skeetCheckbox23
             // 
@@ -1026,6 +1099,7 @@
             this.skeetCheckbox23.Name = "skeetCheckbox23";
             this.skeetCheckbox23.Size = new System.Drawing.Size(72, 16);
             this.skeetCheckbox23.TabIndex = 5;
+            this.skeetCheckbox23.MouseHover += new System.EventHandler(this.skeetCheckbox23_MouseHover);
             // 
             // skeetCheckbox21
             // 
@@ -1039,6 +1113,7 @@
             this.skeetCheckbox21.Name = "skeetCheckbox21";
             this.skeetCheckbox21.Size = new System.Drawing.Size(104, 16);
             this.skeetCheckbox21.TabIndex = 4;
+            this.skeetCheckbox21.MouseHover += new System.EventHandler(this.skeetCheckbox21_MouseHover);
             // 
             // skeetCheckbox35
             // 
@@ -1052,6 +1127,7 @@
             this.skeetCheckbox35.Name = "skeetCheckbox35";
             this.skeetCheckbox35.Size = new System.Drawing.Size(100, 16);
             this.skeetCheckbox35.TabIndex = 3;
+            this.skeetCheckbox35.MouseHover += new System.EventHandler(this.skeetCheckbox35_MouseHover);
             // 
             // skeetGroupBox7
             // 
@@ -1089,6 +1165,7 @@
             this.skeetSlider17.Title = "Lagswitch length";
             this.skeetSlider17.Value = 1D;
             this.skeetSlider17.ValueSuffix = "s";
+            this.skeetSlider17.MouseHover += new System.EventHandler(this.skeetSlider17_MouseHover);
             // 
             // skeetGroupBox8
             // 
@@ -1144,6 +1221,7 @@
             this.skeetSlider14.TabIndex = 14;
             this.skeetSlider14.Title = "Amount";
             this.skeetSlider14.Value = 3D;
+            this.skeetSlider14.MouseHover += new System.EventHandler(this.skeetSlider14_MouseHover);
             // 
             // skeetCheckbox5
             // 
@@ -1157,6 +1235,7 @@
             this.skeetCheckbox5.Name = "skeetCheckbox5";
             this.skeetCheckbox5.Size = new System.Drawing.Size(77, 16);
             this.skeetCheckbox5.TabIndex = 13;
+            this.skeetCheckbox5.MouseHover += new System.EventHandler(this.skeetCheckbox5_MouseHover);
             // 
             // shadowLabel3
             // 
@@ -1171,6 +1250,7 @@
             this.shadowLabel3.Size = new System.Drawing.Size(72, 12);
             this.shadowLabel3.TabIndex = 10;
             this.shadowLabel3.Text = "[not bound]";
+            this.shadowLabel3.MouseHover += new System.EventHandler(this.skeetCheckbox4_MouseHover);
             // 
             // skeetCheckbox4
             // 
@@ -1184,6 +1264,7 @@
             this.skeetCheckbox4.Name = "skeetCheckbox4";
             this.skeetCheckbox4.Size = new System.Drawing.Size(86, 16);
             this.skeetCheckbox4.TabIndex = 9;
+            this.skeetCheckbox4.MouseHover += new System.EventHandler(this.skeetCheckbox4_MouseHover);
             // 
             // skeetSlider12
             // 
@@ -1201,6 +1282,7 @@
             this.skeetSlider12.Title = "Minimum";
             this.skeetSlider12.Value = 300D;
             this.skeetSlider12.ValueSuffix = "ms";
+            this.skeetSlider12.MouseHover += new System.EventHandler(this.skeetSlider12_MouseHover);
             // 
             // skeetSlider11
             // 
@@ -1218,6 +1300,7 @@
             this.skeetSlider11.Title = "Maximum";
             this.skeetSlider11.Value = 300D;
             this.skeetSlider11.ValueSuffix = "ms";
+            this.skeetSlider11.MouseHover += new System.EventHandler(this.skeetSlider11_MouseHover);
             // 
             // skeetCheckbox8
             // 
@@ -1232,6 +1315,7 @@
             this.skeetCheckbox8.Size = new System.Drawing.Size(86, 16);
             this.skeetCheckbox8.TabIndex = 4;
             this.skeetCheckbox8.Click += new System.EventHandler(this.skeetCheckbox8_Click);
+            this.skeetCheckbox8.MouseHover += new System.EventHandler(this.skeetCheckbox8_MouseHover);
             // 
             // skeetGroupBox9
             // 
@@ -1260,6 +1344,7 @@
             this.skeetCheckbox20.Name = "skeetCheckbox20";
             this.skeetCheckbox20.Size = new System.Drawing.Size(91, 16);
             this.skeetCheckbox20.TabIndex = 13;
+            this.skeetCheckbox20.MouseHover += new System.EventHandler(this.skeetCheckbox20_MouseHover);
             // 
             // skeetSlider15
             // 
@@ -1276,6 +1361,7 @@
             this.skeetSlider15.TabIndex = 12;
             this.skeetSlider15.Title = "Waterspeed multiplier";
             this.skeetSlider15.Value = 1D;
+            this.skeetSlider15.MouseHover += new System.EventHandler(this.skeetSlider15_MouseHover);
             // 
             // skeetCheckbox19
             // 
@@ -1289,6 +1375,7 @@
             this.skeetCheckbox19.Name = "skeetCheckbox19";
             this.skeetCheckbox19.Size = new System.Drawing.Size(100, 16);
             this.skeetCheckbox19.TabIndex = 4;
+            this.skeetCheckbox19.MouseHover += new System.EventHandler(this.skeetCheckbox19_MouseHover);
             // 
             // skeetCheckbox18
             // 
@@ -1302,6 +1389,7 @@
             this.skeetCheckbox18.Name = "skeetCheckbox18";
             this.skeetCheckbox18.Size = new System.Drawing.Size(72, 16);
             this.skeetCheckbox18.TabIndex = 3;
+            this.skeetCheckbox18.MouseHover += new System.EventHandler(this.skeetCheckbox18_MouseHover);
             // 
             // skeetGroupBox12
             // 
@@ -1329,6 +1417,7 @@
             this.skeetCheckbox31.Size = new System.Drawing.Size(109, 16);
             this.skeetCheckbox31.TabIndex = 3;
             this.skeetCheckbox31.Click += new System.EventHandler(this.skeetCheckbox31_Click);
+            this.skeetCheckbox31.MouseHover += new System.EventHandler(this.skeetCheckbox31_MouseHover);
             // 
             // skeetCheckbox36
             // 
@@ -1343,6 +1432,7 @@
             this.skeetCheckbox36.Size = new System.Drawing.Size(80, 16);
             this.skeetCheckbox36.TabIndex = 2;
             this.skeetCheckbox36.Click += new System.EventHandler(this.skeetCheckbox36_Click);
+            this.skeetCheckbox36.MouseHover += new System.EventHandler(this.skeetCheckbox36_MouseHover);
             // 
             // attachTimer
             // 
@@ -1352,6 +1442,7 @@
             // SettingsTab
             // 
             this.SettingsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.SettingsTab.Controls.Add(this.ToolTipExhi);
             this.SettingsTab.Controls.Add(this.skeetGroupBox14);
             this.SettingsTab.Controls.Add(this.skeetGroupBox10);
             this.SettingsTab.Controls.Add(this.skeetGroupBox13);
@@ -1359,6 +1450,20 @@
             this.SettingsTab.Name = "SettingsTab";
             this.SettingsTab.Size = new System.Drawing.Size(417, 581);
             this.SettingsTab.TabIndex = 8;
+            // 
+            // ToolTipExhi
+            // 
+            this.ToolTipExhi.AutoSize = true;
+            this.ToolTipExhi.EnableShadow = false;
+            this.ToolTipExhi.Font = new System.Drawing.Font("Verdana", 7.25F);
+            this.ToolTipExhi.ForeColor = System.Drawing.Color.White;
+            this.ToolTipExhi.Location = new System.Drawing.Point(11, 547);
+            this.ToolTipExhi.Name = "ToolTipExhi";
+            this.ToolTipExhi.ShadowColor = System.Drawing.Color.Black;
+            this.ToolTipExhi.ShadowOffset = 1;
+            this.ToolTipExhi.Size = new System.Drawing.Size(145, 24);
+            this.ToolTipExhi.TabIndex = 15;
+            this.ToolTipExhi.Text = "This tooltip is inspired by\r\nExhibition.\r\n";
             // 
             // skeetGroupBox14
             // 
@@ -1387,6 +1492,7 @@
             this.skeetCheckbox43.Size = new System.Drawing.Size(89, 16);
             this.skeetCheckbox43.TabIndex = 5;
             this.skeetCheckbox43.Click += new System.EventHandler(this.skeetCheckbox43_Click);
+            this.skeetCheckbox43.MouseHover += new System.EventHandler(this.skeetCheckbox43_MouseHover);
             // 
             // skeetCheckbox22
             // 
@@ -1401,6 +1507,7 @@
             this.skeetCheckbox22.Size = new System.Drawing.Size(105, 16);
             this.skeetCheckbox22.TabIndex = 4;
             this.skeetCheckbox22.Click += new System.EventHandler(this.skeetCheckbox22_Click);
+            this.skeetCheckbox22.MouseHover += new System.EventHandler(this.skeetCheckbox22_MouseHover);
             // 
             // skeetCheckbox17
             // 
@@ -1416,12 +1523,15 @@
             this.skeetCheckbox17.TabIndex = 3;
             this.skeetCheckbox17.Load += new System.EventHandler(this.skeetCheckbox17_Load);
             this.skeetCheckbox17.Click += new System.EventHandler(this.skeetCheckbox17_Click);
+            this.skeetCheckbox17.MouseHover += new System.EventHandler(this.skeetCheckbox17_MouseHover);
             // 
             // skeetGroupBox10
             // 
             this.skeetGroupBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.skeetGroupBox10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetGroupBox10.BackgroundImage")));
             this.skeetGroupBox10.ButtonText = "Software";
+            this.skeetGroupBox10.Controls.Add(this.shadowLabel6);
+            this.skeetGroupBox10.Controls.Add(this.skeetCheckbox44);
             this.skeetGroupBox10.Controls.Add(this.skeetCheckbox32);
             this.skeetGroupBox10.Controls.Add(this.skeetSlider13);
             this.skeetGroupBox10.Controls.Add(this.skeetCheckbox30);
@@ -1433,8 +1543,37 @@
             this.skeetGroupBox10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.skeetGroupBox10.Location = new System.Drawing.Point(9, 104);
             this.skeetGroupBox10.Name = "skeetGroupBox10";
-            this.skeetGroupBox10.Size = new System.Drawing.Size(195, 232);
+            this.skeetGroupBox10.Size = new System.Drawing.Size(195, 288);
             this.skeetGroupBox10.TabIndex = 5;
+            // 
+            // shadowLabel6
+            // 
+            this.shadowLabel6.AutoSize = true;
+            this.shadowLabel6.EnableShadow = false;
+            this.shadowLabel6.Font = new System.Drawing.Font("Verdana", 7.25F);
+            this.shadowLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.shadowLabel6.Location = new System.Drawing.Point(91, 206);
+            this.shadowLabel6.Name = "shadowLabel6";
+            this.shadowLabel6.ShadowColor = System.Drawing.Color.LightGray;
+            this.shadowLabel6.ShadowOffset = 1;
+            this.shadowLabel6.Size = new System.Drawing.Size(72, 12);
+            this.shadowLabel6.TabIndex = 14;
+            this.shadowLabel6.Text = "[not bound]";
+            this.shadowLabel6.MouseHover += new System.EventHandler(this.skeetCheckbox44_MouseHover);
+            // 
+            // skeetCheckbox44
+            // 
+            this.skeetCheckbox44.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox44.BackgroundImage")));
+            this.skeetCheckbox44.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.skeetCheckbox44.CheckBoxTitle = "Hide client";
+            this.skeetCheckbox44.Checked = false;
+            this.skeetCheckbox44.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.skeetCheckbox44.Location = new System.Drawing.Point(9, 206);
+            this.skeetCheckbox44.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.skeetCheckbox44.Name = "skeetCheckbox44";
+            this.skeetCheckbox44.Size = new System.Drawing.Size(80, 16);
+            this.skeetCheckbox44.TabIndex = 13;
+            this.skeetCheckbox44.MouseHover += new System.EventHandler(this.skeetCheckbox44_MouseHover);
             // 
             // skeetCheckbox32
             // 
@@ -1449,6 +1588,7 @@
             this.skeetCheckbox32.Size = new System.Drawing.Size(91, 16);
             this.skeetCheckbox32.TabIndex = 12;
             this.skeetCheckbox32.Click += new System.EventHandler(this.skeetCheckbox32_Click);
+            this.skeetCheckbox32.MouseHover += new System.EventHandler(this.skeetCheckbox32_MouseHover);
             // 
             // skeetSlider13
             // 
@@ -1470,6 +1610,7 @@
             this.skeetSlider13.Load += new System.EventHandler(this.skeetSlider13_Load);
             this.skeetSlider13.Click += new System.EventHandler(this.skeetSlider13_Click);
             this.skeetSlider13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.skeetSlider13_MouseDown);
+            this.skeetSlider13.MouseHover += new System.EventHandler(this.skeetSlider13_MouseHover);
             this.skeetSlider13.MouseUp += new System.Windows.Forms.MouseEventHandler(this.skeetSlider13_MouseUp);
             // 
             // skeetCheckbox30
@@ -1539,6 +1680,7 @@
             this.skeetCheckbox26.Size = new System.Drawing.Size(104, 16);
             this.skeetCheckbox26.TabIndex = 6;
             this.skeetCheckbox26.Click += new System.EventHandler(this.skeetCheckbox26_Click);
+            this.skeetCheckbox26.MouseHover += new System.EventHandler(this.skeetCheckbox26_MouseHover);
             // 
             // skeetCheckbox24
             // 
@@ -1553,13 +1695,14 @@
             this.skeetCheckbox24.Size = new System.Drawing.Size(104, 16);
             this.skeetCheckbox24.TabIndex = 4;
             this.skeetCheckbox24.Click += new System.EventHandler(this.skeetCheckbox24_Click);
+            this.skeetCheckbox24.MouseHover += new System.EventHandler(this.skeetCheckbox24_MouseHover);
             // 
             // skeetGroupBox13
             // 
             this.skeetGroupBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.skeetGroupBox13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetGroupBox13.BackgroundImage")));
             this.skeetGroupBox13.ButtonText = "Configuration";
-            this.skeetGroupBox13.Controls.Add(this.skeetButton9);
+            this.skeetGroupBox13.Controls.Add(this.ConfigSaveBtn);
             this.skeetGroupBox13.Controls.Add(this.RefreshBtn);
             this.skeetGroupBox13.Controls.Add(this.CfgList);
             this.skeetGroupBox13.Controls.Add(this.skeetButton8);
@@ -1571,16 +1714,17 @@
             this.skeetGroupBox13.Size = new System.Drawing.Size(192, 288);
             this.skeetGroupBox13.TabIndex = 5;
             // 
-            // skeetButton9
+            // ConfigSaveBtn
             // 
-            this.skeetButton9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetButton9.BackgroundImage")));
-            this.skeetButton9.ButtonEnabled = true;
-            this.skeetButton9.ButtonText = "create";
-            this.skeetButton9.Location = new System.Drawing.Point(5, 228);
-            this.skeetButton9.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.skeetButton9.Name = "skeetButton9";
-            this.skeetButton9.Size = new System.Drawing.Size(180, 22);
-            this.skeetButton9.TabIndex = 5;
+            this.ConfigSaveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ConfigSaveBtn.BackgroundImage")));
+            this.ConfigSaveBtn.ButtonEnabled = true;
+            this.ConfigSaveBtn.ButtonText = "create";
+            this.ConfigSaveBtn.Location = new System.Drawing.Point(5, 228);
+            this.ConfigSaveBtn.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.ConfigSaveBtn.Name = "ConfigSaveBtn";
+            this.ConfigSaveBtn.Size = new System.Drawing.Size(180, 22);
+            this.ConfigSaveBtn.TabIndex = 5;
+            this.ConfigSaveBtn.Click += new System.EventHandler(this.skeetButton9_Click_1);
             // 
             // RefreshBtn
             // 
@@ -2060,9 +2204,11 @@
             this.skeetGroupBox11.ResumeLayout(false);
             this.skeetGroupBox5.ResumeLayout(false);
             this.CombatTab.ResumeLayout(false);
+            this.CombatTab.PerformLayout();
             this.skeetGroupBox20.ResumeLayout(false);
             this.skeetGroupBox20.PerformLayout();
             this.VisualTab.ResumeLayout(false);
+            this.VisualTab.PerformLayout();
             this.skeetGroupBox6.ResumeLayout(false);
             this.skeetGroupBox7.ResumeLayout(false);
             this.skeetGroupBox7.PerformLayout();
@@ -2070,8 +2216,10 @@
             this.skeetGroupBox9.ResumeLayout(false);
             this.skeetGroupBox12.ResumeLayout(false);
             this.SettingsTab.ResumeLayout(false);
+            this.SettingsTab.PerformLayout();
             this.skeetGroupBox14.ResumeLayout(false);
             this.skeetGroupBox10.ResumeLayout(false);
+            this.skeetGroupBox10.PerformLayout();
             this.skeetGroupBox13.ResumeLayout(false);
             this.skeetGroupBox13.PerformLayout();
             this.CustomizationTab.ResumeLayout(false);
@@ -2183,7 +2331,7 @@
         private System.Windows.Forms.TextBox configName;
         private SkeetUI.skeetButton RefreshBtn;
         public System.Windows.Forms.ListBox CfgList;
-        private SkeetUI.skeetButton skeetButton9;
+        private SkeetUI.skeetButton ConfigSaveBtn;
         public SkeetUI.skeetSlider skeetSlider4;
         public SkeetUI.skeetCheckbox skeetCheckbox31;
         public SkeetUI.skeetCheckbox skeetCheckbox36;
@@ -2227,6 +2375,11 @@
         public SkeetUI.skeetCheckbox skeetCheckbox19;
         public SkeetUI.skeetCheckbox skeetCheckbox18;
         public SkeetUI.skeetCheckbox skeetCheckbox43;
+        private SkeetUI.shadowLabel ToolTipExhi;
+        private SkeetUI.shadowLabel shadowLabel6;
+        public SkeetUI.skeetCheckbox skeetCheckbox44;
+        private SkeetUI.shadowLabel ToolTipExhi2;
+        private SkeetUI.shadowLabel ToolTipExhi3;
     }
 }
 
