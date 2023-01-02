@@ -1,6 +1,7 @@
 ﻿using DiscordRPC;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,15 @@ namespace WindowsFormsApp1
 
         public static int MODULEAMOUNT = 0;
         public static int MAXMODULES = 10;
+
+        public static ProcessStartInfo cmdStartInfo = new ProcessStartInfo
+        {
+            FileName = "cmd",
+            RedirectStandardInput = true,
+            WindowStyle = ProcessWindowStyle.Hidden,
+            UseShellExecute = false,
+            CreateNoWindow = true,
+            RedirectStandardOutput = true
+        };
     }
 }

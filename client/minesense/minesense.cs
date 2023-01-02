@@ -512,10 +512,10 @@ namespace WindowsFormsApp1
                 skeetCheckbox2.ColorChecked = colorDialog1.Color;
                 skeetCheckbox3.ColorChecked = colorDialog1.Color;
                 skeetCheckbox4.ColorChecked = colorDialog1.Color;
-                skeetCheckbox5.ColorChecked = colorDialog1.Color;
-                skeetCheckbox6.ColorChecked = colorDialog1.Color;
+                FluctuateCheck.ColorChecked = colorDialog1.Color;
+                ReachFluc.ColorChecked = colorDialog1.Color;
                 skeetCheckbox7.ColorChecked = colorDialog1.Color;
-                skeetCheckbox8.ColorChecked = colorDialog1.Color;
+                FakeLagStart.ColorChecked = colorDialog1.Color;
                 skeetCheckbox9.ColorChecked = colorDialog1.Color;
                 skeetCheckbox10.ColorChecked = colorDialog1.Color;
                 skeetCheckbox11.ColorChecked = colorDialog1.Color;
@@ -523,7 +523,7 @@ namespace WindowsFormsApp1
                 skeetCheckbox13.ColorChecked = colorDialog1.Color;
                 skeetCheckbox14.ColorChecked = colorDialog1.Color;
                 skeetCheckbox15.ColorChecked = colorDialog1.Color;
-                skeetCheckbox16.ColorChecked = colorDialog1.Color;
+                MovingFluc.ColorChecked = colorDialog1.Color;
                 skeetCheckbox17.ColorChecked = colorDialog1.Color;
                 skeetCheckbox18.ColorChecked = colorDialog1.Color;
                 skeetCheckbox19.ColorChecked = colorDialog1.Color;
@@ -549,8 +549,8 @@ namespace WindowsFormsApp1
                 skeetSlider8.SliderColor = colorDialog1.Color;
                 skeetSlider9.SliderColor = colorDialog1.Color;
                 skeetSlider10.SliderColor = colorDialog1.Color;
-                skeetSlider11.SliderColor = colorDialog1.Color;
-                skeetSlider12.SliderColor = colorDialog1.Color;
+                maxFakeLagDelay.SliderColor = colorDialog1.Color;
+                minFakeLagDelay.SliderColor = colorDialog1.Color;
                 skeetSlider13.SliderColor = colorDialog1.Color;
             }
         }
@@ -642,10 +642,10 @@ namespace WindowsFormsApp1
             skeetCheckbox2.ColorChecked = DEFAULTBUTTON;              // there's probably a more efficient way to do this, but i don't care
             skeetCheckbox3.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox4.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox5.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox6.ColorChecked = DEFAULTBUTTON;
+            FluctuateCheck.ColorChecked = DEFAULTBUTTON;
+            ReachFluc.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox7.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox8.ColorChecked = DEFAULTBUTTON;
+            FakeLagStart.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox9.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox10.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox11.ColorChecked = DEFAULTBUTTON;
@@ -653,7 +653,7 @@ namespace WindowsFormsApp1
             skeetCheckbox13.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox14.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox15.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox16.ColorChecked = DEFAULTBUTTON;
+            MovingFluc.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox17.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox18.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox19.ColorChecked = DEFAULTBUTTON;
@@ -672,7 +672,7 @@ namespace WindowsFormsApp1
             skeetCheckbox32.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox33.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox34.ColorChecked = DEFAULTBUTTON;
-            // skeetCheckbox35.ColorChecked = DEFAULTBUTTON;
+            skeetCheckbox35.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox37.ColorChecked = DEFAULTBUTTON;            
             skeetCheckbox36.ColorChecked = DEFAULTBUTTON;
             skeetSlider1.SliderColor = DEFAULTBUTTON;
@@ -685,8 +685,8 @@ namespace WindowsFormsApp1
             skeetSlider8.SliderColor = DEFAULTBUTTON;
             skeetSlider9.SliderColor = DEFAULTBUTTON;
             skeetSlider10.SliderColor = DEFAULTBUTTON;
-            skeetSlider11.SliderColor = DEFAULTBUTTON;
-            skeetSlider12.SliderColor = DEFAULTBUTTON;
+            maxFakeLagDelay.SliderColor = DEFAULTBUTTON;
+            minFakeLagDelay.SliderColor = DEFAULTBUTTON;
             skeetSlider13.SliderColor = DEFAULTBUTTON;
             skeetCheckbox25.Checked = false;
             rgbTimer.Stop();
@@ -934,7 +934,7 @@ namespace WindowsFormsApp1
 
         private void skeetCheckbox8_Click(object sender, EventArgs e)
         {
-            if(skeetCheckbox8.Checked == true)
+            if(FakeLagStart.Checked == true)
             {
                 global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
             }
@@ -1411,6 +1411,11 @@ namespace WindowsFormsApp1
                 "\r\nrelated dlls.";
         }
 
+        private void skeetSlider12_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void skeetButton9_Click_1(object sender, EventArgs e)
         {
             configmanager.SaveConfig();
@@ -1449,22 +1454,22 @@ namespace WindowsFormsApp1
             skeetSlider8.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider9.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider10.SliderColor = Color.FromArgb(r, g, b);
-            skeetSlider11.SliderColor = Color.FromArgb(r, g, b);
-            skeetSlider12.SliderColor = Color.FromArgb(r, g, b);
+            maxFakeLagDelay.SliderColor = Color.FromArgb(r, g, b);
+            minFakeLagDelay.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider13.SliderColor = Color.FromArgb(r, g, b);
-            skeetSlider14.SliderColor = Color.FromArgb(r, g, b);
+            FlucAmountVal.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider15.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider16.SliderColor = Color.FromArgb(r, g, b);
-            skeetSlider17.SliderColor = Color.FromArgb(r, g, b);
+            LagSwitchTime.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider18.SliderColor = Color.FromArgb(r, g, b);
             skeetCheckbox1.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox2.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox3.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox4.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox5.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox6.ColorChecked = Color.FromArgb(r, g, b);
+            FluctuateCheck.ColorChecked = Color.FromArgb(r, g, b);
+            ReachFluc.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox7.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox8.ColorChecked = Color.FromArgb(r, g, b);
+            FakeLagStart.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox9.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox10.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox11.ColorChecked = Color.FromArgb(r, g, b);
@@ -1472,7 +1477,7 @@ namespace WindowsFormsApp1
             skeetCheckbox13.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox14.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox15.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox16.ColorChecked = Color.FromArgb(r, g, b);
+            MovingFluc.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox17.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox18.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox19.ColorChecked = Color.FromArgb(r, g, b);
