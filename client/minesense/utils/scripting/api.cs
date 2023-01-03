@@ -13,6 +13,7 @@ using NLua;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using Memory;
+using WindowsFormsApp1.minesense.feature.Global;
 
 namespace WindowsFormsApp1
 {
@@ -23,12 +24,9 @@ namespace WindowsFormsApp1
         public static void Initialize()
         {
             Form1 form = new Form1();
-            string api = "[API] ";
             Mem m = new Mem();
 
-            Console.WriteLine(api + "Initialize lua scripting API...");
-            
-            
+            Console.WriteLine(GlobalVarHandler.api + "Initialize lua scripting API...");
         }
 
         public static void Execute()

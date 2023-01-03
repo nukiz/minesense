@@ -9,20 +9,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.minesense.feature.Global;
 
 namespace WindowsFormsApp1
 {
     public partial class WelcomeUser : Form
     {
-        string mnsns = "[MINESENSE] ";
-        string hooknotif = "[HOOK] ";
-        string eNotif = "[ERROR] ";
-        public const string WINDOW_NAME = "Minecraft";
-
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey);
 
-        public static IntPtr handle = FindWindow(null, WINDOW_NAME);
+        public static IntPtr handle = FindWindow(null, GlobalVarHandler.WINDOW_NAME);
 
         [DllImport("user32.dll")]
         public static extern IntPtr FindWindow(string IpClassName, string IpWindowName);
@@ -69,12 +65,12 @@ namespace WindowsFormsApp1
             this.Top = rect.top;
             backgroundWorker1.RunWorkerAsync();
 
-            Console.WriteLine(mnsns + "Initializing username renderer...");
-            Console.WriteLine(hooknotif + "Setuping GetWindow hooks...");
-            Console.WriteLine(hooknotif + "Getting WindowRect...");
+            Console.WriteLine(GlobalVarHandler.mnsns + "Initializing username renderer...");
+            Console.WriteLine(GlobalVarHandler.hooknotif + "Setuping GetWindow hooks...");
+            Console.WriteLine(GlobalVarHandler.hooknotif + "Getting WindowRect...");
             Thread.Sleep(200);
-            Console.WriteLine(hooknotif + "Finished!");
-            Console.WriteLine(mnsns + "Finished!");
+            Console.WriteLine(GlobalVarHandler.hooknotif + "Finished!");
+            Console.WriteLine(GlobalVarHandler.mnsns + "Finished!");
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)

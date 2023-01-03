@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Memory;
 using System.Diagnostics;
+using WindowsFormsApp1.minesense.feature.Global;
 
 namespace WindowsFormsApp1.minesense.feature.module
 {
@@ -20,7 +21,7 @@ namespace WindowsFormsApp1.minesense.feature.module
             int maxDelay = Convert.ToInt32(form.maxFakeLagDelay.Value); //warning to end user has to be added - this WILL mess with discord and other network connections.
 
             int resultedDelay = rnd.Next(minDelay, maxDelay);
-            var cmdProcess = Process.Start(global.cmdStartInfo);
+            var cmdProcess = Process.Start(GlobalVarHandler.cmdStartInfo);
 
             if (form.FakeLagStart.Checked == true)
             {               
@@ -46,10 +47,10 @@ namespace WindowsFormsApp1.minesense.feature.module
             int minDelay = Convert.ToInt32(form.minFakeLagDelay.Value);
             int maxDelay = Convert.ToInt32(form.maxFakeLagDelay.Value);
             int resultedDelay = rnd.Next(minDelay, maxDelay);
-            var cmdProcess = Process.Start(global.cmdStartInfo);
+            var cmdProcess = Process.Start(GlobalVarHandler.cmdStartInfo);
 
-            Console.WriteLine("[FAKELAG] " + "Resulted delay complete.");
-            Console.WriteLine("[FAKELAG] " + "Delay amount approximately " + resultedDelay + "ms.");
+            Console.WriteLine(GlobalVarHandler.fakelag + "Resulted delay complete.");
+            Console.WriteLine(GlobalVarHandler.fakelag + "Delay amount approximately " + resultedDelay + "ms.");
 
             cmdProcess.StandardInput.WriteLine(black); // we release internet connection           
             Thread.Sleep(resultedDelay);
@@ -63,7 +64,7 @@ namespace WindowsFormsApp1.minesense.feature.module
             string nigger = "ipconfig /renew";
 
             Form1 form = new Form1();
-            var cmdProcess = Process.Start(global.cmdStartInfo);
+            var cmdProcess = Process.Start(GlobalVarHandler.cmdStartInfo);
             int time = Convert.ToInt32(form.LagSwitchTime.Value * 1000);
 
             cmdProcess.StandardInput.WriteLine(black);
@@ -111,7 +112,7 @@ namespace WindowsFormsApp1.minesense.feature.module
             
 
             int FlucResulted = resultedDelay * FlucResultBefore;
-            Console.WriteLine("[FAKELAG] " + "Fluctuation applied.");
+            Console.WriteLine(GlobalVarHandler.fakelag + "Fluctuation applied.");
             
             if(form.ReachFluc.Checked == true)
             {

@@ -13,6 +13,7 @@ using System.Reflection;
 using WindowsFormsApp1.minesense.feature.overlays;
 using static System.Net.Mime.MediaTypeNames;
 using Application = System.Windows.Forms.Application;
+using WindowsFormsApp1.minesense.feature.Global;
 
 namespace WindowsFormsApp1
 {
@@ -26,55 +27,35 @@ namespace WindowsFormsApp1
         [STAThread]
         static void Main()
         {
-
+            GlobalVarHandler.CheckDlls();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.EnableVisualStyles();
             InitializeMineSense();
         }
         public static void InitializeMineSense()
         {
-            arraylist arlst = new arraylist();      
             api api = new api();
-            
-            string discord = "[DISCORD] ";
-            string mnsns = "[MINESENSE] ";
-            string hooknotif = "[HOOK] ";
-            string eNotif = "[ERROR] ";
-            string[] titles = { "bWluZXNlbnNlIG9uIHRvcCE=", "bWluZXNlbnNlIGRlc3Ryb3lzIGhvcmlvbg==", "c2lnbWEgbWluZXNlbnNlIHVzZXI=", "bWFkZSBieSB5b3VyIGRlYXJlc3QgbnVraXo=", "bWluZXNlbnNlIC0gdGhlIHNwYWdoZXR0aSBjb2RlIGhlcm8gb2YgYWxsIGdob3N0IGNsaWVudHM=" };
-            Random rnd = new Random(); // to select a random one of those titles :D
-            int result = rnd.Next(titles.Length);
-            Console.Title = $"{titles[result]}"; // random title selector for CMD window :D
-
-            global.GetUser();
-            var USER = global.USER;
+            GlobalVarHandler.GenerateRandomConsoleName();
+            GlobalVarHandler.GetUser();
+            var USER = GlobalVarHandler.USER;
             Console.WriteLine("Hello, " + USER + ". We are happy to see you using our cheats. Don't get banned.");
             Thread.Sleep(1000);
-            Console.Clear();
-            Console.WriteLine(" /$$      /$$ /$$$$$$ /$$   /$$ /$$$$$$$$  /$$$$$$  /$$$$$$$$ /$$   /$$  /$$$$$$  /$$$$$$$$");
-            Console.WriteLine("| $$$    /$$$|_  $$_/| $$$ | $$| $$_____/ /$$__  $$| $$_____/| $$$ | $$ /$$__  $$| $$_____/");
-            Console.WriteLine("| $$$$  /$$$$  | $$  | $$$$| $$| $$      | $$  \\__/| $$      | $$$$| $$| $$  \\__/| $$    ");
-            Console.WriteLine("| $$ $$/$$ $$  | $$  | $$ $$ $$| $$$$$   |  $$$$$$ | $$$$$   | $$ $$ $$|  $$$$$$ | $$$$$   ");
-            Console.WriteLine("| $$  $$$| $$  | $$  | $$  $$$$| $$__/    \\____  $$| $$__/   | $$  $$$$ \\____  $$| $$__/   ");
-            Console.WriteLine("| $$\\  $ | $$  | $$  | $$\\  $$$| $$       /$$  \\ $$| $$      | $$\\  $$$ /$$  \\ $$| $$      ");
-            Console.WriteLine("| $$ \\/  | $$ /$$$$$$| $$ \\  $$| $$$$$$$$|  $$$$$$/| $$$$$$$$| $$ \\  $$|  $$$$$$/| $$$$$$$$");
-            Console.WriteLine("|__/     |__/|______/|__/  \\__/|________/ \\______/ |________/|__/  \\__/ \\______/ |________/");
+            GlobalVarHandler.MinesenseLogoAscii();
             Console.WriteLine(" ");
-            Console.WriteLine("__________________________________________________________________________________________________");
-            Console.WriteLine(" ");
-            Console.WriteLine(mnsns + "Beginning MineSense initialization.");
+            Console.WriteLine(GlobalVarHandler.mnsns + "Beginning MineSense initialization.");
             RPC.rpctimestamp = Timestamps.Now;
             RPC.InitializeRPC();
             api.Initialize();
-            Console.WriteLine(mnsns + "Registering Console prefixes... ");
+            Console.WriteLine(GlobalVarHandler.mnsns + "Registering Console prefixes... ");
             Thread.Sleep(400);
-            Console.WriteLine(hooknotif + "REGISTERED HOOK PREFIX.");
-            Console.WriteLine(eNotif + "REGISTERED ERROR PREFIX.");
-            Console.WriteLine(discord + "REGISTERED DISCORD PREFIX.");
+            Console.WriteLine(GlobalVarHandler.hooknotif + "REGISTERED HOOK PREFIX.");
+            Console.WriteLine(GlobalVarHandler.eNotif + "REGISTERED ERROR PREFIX.");
+            Console.WriteLine(GlobalVarHandler.discord + "REGISTERED DISCORD PREFIX.");
             RPC.SetState("as " + USER);
-            Console.WriteLine(discord + "Discord RPC updated");
+            Console.WriteLine(GlobalVarHandler.discord + "Discord RPC updated");
             Thread.Sleep(1000);
             Application.Run(new Form1());
-            Console.WriteLine(mnsns + "MineSense initialized. Beginning initialization of modules...");
+            Console.WriteLine(GlobalVarHandler.mnsns + "MineSense initialized. Beginning initialization of modules...");
         }
 
     }

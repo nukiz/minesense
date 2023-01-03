@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.minesense.feature.Global;
 using WindowsFormsApp1.minesense.feature.overlays;
 using Timer = System.Windows.Forms.Timer;
 
@@ -14,15 +15,12 @@ namespace WindowsFormsApp1.minesense.feature.module
     {
         public static void Enable()
         {
-            
-            string module = "[MODULE] ";
             Form1 form = new Form1();
-            arraylist arlst = new arraylist();
 
             if (form.skeetCheckbox1.Checked == true)
             {
 
-                Console.WriteLine(module + "Autoclicker enabled.");
+                Console.WriteLine(GlobalVarHandler.module + "Autoclicker enabled.");
                 form.autoclickTimer.Enabled = true;
                 form.autoclickTimer.Start();
             }
@@ -31,13 +29,11 @@ namespace WindowsFormsApp1.minesense.feature.module
 
         public static void RandomizerEnable()
         {
-            string module = "[MODULE] ";
             Form1 form = new Form1();
-            arraylist arlst = new arraylist();
 
             if (form.skeetCheckbox2.Checked == true)
             {
-                Console.WriteLine(module + "Autoclicker randomizer enabled.");
+                Console.WriteLine(GlobalVarHandler.module + "Autoclicker randomizer enabled.");
                 form.randomizeCps.Start();
                 if (form.skeetCheckbox1.Checked == true)
                 {
@@ -48,13 +44,11 @@ namespace WindowsFormsApp1.minesense.feature.module
 
         public static void RandomizerDisable()
         {
-            string module = "[MODULE] ";
             Form1 form = new Form1();
-            arraylist arlst = new arraylist();
-
+ 
             if (form.skeetCheckbox2.Checked == false)
             {
-                Console.WriteLine(module + "Autoclicker randomizer disabled.");
+                Console.WriteLine(GlobalVarHandler.module + "Autoclicker randomizer disabled.");
                 form.randomizeCps.Stop();
                 if (form.skeetCheckbox1.Checked == true)
                 {
@@ -66,20 +60,14 @@ namespace WindowsFormsApp1.minesense.feature.module
 
         public static void Disable()
         {
-            string module = "[MODULE] ";
             Form1 form = new Form1();
 
             if (form.skeetCheckbox1.Checked == false)
             {
-                Console.WriteLine(module + "Autoclicker disabled.");
+                Console.WriteLine(GlobalVarHandler.module + "Autoclicker disabled.");
                 form.autoclickTimer.Stop();
                 form.randomizeCps.Stop();
             }
-
-
-
-
-
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.minesense.config;
+using WindowsFormsApp1.minesense.feature.Global;
 using WindowsFormsApp1.minesense.feature.module;
 using WindowsFormsApp1.minesense.feature.overlays;
 
@@ -34,11 +35,6 @@ namespace WindowsFormsApp1
         // autoclicker utils!
 
         api ScriptApi = new api();
-        string mnsns = "[MINESENSE] ";
-        string hooknotif = "[HOOK] ";
-        string eNotif = "[ERROR] ";
-        string discord = "[DISCORD] ";
-        string module = "[MODULE] ";
         Color enabledColor = Color.FromArgb(17, 17, 17);
         Color disabledColor = Color.FromArgb(15, 15, 15);
         Color DEFAULTBUTTON = Color.FromArgb(154, 197, 39);
@@ -81,7 +77,7 @@ namespace WindowsFormsApp1
                 {                     
                     m.WriteMemory("base+3FAE0D0", "float", "3");
                     reachRandomizeTimer.Stop();
-                    Console.WriteLine(module + "Randomizer disabled.");
+                    Console.WriteLine(GlobalVarHandler.module + "Randomizer disabled.");
                 }
             }
         }
@@ -91,13 +87,13 @@ namespace WindowsFormsApp1
         {
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
-                Console.WriteLine(hooknotif + "Minecraft.Windows.exe now attached");     // Not actually necessary, just makes shit clearer
-                Console.WriteLine(mnsns + "MineSense now ready to use.");
+                Console.WriteLine(GlobalVarHandler.hooknotif + "Minecraft.Windows.exe now attached");     // Not actually necessary, just makes shit clearer
+                Console.WriteLine(GlobalVarHandler.mnsns + "MineSense now ready to use.");
 
                 RPC.client.SetPresence(new RichPresence()
                 {
                     Details = "Cheating in MC:BE",
-                    State = "as " + global.USER,
+                    State = "as " + GlobalVarHandler.USER,
                     Assets = new Assets()
                     {
                         LargeImageKey = "large",
@@ -107,11 +103,11 @@ namespace WindowsFormsApp1
                     }
 
                 });                                                                     // console logging :D
-                Console.WriteLine(discord + "RPC Updated. ");
+                Console.WriteLine(GlobalVarHandler.discord + "RPC Updated. ");
             }
             else
             {
-                Console.WriteLine(eNotif + "Couldn't hook to Minecraft. Please open Minecraft, or if the issue persists, contact support.");
+                Console.WriteLine(GlobalVarHandler.eNotif + "Couldn't hook to Minecraft. Please open Minecraft, or if the issue persists, contact support.");
                 attachTimer.Start();
             }
 
@@ -227,7 +223,7 @@ namespace WindowsFormsApp1
                 reachRandomizeTimer.Stop();
             }
             
-            Console.WriteLine(mnsns + "Modules initialized.");
+            Console.WriteLine(GlobalVarHandler.mnsns + "Modules initialized.");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -282,8 +278,8 @@ namespace WindowsFormsApp1
         {
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
-                Console.WriteLine(hooknotif + "Minecraft.Windows.exe now attached"); // console logging pt2 :D
-                Console.WriteLine(mnsns + "MineSense now engaged. Happy cheating!");
+                Console.WriteLine(GlobalVarHandler.hooknotif + "Minecraft.Windows.exe now attached"); // console logging pt2 :D
+                Console.WriteLine(GlobalVarHandler.mnsns + "MineSense now engaged. Happy cheating!");
                 attachTimer.Stop();
             }
             else
@@ -375,18 +371,18 @@ namespace WindowsFormsApp1
                 {
                     watermark.Show();
                     watermark.Activate();
-                    Console.WriteLine(hooknotif + "Watermark now active.");
+                    Console.WriteLine(GlobalVarHandler.hooknotif + "Watermark now active.");
                 }
                 else
                 {
-                    Console.WriteLine(eNotif + "Failed to get window position.");
-                    Console.WriteLine(hooknotif + "Please open Minecraft before trying to enable this module.");
+                    Console.WriteLine(GlobalVarHandler.eNotif + "Failed to get window position.");
+                    Console.WriteLine(GlobalVarHandler.hooknotif + "Please open Minecraft before trying to enable this module.");
                 }
             }
             else
             {
                 watermark.Hide();
-                Console.WriteLine(hooknotif + "Watermark disabled.");
+                Console.WriteLine(GlobalVarHandler.hooknotif + "Watermark disabled.");
             }
         }
 
@@ -463,14 +459,14 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox24.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
                 obsHideTimer.Start();
-                Console.WriteLine(mnsns + "Hide from OBS now active. This module may be unstable.");
-                Console.WriteLine(mnsns + "Make sure to only use this module after configuring the client. You will not be able to interact with this client if OBS is open.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "Hide from OBS now active. This module may be unstable.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "Make sure to only use this module after configuring the client. You will not be able to interact with this client if OBS is open.");
             }
             else // this is rather simple for now, since i don't yet know how to remove a specific window from obs' hooks or something  
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
                 obsHideTimer.Stop();
                 this.Show();
             }
@@ -484,13 +480,13 @@ namespace WindowsFormsApp1
             {
                 this.Hide();
                 watermark.Hide();
-                Console.WriteLine(mnsns + "OBS DETECTED! HIDING...");
+                Console.WriteLine(GlobalVarHandler.mnsns + "OBS DETECTED! HIDING...");
                 obsHideTimer.Interval = 1000;
             }
             else
             {
                 this.Show();
-                Console.WriteLine(mnsns + "OBS no longer detectable. Showing.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "OBS no longer detectable. Showing.");
                 obsHideTimer.Interval = 10000;
             }
         }
@@ -563,7 +559,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                RPC.SetState("as " + global.USER);
+                RPC.SetState("as " + GlobalVarHandler.USER);
             }
         }
 
@@ -697,17 +693,17 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox26.Checked == false)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
-                Console.WriteLine(discord + "RPC Cleared´'.");
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
+                Console.WriteLine(GlobalVarHandler.discord + "RPC Cleared´'.");
                 RPC.client.Dispose();
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
                 RPC.client.SetPresence(new RichPresence()
                 {
                     Details = "Cheating in MC:BE",
-                    State = "as " + global.USER,
+                    State = "as " + GlobalVarHandler.USER,
                     Assets = new Assets()
                     {
                         LargeImageKey = "large",
@@ -717,7 +713,7 @@ namespace WindowsFormsApp1
                     }
                     
                 });
-                Console.WriteLine(discord + "RPC active again.");
+                Console.WriteLine(GlobalVarHandler.discord + "RPC active again.");
             }
         }
 
@@ -773,7 +769,7 @@ namespace WindowsFormsApp1
             if (skeetCheckbox37.Checked == true)
             {
                 ScriptTextBox.AppendText("");
-                ScriptTextBox.AppendText("// written by " + global.USER + ". script written with minesense.");
+                ScriptTextBox.AppendText("// written by " + GlobalVarHandler.USER + ". script written with minesense.");
                 api.Execute();
             }
             else
@@ -802,12 +798,12 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox1.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
                 clicker.Enable();             
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
                 clicker.Disable();
             }
         }
@@ -881,14 +877,14 @@ namespace WindowsFormsApp1
 
         private void ModuleAmtTimer_Tick(object sender, EventArgs e)
         {
-            RPC.SetState(global.MODULEAMOUNT + "/" + global.MAXMODULES + " modules active");
+            RPC.SetState(GlobalVarHandler.MODULEAMOUNT + "/" + GlobalVarHandler.MAXMODULES + " modules active");
             NameTimer.Start();
             ModuleAmtTimer.Stop();
         }
 
         private void NameTimer_Tick(object sender, EventArgs e)
         {
-            RPC.SetState("as " + global.USER);
+            RPC.SetState("as " + GlobalVarHandler.USER);
             Thread.Sleep(100);
             ModuleAmtTimer.Start();
             NameTimer.Stop();
@@ -902,7 +898,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                RPC.SetState("as " + global.USER);
+                RPC.SetState("as " + GlobalVarHandler.USER);
                 ModuleAmtTimer.Stop();
                 NameTimer.Stop();
             }
@@ -912,11 +908,11 @@ namespace WindowsFormsApp1
         {
             if(skeetCheckbox36.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
@@ -924,11 +920,11 @@ namespace WindowsFormsApp1
         {
             if(skeetCheckbox31.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
@@ -936,11 +932,11 @@ namespace WindowsFormsApp1
         {
             if(FakeLagStart.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
@@ -948,11 +944,11 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox23.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
@@ -960,11 +956,11 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox15.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
@@ -977,7 +973,7 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox22.Checked == true)
             {
-                Console.WriteLine(mnsns + "Arraylist updated.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "Arraylist updated.");
                 // arlst.Show();
                 // arlst.Activate();
                 ArrayListUpdateTimer.Start();
@@ -986,7 +982,7 @@ namespace WindowsFormsApp1
             {
                 ArrayListUpdateTimer.Stop();
                 // arlst.Close();
-                Console.WriteLine(mnsns + "Arraylist updated.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "Arraylist updated.");
             }
         }
         private void ArrayListUpdateTimer_Tick(object sender, EventArgs e) // arraylist updater - will be rewritten sooner or later
@@ -1419,7 +1415,7 @@ namespace WindowsFormsApp1
         private void skeetButton9_Click_1(object sender, EventArgs e)
         {
             configmanager.SaveConfig();
-            global.CONFIGNAME = configName.Text;
+            GlobalVarHandler.CONFIGNAME = configName.Text;
         }
 
         private void rgbTimer_Tick(object sender, EventArgs e)

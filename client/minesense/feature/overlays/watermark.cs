@@ -10,14 +10,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SkeetUI;
+using WindowsFormsApp1.minesense.feature.Global;
 
 namespace WindowsFormsApp1.minesense.feature.overlays
 {
     public partial class watermark : skeetForm
     {
-        string mnsns = "[MINESENSE] ";
-        string hooknotif = "[HOOK] ";
-        string eNotif = "[ERROR] ";
         public const string WINDOW_NAME = "Minecraft";
 
         [DllImport("user32.dll")]
@@ -56,7 +54,7 @@ namespace WindowsFormsApp1.minesense.feature.overlays
         {
             this.ShowInTaskbar = false;
             this.TopMost = true;
-            string USER = global.USER + " |"; // MADE IT! Watermark now uses a global variable stored in the class global.cs which is gotten from Program.cs on load!
+            string USER = GlobalVarHandler.USER + " |"; // MADE IT! Watermark now uses a global variable stored in the class global.cs which is gotten from Program.cs on load!
 
             int initialStyle = GetWindowLong(this.Handle, -40);
             SetWindowLong(this.Handle, -40, initialStyle | 0x8000 | 0x20);
@@ -69,12 +67,12 @@ namespace WindowsFormsApp1.minesense.feature.overlays
             backgroundWorker1.RunWorkerAsync();           
             label2.Text = USER;
             dateTimer.Start();
-            Console.WriteLine(mnsns + "Initializing overlay...");           
-            Console.WriteLine(hooknotif + "Setuping GetWindow hooks...");
-            Console.WriteLine(hooknotif + "Getting WindowRect...");
+            Console.WriteLine(GlobalVarHandler.mnsns + "Initializing overlay...");           
+            Console.WriteLine(GlobalVarHandler.hooknotif + "Setuping GetWindow hooks...");
+            Console.WriteLine(GlobalVarHandler.hooknotif + "Getting WindowRect...");
             Thread.Sleep(200);
-            Console.WriteLine(hooknotif + "Finished!");
-            Console.WriteLine(mnsns + "Finished overlay!");
+            Console.WriteLine(GlobalVarHandler.mnsns + "Finished!");
+            Console.WriteLine(GlobalVarHandler.mnsns + "Finished overlay!");
             
         }
 
