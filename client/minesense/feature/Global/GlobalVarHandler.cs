@@ -44,7 +44,7 @@ namespace WindowsFormsApp1.minesense.feature.Global
                 {
                     Console.WriteLine($"{eNotif} {dll} not found.");
                     Thread.Sleep(2000);
-                    Environment.Exit(1);
+                    return;
                 }
             }
         }
