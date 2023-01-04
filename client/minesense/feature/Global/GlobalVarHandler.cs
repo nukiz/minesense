@@ -37,9 +37,14 @@ namespace WindowsFormsApp1.minesense.feature.Global
             {
                 if (!File.Exists(dll))
                 {
-                    Console.WriteLine($"{eNotif} {dll} not found.");
-                    Thread.Sleep(2000);
+                    Console.WriteLine(eNotif + $"FATAL ERROR: {dll} not found.");
+                    Console.WriteLine(eNotif + "minesense cannot operate further, if this dll doesn't exist.");
+                    Console.WriteLine(eNotif + "If you have deleted dll files, RETURN THEM NOW! If you don't know what causes this issue, ask for support in the Discord.");
+                    Thread.Sleep(3000);
                     Environment.Exit(1);
+                }else
+                {
+                    return;
                 }
             }
         }
