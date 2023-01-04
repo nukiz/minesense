@@ -8,7 +8,7 @@ namespace WindowsFormsApp1.minesense.feature.Global
     public class GlobalVarHandler
     {
         public static int MODULEAMOUNT = 0;
-        public static int MAXMODULES = 10;
+        public static int MAXMODULES = 15;
 
         public static string USER;
         public static string CONFIGNAME;
