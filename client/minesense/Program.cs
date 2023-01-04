@@ -13,7 +13,7 @@ using System.Reflection;
 using WindowsFormsApp1.minesense.feature.overlays;
 using static System.Net.Mime.MediaTypeNames;
 using Application = System.Windows.Forms.Application;
-using WindowsFormsApp1.minesense.feature.Global;
+using WindowsFormsApp1.minesense.feature.GlobalVarHandler;
 
 namespace WindowsFormsApp1
 {

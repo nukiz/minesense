@@ -1,12 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace WindowsFormsApp1.minesense.feature.Global
 {
@@ -17,13 +12,13 @@ namespace WindowsFormsApp1.minesense.feature.Global
 
         public static string USER;
         public static string CONFIGNAME;
-        public static string discord = "[DISCORD]: ";
-        public static string mnsns = "[MINESENSE]: ";
-        public static string hooknotif = "[HOOK]: ";
-        public static string eNotif = "[ERROR]: ";
-        public static string fakelag = "[FAKELAG]: ";
-        public static string module = "[MODULE]: ";
-        public static string api = "[API]: ";
+        public static string discord = "[DISCORD] ";
+        public static string mnsns = "[MINESENSE] ";
+        public static string hooknotif = "[HOOK] ";
+        public static string eNotif = "[ERROR] ";
+        public static string fakelag = "[FAKELAG] ";
+        public static string module = "[MODULE] ";
+        public static string api = "[API] ";
 
         public const string WINDOW_NAME = "Minecraft";
 
@@ -44,7 +39,7 @@ namespace WindowsFormsApp1.minesense.feature.Global
                 {
                     Console.WriteLine($"{eNotif} {dll} not found.");
                     Thread.Sleep(2000);
-                    return;
+                    Environment.Exit(1);
                 }
             }
         }
