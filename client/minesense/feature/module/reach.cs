@@ -56,7 +56,7 @@ namespace WindowsFormsApp1.minesense.feature.module
 
             if (form.skeetCheckbox11.Checked == true && form.skeetCheckbox12.Checked == true)
             {
-                arlst.ReachArLst.Show();
+                arlst.ReachArLst.Show(); //arraylist tomfoolery - doesn't work for now, causes catasthropical and brutal error
                 arlst.reachPanel.Show();
                 form.reachRandomizeTimer.Start();
                 Console.WriteLine(GlobalVarHandler.module + "Reach randomizer active.");
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1.minesense.feature.module
             else
             {
                 arlst.ReachArLst.Hide();
-                form.reachRandomizeTimer.Stop();
+                form.reachRandomizeTimer.Stop(); // fuck you horion we are better
                 Console.WriteLine(GlobalVarHandler.module + "Reach randomizer disabled.");
             }
         }
