@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
             Console.WriteLine(GlobalVarHandler.discord + "Discord RPC updated");
             Thread.Sleep(1000);
             Application.Run(new Form1());
-            Console.WriteLine(GlobalVarHandler.mnsns + "MineSense initialized. Beginning initialization of modules...");
+            Console.WriteLine(GlobalVarHandler.mnsns + "MineSense initialized. Beginning initialization of modules..."); //pretty basic shit
         }
 
     }
