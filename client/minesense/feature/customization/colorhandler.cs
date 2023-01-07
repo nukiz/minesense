@@ -15,7 +15,7 @@ namespace WindowsFormsApp1.minesense.feature.customization
         public static void RgbManager()             //rewrite........ will format configs in .json form using Newtonsoft.json
         {
 
-            
+            // think of something zyph......
 
             // revert timer rewrite, have to do something else
 

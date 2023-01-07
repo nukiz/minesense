@@ -1,5 +1,6 @@
 ﻿using System;
 using Memory;
+using WindowsFormsApp1.minesense.feature.Global;
 using WindowsFormsApp1.minesense.feature.overlays;
 
 namespace WindowsFormsApp1.minesense.feature.module
@@ -9,7 +10,6 @@ namespace WindowsFormsApp1.minesense.feature.module
         public static void Enable() // enables reach, if minecraft is open
         {
             Form1 form = new Form1();
-            string module = "[MODULE] ";
             Mem m = new Mem();
             arraylist arlst = new arraylist();
             
@@ -19,14 +19,14 @@ namespace WindowsFormsApp1.minesense.feature.module
                 {
                     arlst.ReachArLst.Show();
                     arlst.reachPanel.Show();
-                    global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                    GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
                     m.WriteMemory("base+3FAE0D0", "float", Convert.ToString(form.skeetSlider6.Value));
-                    Console.WriteLine(module + "Reach enabled.");
+                    Console.WriteLine(GlobalVarHandler.module + "Reach enabled.");
                 }                                    
             }
             else
             {
-                Console.WriteLine(module + "Please open Minecraft before attempting to enable modules.");
+                Console.WriteLine(GlobalVarHandler.module + "Please open Minecraft before attempting to enable modules.");
                 return;
             }
         }
@@ -34,7 +34,6 @@ namespace WindowsFormsApp1.minesense.feature.module
         public static void Disable() // disables reach
         {
             Form1 form = new Form1();
-            string module = "[MODULE] ";
             Mem m = new Mem();
             arraylist arlst = new arraylist();
 
@@ -43,31 +42,30 @@ namespace WindowsFormsApp1.minesense.feature.module
                 arlst.ReachArLst.Hide();
                 arlst.reachPanel.Hide();
                 form.reachRandomizeTimer.Stop();
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
                 m.WriteMemory("base+3FAE0D0", "float", "3");
-                Console.WriteLine(module + "Reach disabled.");
+                Console.WriteLine(GlobalVarHandler.module + "Reach disabled.");
             }
         }
 
         public static void reachRandomizer() // initializes randomizer for reach
         {
             Form1 form = new Form1();
-            string module = "[MODULE] ";
             Mem m = new Mem();
             arraylist arlst = new arraylist();
 
             if (form.skeetCheckbox11.Checked == true && form.skeetCheckbox12.Checked == true)
             {
-                arlst.ReachArLst.Show();
+                arlst.ReachArLst.Show(); //arraylist tomfoolery - doesn't work for now, causes catasthropical and brutal error
                 arlst.reachPanel.Show();
                 form.reachRandomizeTimer.Start();
-                Console.WriteLine(module + "Reach randomizer active.");
+                Console.WriteLine(GlobalVarHandler.module + "Reach randomizer active.");
             }
             else
             {
                 arlst.ReachArLst.Hide();
-                form.reachRandomizeTimer.Stop();
-                Console.WriteLine(module + "Reach randomizer disabled.");
+                form.reachRandomizeTimer.Stop(); // fuck you horion we are better
+                Console.WriteLine(GlobalVarHandler.module + "Reach randomizer disabled.");
             }
         }
     }

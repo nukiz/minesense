@@ -42,8 +42,7 @@ namespace WindowsFormsApp1.minesense.feature.Global
                     Console.WriteLine(eNotif + "If you have deleted dll files, RETURN THEM NOW! If you don't know what causes this issue, ask for support in the Discord.");
                     Thread.Sleep(3000);
                     Environment.Exit(1);
-                }
-                else
+                }else
                 {
                     return;
                 }

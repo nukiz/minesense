@@ -93,17 +93,17 @@
             this.skeetCheckbox21 = new SkeetUI.skeetCheckbox();
             this.skeetCheckbox35 = new SkeetUI.skeetCheckbox();
             this.skeetGroupBox7 = new SkeetUI.skeetGroupBox();
-            this.skeetSlider17 = new SkeetUI.skeetSlider();
+            this.LagSwitchTime = new SkeetUI.skeetSlider();
             this.skeetGroupBox8 = new SkeetUI.skeetGroupBox();
-            this.skeetCheckbox16 = new SkeetUI.skeetCheckbox();
-            this.skeetCheckbox6 = new SkeetUI.skeetCheckbox();
-            this.skeetSlider14 = new SkeetUI.skeetSlider();
-            this.skeetCheckbox5 = new SkeetUI.skeetCheckbox();
+            this.MovingFluc = new SkeetUI.skeetCheckbox();
+            this.ReachFluc = new SkeetUI.skeetCheckbox();
+            this.FlucAmountVal = new SkeetUI.skeetSlider();
+            this.FluctuateCheck = new SkeetUI.skeetCheckbox();
             this.shadowLabel3 = new SkeetUI.shadowLabel();
             this.skeetCheckbox4 = new SkeetUI.skeetCheckbox();
-            this.skeetSlider12 = new SkeetUI.skeetSlider();
-            this.skeetSlider11 = new SkeetUI.skeetSlider();
-            this.skeetCheckbox8 = new SkeetUI.skeetCheckbox();
+            this.minFakeLagDelay = new SkeetUI.skeetSlider();
+            this.maxFakeLagDelay = new SkeetUI.skeetSlider();
+            this.FakeLagStart = new SkeetUI.skeetCheckbox();
             this.skeetGroupBox9 = new SkeetUI.skeetGroupBox();
             this.skeetCheckbox20 = new SkeetUI.skeetCheckbox();
             this.skeetSlider15 = new SkeetUI.skeetSlider();
@@ -980,6 +980,7 @@
             this.skeetCheckbox42.Name = "skeetCheckbox42";
             this.skeetCheckbox42.Size = new System.Drawing.Size(81, 16);
             this.skeetCheckbox42.TabIndex = 5;
+            this.skeetCheckbox42.MouseEnter += new System.EventHandler(this.skeetCheckbox42_MouseHover);
             this.skeetCheckbox42.MouseHover += new System.EventHandler(this.skeetCheckbox42_MouseHover);
             // 
             // VisualTab
@@ -1134,108 +1135,108 @@
             this.skeetGroupBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.skeetGroupBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetGroupBox7.BackgroundImage")));
             this.skeetGroupBox7.ButtonText = "Fakelag";
-            this.skeetGroupBox7.Controls.Add(this.skeetSlider17);
+            this.skeetGroupBox7.Controls.Add(this.LagSwitchTime);
             this.skeetGroupBox7.Controls.Add(this.skeetGroupBox8);
-            this.skeetGroupBox7.Controls.Add(this.skeetSlider14);
-            this.skeetGroupBox7.Controls.Add(this.skeetCheckbox5);
+            this.skeetGroupBox7.Controls.Add(this.FlucAmountVal);
+            this.skeetGroupBox7.Controls.Add(this.FluctuateCheck);
             this.skeetGroupBox7.Controls.Add(this.shadowLabel3);
             this.skeetGroupBox7.Controls.Add(this.skeetCheckbox4);
-            this.skeetGroupBox7.Controls.Add(this.skeetSlider12);
-            this.skeetGroupBox7.Controls.Add(this.skeetSlider11);
-            this.skeetGroupBox7.Controls.Add(this.skeetCheckbox8);
+            this.skeetGroupBox7.Controls.Add(this.minFakeLagDelay);
+            this.skeetGroupBox7.Controls.Add(this.maxFakeLagDelay);
+            this.skeetGroupBox7.Controls.Add(this.FakeLagStart);
             this.skeetGroupBox7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.skeetGroupBox7.Location = new System.Drawing.Point(9, 83);
             this.skeetGroupBox7.Name = "skeetGroupBox7";
             this.skeetGroupBox7.Size = new System.Drawing.Size(195, 346);
             this.skeetGroupBox7.TabIndex = 8;
             // 
-            // skeetSlider17
+            // LagSwitchTime
             // 
-            this.skeetSlider17.BackColor = System.Drawing.Color.Transparent;
-            this.skeetSlider17.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
-            this.skeetSlider17.FormatDecimal = 0;
-            this.skeetSlider17.Location = new System.Drawing.Point(16, 64);
-            this.skeetSlider17.MaxValue = 4D;
-            this.skeetSlider17.MinimumSize = new System.Drawing.Size(100, 40);
-            this.skeetSlider17.Name = "skeetSlider17";
-            this.skeetSlider17.Size = new System.Drawing.Size(163, 40);
-            this.skeetSlider17.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.skeetSlider17.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetSlider17.TabIndex = 16;
-            this.skeetSlider17.Title = "Lagswitch length";
-            this.skeetSlider17.Value = 1D;
-            this.skeetSlider17.ValueSuffix = "s";
-            this.skeetSlider17.MouseHover += new System.EventHandler(this.skeetSlider17_MouseHover);
+            this.LagSwitchTime.BackColor = System.Drawing.Color.Transparent;
+            this.LagSwitchTime.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
+            this.LagSwitchTime.FormatDecimal = 0;
+            this.LagSwitchTime.Location = new System.Drawing.Point(16, 64);
+            this.LagSwitchTime.MaxValue = 4D;
+            this.LagSwitchTime.MinimumSize = new System.Drawing.Size(100, 40);
+            this.LagSwitchTime.Name = "LagSwitchTime";
+            this.LagSwitchTime.Size = new System.Drawing.Size(163, 40);
+            this.LagSwitchTime.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.LagSwitchTime.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.LagSwitchTime.TabIndex = 16;
+            this.LagSwitchTime.Title = "Lagswitch length";
+            this.LagSwitchTime.Value = 1D;
+            this.LagSwitchTime.ValueSuffix = "s";
+            this.LagSwitchTime.MouseHover += new System.EventHandler(this.skeetSlider17_MouseHover);
             // 
             // skeetGroupBox8
             // 
             this.skeetGroupBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.skeetGroupBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetGroupBox8.BackgroundImage")));
             this.skeetGroupBox8.ButtonText = "Fluctuation triggers";
-            this.skeetGroupBox8.Controls.Add(this.skeetCheckbox16);
-            this.skeetGroupBox8.Controls.Add(this.skeetCheckbox6);
+            this.skeetGroupBox8.Controls.Add(this.MovingFluc);
+            this.skeetGroupBox8.Controls.Add(this.ReachFluc);
             this.skeetGroupBox8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.skeetGroupBox8.Location = new System.Drawing.Point(5, 266);
             this.skeetGroupBox8.Name = "skeetGroupBox8";
             this.skeetGroupBox8.Size = new System.Drawing.Size(185, 72);
             this.skeetGroupBox8.TabIndex = 15;
             // 
-            // skeetCheckbox16
+            // MovingFluc
             // 
-            this.skeetCheckbox16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox16.BackgroundImage")));
-            this.skeetCheckbox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.skeetCheckbox16.CheckBoxTitle = "Moving";
-            this.skeetCheckbox16.Checked = false;
-            this.skeetCheckbox16.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox16.Location = new System.Drawing.Point(9, 34);
-            this.skeetCheckbox16.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
-            this.skeetCheckbox16.Name = "skeetCheckbox16";
-            this.skeetCheckbox16.Size = new System.Drawing.Size(76, 16);
-            this.skeetCheckbox16.TabIndex = 15;
+            this.MovingFluc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MovingFluc.BackgroundImage")));
+            this.MovingFluc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MovingFluc.CheckBoxTitle = "Moving";
+            this.MovingFluc.Checked = false;
+            this.MovingFluc.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.MovingFluc.Location = new System.Drawing.Point(9, 39);
+            this.MovingFluc.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
+            this.MovingFluc.Name = "MovingFluc";
+            this.MovingFluc.Size = new System.Drawing.Size(76, 16);
+            this.MovingFluc.TabIndex = 15;
             // 
-            // skeetCheckbox6
+            // ReachFluc
             // 
-            this.skeetCheckbox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox6.BackgroundImage")));
-            this.skeetCheckbox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.skeetCheckbox6.CheckBoxTitle = "In air";
-            this.skeetCheckbox6.Checked = false;
-            this.skeetCheckbox6.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox6.Location = new System.Drawing.Point(9, 14);
-            this.skeetCheckbox6.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
-            this.skeetCheckbox6.Name = "skeetCheckbox6";
-            this.skeetCheckbox6.Size = new System.Drawing.Size(58, 16);
-            this.skeetCheckbox6.TabIndex = 14;
+            this.ReachFluc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReachFluc.BackgroundImage")));
+            this.ReachFluc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ReachFluc.CheckBoxTitle = "Reach";
+            this.ReachFluc.Checked = false;
+            this.ReachFluc.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.ReachFluc.Location = new System.Drawing.Point(9, 19);
+            this.ReachFluc.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.ReachFluc.Name = "ReachFluc";
+            this.ReachFluc.Size = new System.Drawing.Size(72, 16);
+            this.ReachFluc.TabIndex = 14;
             // 
-            // skeetSlider14
+            // FlucAmountVal
             // 
-            this.skeetSlider14.BackColor = System.Drawing.Color.Transparent;
-            this.skeetSlider14.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
-            this.skeetSlider14.FormatDecimal = 0;
-            this.skeetSlider14.Location = new System.Drawing.Point(14, 219);
-            this.skeetSlider14.MaxValue = 16D;
-            this.skeetSlider14.MinimumSize = new System.Drawing.Size(100, 40);
-            this.skeetSlider14.Name = "skeetSlider14";
-            this.skeetSlider14.Size = new System.Drawing.Size(165, 40);
-            this.skeetSlider14.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.skeetSlider14.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetSlider14.TabIndex = 14;
-            this.skeetSlider14.Title = "Amount";
-            this.skeetSlider14.Value = 3D;
-            this.skeetSlider14.MouseHover += new System.EventHandler(this.skeetSlider14_MouseHover);
+            this.FlucAmountVal.BackColor = System.Drawing.Color.Transparent;
+            this.FlucAmountVal.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
+            this.FlucAmountVal.FormatDecimal = 0;
+            this.FlucAmountVal.Location = new System.Drawing.Point(14, 219);
+            this.FlucAmountVal.MaxValue = 16D;
+            this.FlucAmountVal.MinimumSize = new System.Drawing.Size(100, 40);
+            this.FlucAmountVal.Name = "FlucAmountVal";
+            this.FlucAmountVal.Size = new System.Drawing.Size(165, 40);
+            this.FlucAmountVal.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.FlucAmountVal.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.FlucAmountVal.TabIndex = 14;
+            this.FlucAmountVal.Title = "Amount";
+            this.FlucAmountVal.Value = 3D;
+            this.FlucAmountVal.MouseHover += new System.EventHandler(this.skeetSlider14_MouseHover);
             // 
-            // skeetCheckbox5
+            // FluctuateCheck
             // 
-            this.skeetCheckbox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox5.BackgroundImage")));
-            this.skeetCheckbox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.skeetCheckbox5.CheckBoxTitle = "Fluctuate";
-            this.skeetCheckbox5.Checked = false;
-            this.skeetCheckbox5.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox5.Location = new System.Drawing.Point(15, 193);
-            this.skeetCheckbox5.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.skeetCheckbox5.Name = "skeetCheckbox5";
-            this.skeetCheckbox5.Size = new System.Drawing.Size(77, 16);
-            this.skeetCheckbox5.TabIndex = 13;
-            this.skeetCheckbox5.MouseHover += new System.EventHandler(this.skeetCheckbox5_MouseHover);
+            this.FluctuateCheck.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FluctuateCheck.BackgroundImage")));
+            this.FluctuateCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.FluctuateCheck.CheckBoxTitle = "Fluctuate";
+            this.FluctuateCheck.Checked = false;
+            this.FluctuateCheck.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.FluctuateCheck.Location = new System.Drawing.Point(15, 196);
+            this.FluctuateCheck.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.FluctuateCheck.Name = "FluctuateCheck";
+            this.FluctuateCheck.Size = new System.Drawing.Size(77, 16);
+            this.FluctuateCheck.TabIndex = 13;
+            this.FluctuateCheck.MouseHover += new System.EventHandler(this.skeetCheckbox5_MouseHover);
             // 
             // shadowLabel3
             // 
@@ -1266,56 +1267,57 @@
             this.skeetCheckbox4.TabIndex = 9;
             this.skeetCheckbox4.MouseHover += new System.EventHandler(this.skeetCheckbox4_MouseHover);
             // 
-            // skeetSlider12
+            // minFakeLagDelay
             // 
-            this.skeetSlider12.BackColor = System.Drawing.Color.Transparent;
-            this.skeetSlider12.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
-            this.skeetSlider12.FormatDecimal = 0;
-            this.skeetSlider12.Location = new System.Drawing.Point(5, 153);
-            this.skeetSlider12.MaxValue = 1000D;
-            this.skeetSlider12.MinimumSize = new System.Drawing.Size(100, 40);
-            this.skeetSlider12.Name = "skeetSlider12";
-            this.skeetSlider12.Size = new System.Drawing.Size(185, 40);
-            this.skeetSlider12.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.skeetSlider12.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetSlider12.TabIndex = 12;
-            this.skeetSlider12.Title = "Minimum";
-            this.skeetSlider12.Value = 300D;
-            this.skeetSlider12.ValueSuffix = "ms";
-            this.skeetSlider12.MouseHover += new System.EventHandler(this.skeetSlider12_MouseHover);
+            this.minFakeLagDelay.BackColor = System.Drawing.Color.Transparent;
+            this.minFakeLagDelay.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
+            this.minFakeLagDelay.FormatDecimal = 0;
+            this.minFakeLagDelay.Location = new System.Drawing.Point(5, 106);
+            this.minFakeLagDelay.MaxValue = 1000D;
+            this.minFakeLagDelay.MinimumSize = new System.Drawing.Size(100, 40);
+            this.minFakeLagDelay.Name = "minFakeLagDelay";
+            this.minFakeLagDelay.Size = new System.Drawing.Size(185, 40);
+            this.minFakeLagDelay.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.minFakeLagDelay.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.minFakeLagDelay.TabIndex = 12;
+            this.minFakeLagDelay.Title = "Minimum";
+            this.minFakeLagDelay.Value = 300D;
+            this.minFakeLagDelay.ValueSuffix = "ms";
+            this.minFakeLagDelay.Load += new System.EventHandler(this.skeetSlider12_Load);
+            this.minFakeLagDelay.MouseHover += new System.EventHandler(this.skeetSlider12_MouseHover);
             // 
-            // skeetSlider11
+            // maxFakeLagDelay
             // 
-            this.skeetSlider11.BackColor = System.Drawing.Color.Transparent;
-            this.skeetSlider11.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
-            this.skeetSlider11.FormatDecimal = 0;
-            this.skeetSlider11.Location = new System.Drawing.Point(5, 113);
-            this.skeetSlider11.MaxValue = 1000D;
-            this.skeetSlider11.MinimumSize = new System.Drawing.Size(100, 40);
-            this.skeetSlider11.Name = "skeetSlider11";
-            this.skeetSlider11.Size = new System.Drawing.Size(185, 40);
-            this.skeetSlider11.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.skeetSlider11.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetSlider11.TabIndex = 11;
-            this.skeetSlider11.Title = "Maximum";
-            this.skeetSlider11.Value = 300D;
-            this.skeetSlider11.ValueSuffix = "ms";
-            this.skeetSlider11.MouseHover += new System.EventHandler(this.skeetSlider11_MouseHover);
+            this.maxFakeLagDelay.BackColor = System.Drawing.Color.Transparent;
+            this.maxFakeLagDelay.Font = new System.Drawing.Font("Verdana", 7.5F, System.Drawing.FontStyle.Bold);
+            this.maxFakeLagDelay.FormatDecimal = 0;
+            this.maxFakeLagDelay.Location = new System.Drawing.Point(5, 151);
+            this.maxFakeLagDelay.MaxValue = 1000D;
+            this.maxFakeLagDelay.MinimumSize = new System.Drawing.Size(100, 40);
+            this.maxFakeLagDelay.Name = "maxFakeLagDelay";
+            this.maxFakeLagDelay.Size = new System.Drawing.Size(185, 40);
+            this.maxFakeLagDelay.SliderBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.maxFakeLagDelay.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.maxFakeLagDelay.TabIndex = 11;
+            this.maxFakeLagDelay.Title = "Maximum";
+            this.maxFakeLagDelay.Value = 300D;
+            this.maxFakeLagDelay.ValueSuffix = "ms";
+            this.maxFakeLagDelay.MouseHover += new System.EventHandler(this.skeetSlider11_MouseHover);
             // 
-            // skeetCheckbox8
+            // FakeLagStart
             // 
-            this.skeetCheckbox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("skeetCheckbox8.BackgroundImage")));
-            this.skeetCheckbox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.skeetCheckbox8.CheckBoxTitle = "Enable";
-            this.skeetCheckbox8.Checked = false;
-            this.skeetCheckbox8.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
-            this.skeetCheckbox8.Location = new System.Drawing.Point(14, 21);
-            this.skeetCheckbox8.Margin = new System.Windows.Forms.Padding(5);
-            this.skeetCheckbox8.Name = "skeetCheckbox8";
-            this.skeetCheckbox8.Size = new System.Drawing.Size(86, 16);
-            this.skeetCheckbox8.TabIndex = 4;
-            this.skeetCheckbox8.Click += new System.EventHandler(this.skeetCheckbox8_Click);
-            this.skeetCheckbox8.MouseHover += new System.EventHandler(this.skeetCheckbox8_MouseHover);
+            this.FakeLagStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FakeLagStart.BackgroundImage")));
+            this.FakeLagStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.FakeLagStart.CheckBoxTitle = "Enable";
+            this.FakeLagStart.Checked = false;
+            this.FakeLagStart.ColorChecked = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(197)))), ((int)(((byte)(39)))));
+            this.FakeLagStart.Location = new System.Drawing.Point(14, 21);
+            this.FakeLagStart.Margin = new System.Windows.Forms.Padding(5);
+            this.FakeLagStart.Name = "FakeLagStart";
+            this.FakeLagStart.Size = new System.Drawing.Size(86, 16);
+            this.FakeLagStart.TabIndex = 4;
+            this.FakeLagStart.Click += new System.EventHandler(this.skeetCheckbox8_Click);
+            this.FakeLagStart.MouseHover += new System.EventHandler(this.skeetCheckbox8_MouseHover);
             // 
             // skeetGroupBox9
             // 
@@ -1679,6 +1681,7 @@
             this.skeetCheckbox26.Name = "skeetCheckbox26";
             this.skeetCheckbox26.Size = new System.Drawing.Size(104, 16);
             this.skeetCheckbox26.TabIndex = 6;
+            this.skeetCheckbox26.Load += new System.EventHandler(this.skeetCheckbox26_Load);
             this.skeetCheckbox26.Click += new System.EventHandler(this.skeetCheckbox26_Click);
             this.skeetCheckbox26.MouseHover += new System.EventHandler(this.skeetCheckbox26_MouseHover);
             // 
@@ -2075,7 +2078,7 @@
         '\'',
         '\''};
             this.ScriptTextBox.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>.+)\r\n";
-            this.ScriptTextBox.AutoScrollMinSize = new System.Drawing.Size(193, 12);
+            this.ScriptTextBox.AutoScrollMinSize = new System.Drawing.Size(170, 12);
             this.ScriptTextBox.BackBrush = null;
             this.ScriptTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ScriptTextBox.BookmarkColor = System.Drawing.Color.BlueViolet;
@@ -2182,13 +2185,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(533, 610);
+            this.ClientSize = new System.Drawing.Size(532, 610);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.CombatTab);
             this.Controls.Add(this.SettingsTab);
             this.Controls.Add(this.ScriptTab);
             this.Controls.Add(this.VisualTab);
             this.Controls.Add(this.CustomizationTab);
+            this.Controls.Add(this.CombatTab);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "m1n3s3n53";
@@ -2335,7 +2338,7 @@
         public SkeetUI.skeetSlider skeetSlider4;
         public SkeetUI.skeetCheckbox skeetCheckbox31;
         public SkeetUI.skeetCheckbox skeetCheckbox36;
-        public SkeetUI.skeetCheckbox skeetCheckbox8;
+        public SkeetUI.skeetCheckbox FakeLagStart;
         public SkeetUI.skeetCheckbox skeetCheckbox17;
         public SkeetUI.skeetCheckbox skeetCheckbox22;
         public SkeetUI.skeetCheckbox skeetCheckbox30;
@@ -2362,14 +2365,14 @@
         public SkeetUI.skeetCheckbox skeetCheckbox23;
         public SkeetUI.skeetCheckbox skeetCheckbox21;
         public SkeetUI.skeetCheckbox skeetCheckbox35;
-        public SkeetUI.skeetSlider skeetSlider17;
-        public SkeetUI.skeetCheckbox skeetCheckbox16;
-        public SkeetUI.skeetCheckbox skeetCheckbox6;
-        public SkeetUI.skeetSlider skeetSlider14;
-        public SkeetUI.skeetCheckbox skeetCheckbox5;
+        public SkeetUI.skeetSlider LagSwitchTime;
+        public SkeetUI.skeetCheckbox MovingFluc;
+        public SkeetUI.skeetCheckbox ReachFluc;
+        public SkeetUI.skeetSlider FlucAmountVal;
+        public SkeetUI.skeetCheckbox FluctuateCheck;
         public SkeetUI.skeetCheckbox skeetCheckbox4;
-        public SkeetUI.skeetSlider skeetSlider12;
-        public SkeetUI.skeetSlider skeetSlider11;
+        public SkeetUI.skeetSlider minFakeLagDelay;
+        public SkeetUI.skeetSlider maxFakeLagDelay;
         public SkeetUI.skeetCheckbox skeetCheckbox20;
         public SkeetUI.skeetSlider skeetSlider15;
         public SkeetUI.skeetCheckbox skeetCheckbox19;

@@ -8,5 +8,6 @@ namespace WindowsFormsApp1.minesense.feature.module
 {
     public class comebackassist
     {
+
     }
 }

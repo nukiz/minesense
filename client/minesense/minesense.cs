@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.minesense.config;
+using WindowsFormsApp1.minesense.feature.Global;
 using WindowsFormsApp1.minesense.feature.module;
 using WindowsFormsApp1.minesense.feature.overlays;
 
@@ -34,11 +35,6 @@ namespace WindowsFormsApp1
         // autoclicker utils!
 
         api ScriptApi = new api();
-        string mnsns = "[MINESENSE] ";
-        string hooknotif = "[HOOK] ";
-        string eNotif = "[ERROR] ";
-        string discord = "[DISCORD] ";
-        string module = "[MODULE] ";
         Color enabledColor = Color.FromArgb(17, 17, 17);
         Color disabledColor = Color.FromArgb(15, 15, 15);
         Color DEFAULTBUTTON = Color.FromArgb(154, 197, 39);
@@ -81,7 +77,7 @@ namespace WindowsFormsApp1
                 {                     
                     m.WriteMemory("base+3FAE0D0", "float", "3");
                     reachRandomizeTimer.Stop();
-                    Console.WriteLine(module + "Randomizer disabled.");
+                    Console.WriteLine(GlobalVarHandler.module + "Randomizer disabled.");
                 }
             }
         }
@@ -91,13 +87,13 @@ namespace WindowsFormsApp1
         {
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
-                Console.WriteLine(hooknotif + "Minecraft.Windows.exe now attached");     // Not actually necessary, just makes shit clearer
-                Console.WriteLine(mnsns + "MineSense now ready to use.");
+                Console.WriteLine(GlobalVarHandler.hooknotif + "Minecraft.Windows.exe now attached");     // Not actually necessary, just makes shit clearer
+                Console.WriteLine(GlobalVarHandler.mnsns + "MineSense now ready to use.");
 
                 RPC.client.SetPresence(new RichPresence()
                 {
                     Details = "Cheating in MC:BE",
-                    State = "as " + global.USER,
+                    State = "as " + GlobalVarHandler.USER,
                     Assets = new Assets()
                     {
                         LargeImageKey = "large",
@@ -107,11 +103,11 @@ namespace WindowsFormsApp1
                     }
 
                 });                                                                     // console logging :D
-                Console.WriteLine(discord + "RPC Updated. ");
+                Console.WriteLine(GlobalVarHandler.discord + "RPC Updated. ");
             }
             else
             {
-                Console.WriteLine(eNotif + "Couldn't hook to Minecraft. Please open Minecraft, or if the issue persists, contact support.");
+                Console.WriteLine(GlobalVarHandler.eNotif + "Couldn't hook to Minecraft. Please open Minecraft, or if the issue persists, contact support.");
                 attachTimer.Start();
             }
 
@@ -227,7 +223,7 @@ namespace WindowsFormsApp1
                 reachRandomizeTimer.Stop();
             }
             
-            Console.WriteLine(mnsns + "Modules initialized.");
+            Console.WriteLine(GlobalVarHandler.mnsns + "Modules initialized.");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -282,8 +278,8 @@ namespace WindowsFormsApp1
         {
             if (m.OpenProcess("Minecraft.Windows.exe"))
             {
-                Console.WriteLine(hooknotif + "Minecraft.Windows.exe now attached"); // console logging pt2 :D
-                Console.WriteLine(mnsns + "MineSense now engaged. Happy cheating!");
+                Console.WriteLine(GlobalVarHandler.hooknotif + "Minecraft.Windows.exe now attached"); // console logging pt2 :D
+                Console.WriteLine(GlobalVarHandler.mnsns + "MineSense now engaged. Happy cheating!");
                 attachTimer.Stop();
             }
             else
@@ -375,18 +371,18 @@ namespace WindowsFormsApp1
                 {
                     watermark.Show();
                     watermark.Activate();
-                    Console.WriteLine(hooknotif + "Watermark now active.");
+                    Console.WriteLine(GlobalVarHandler.hooknotif + "Watermark now active.");
                 }
                 else
                 {
-                    Console.WriteLine(eNotif + "Failed to get window position.");
-                    Console.WriteLine(hooknotif + "Please open Minecraft before trying to enable this module.");
+                    Console.WriteLine(GlobalVarHandler.eNotif + "Failed to get window position.");
+                    Console.WriteLine(GlobalVarHandler.hooknotif + "Please open Minecraft before trying to enable this module.");
                 }
             }
             else
             {
                 watermark.Hide();
-                Console.WriteLine(hooknotif + "Watermark disabled.");
+                Console.WriteLine(GlobalVarHandler.hooknotif + "Watermark disabled.");
             }
         }
 
@@ -463,14 +459,14 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox24.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
                 obsHideTimer.Start();
-                Console.WriteLine(mnsns + "Hide from OBS now active. This module may be unstable.");
-                Console.WriteLine(mnsns + "Make sure to only use this module after configuring the client. You will not be able to interact with this client if OBS is open.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "Hide from OBS now active. This module may be unstable.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "Make sure to only use this module after configuring the client. You will not be able to interact with this client if OBS is open.");
             }
             else // this is rather simple for now, since i don't yet know how to remove a specific window from obs' hooks or something  
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
                 obsHideTimer.Stop();
                 this.Show();
             }
@@ -484,13 +480,13 @@ namespace WindowsFormsApp1
             {
                 this.Hide();
                 watermark.Hide();
-                Console.WriteLine(mnsns + "OBS DETECTED! HIDING...");
+                Console.WriteLine(GlobalVarHandler.mnsns + "OBS DETECTED! HIDING...");
                 obsHideTimer.Interval = 1000;
             }
             else
             {
                 this.Show();
-                Console.WriteLine(mnsns + "OBS no longer detectable. Showing.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "OBS no longer detectable. Showing.");
                 obsHideTimer.Interval = 10000;
             }
         }
@@ -512,10 +508,10 @@ namespace WindowsFormsApp1
                 skeetCheckbox2.ColorChecked = colorDialog1.Color;
                 skeetCheckbox3.ColorChecked = colorDialog1.Color;
                 skeetCheckbox4.ColorChecked = colorDialog1.Color;
-                skeetCheckbox5.ColorChecked = colorDialog1.Color;
-                skeetCheckbox6.ColorChecked = colorDialog1.Color;
+                FluctuateCheck.ColorChecked = colorDialog1.Color;
+                ReachFluc.ColorChecked = colorDialog1.Color;
                 skeetCheckbox7.ColorChecked = colorDialog1.Color;
-                skeetCheckbox8.ColorChecked = colorDialog1.Color;
+                FakeLagStart.ColorChecked = colorDialog1.Color;
                 skeetCheckbox9.ColorChecked = colorDialog1.Color;
                 skeetCheckbox10.ColorChecked = colorDialog1.Color;
                 skeetCheckbox11.ColorChecked = colorDialog1.Color;
@@ -523,7 +519,7 @@ namespace WindowsFormsApp1
                 skeetCheckbox13.ColorChecked = colorDialog1.Color;
                 skeetCheckbox14.ColorChecked = colorDialog1.Color;
                 skeetCheckbox15.ColorChecked = colorDialog1.Color;
-                skeetCheckbox16.ColorChecked = colorDialog1.Color;
+                MovingFluc.ColorChecked = colorDialog1.Color;
                 skeetCheckbox17.ColorChecked = colorDialog1.Color;
                 skeetCheckbox18.ColorChecked = colorDialog1.Color;
                 skeetCheckbox19.ColorChecked = colorDialog1.Color;
@@ -549,8 +545,8 @@ namespace WindowsFormsApp1
                 skeetSlider8.SliderColor = colorDialog1.Color;
                 skeetSlider9.SliderColor = colorDialog1.Color;
                 skeetSlider10.SliderColor = colorDialog1.Color;
-                skeetSlider11.SliderColor = colorDialog1.Color;
-                skeetSlider12.SliderColor = colorDialog1.Color;
+                maxFakeLagDelay.SliderColor = colorDialog1.Color;
+                minFakeLagDelay.SliderColor = colorDialog1.Color;
                 skeetSlider13.SliderColor = colorDialog1.Color;
             }
         }
@@ -563,7 +559,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                RPC.SetState("as " + global.USER);
+                RPC.SetState("as " + GlobalVarHandler.USER);
             }
         }
 
@@ -642,10 +638,10 @@ namespace WindowsFormsApp1
             skeetCheckbox2.ColorChecked = DEFAULTBUTTON;              // there's probably a more efficient way to do this, but i don't care
             skeetCheckbox3.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox4.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox5.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox6.ColorChecked = DEFAULTBUTTON;
+            FluctuateCheck.ColorChecked = DEFAULTBUTTON;
+            ReachFluc.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox7.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox8.ColorChecked = DEFAULTBUTTON;
+            FakeLagStart.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox9.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox10.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox11.ColorChecked = DEFAULTBUTTON;
@@ -653,7 +649,7 @@ namespace WindowsFormsApp1
             skeetCheckbox13.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox14.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox15.ColorChecked = DEFAULTBUTTON;
-            skeetCheckbox16.ColorChecked = DEFAULTBUTTON;
+            MovingFluc.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox17.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox18.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox19.ColorChecked = DEFAULTBUTTON;
@@ -672,7 +668,7 @@ namespace WindowsFormsApp1
             skeetCheckbox32.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox33.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox34.ColorChecked = DEFAULTBUTTON;
-            // skeetCheckbox35.ColorChecked = DEFAULTBUTTON;
+            skeetCheckbox35.ColorChecked = DEFAULTBUTTON;
             skeetCheckbox37.ColorChecked = DEFAULTBUTTON;            
             skeetCheckbox36.ColorChecked = DEFAULTBUTTON;
             skeetSlider1.SliderColor = DEFAULTBUTTON;
@@ -685,8 +681,8 @@ namespace WindowsFormsApp1
             skeetSlider8.SliderColor = DEFAULTBUTTON;
             skeetSlider9.SliderColor = DEFAULTBUTTON;
             skeetSlider10.SliderColor = DEFAULTBUTTON;
-            skeetSlider11.SliderColor = DEFAULTBUTTON;
-            skeetSlider12.SliderColor = DEFAULTBUTTON;
+            maxFakeLagDelay.SliderColor = DEFAULTBUTTON;
+            minFakeLagDelay.SliderColor = DEFAULTBUTTON;
             skeetSlider13.SliderColor = DEFAULTBUTTON;
             skeetCheckbox25.Checked = false;
             rgbTimer.Stop();
@@ -697,17 +693,18 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox26.Checked == false)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
-                Console.WriteLine(discord + "RPC Cleared´'.");
-                RPC.client.Dispose();
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
+                Console.WriteLine(GlobalVarHandler.discord + "RPC no longer active.");
+                RPC.client.Deinitialize();
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
+                RPC.client.Initialize();
                 RPC.client.SetPresence(new RichPresence()
                 {
                     Details = "Cheating in MC:BE",
-                    State = "as " + global.USER,
+                    State = "as " + GlobalVarHandler.USER,
                     Assets = new Assets()
                     {
                         LargeImageKey = "large",
@@ -717,7 +714,7 @@ namespace WindowsFormsApp1
                     }
                     
                 });
-                Console.WriteLine(discord + "RPC active again.");
+                Console.WriteLine(GlobalVarHandler.discord + "RPC active again.");
             }
         }
 
@@ -773,7 +770,7 @@ namespace WindowsFormsApp1
             if (skeetCheckbox37.Checked == true)
             {
                 ScriptTextBox.AppendText("");
-                ScriptTextBox.AppendText("// written by " + global.USER + ". script written with minesense.");
+                ScriptTextBox.AppendText("// written by " + GlobalVarHandler.USER + ". script written with minesense.");
                 api.Execute();
             }
             else
@@ -802,12 +799,12 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox1.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
                 clicker.Enable();             
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
                 clicker.Disable();
             }
         }
@@ -856,16 +853,6 @@ namespace WindowsFormsApp1
         public async void autoclickTimer_Tick(object sender, EventArgs e)
         {
             
-            if (skeetSlider3.Value > 14)
-            {
-                // arlst.AcArLst.ForeColor = Color.Red;
-            }
-            else
-            {
-                return;
-            }
-
-
             Process[] processes = Process.GetProcessesByName("Minecraft.Windows");
                 foreach (Process process in processes)
                 {
@@ -878,27 +865,27 @@ namespace WindowsFormsApp1
                     return;
                 }
 
-                if (currentwin.Contains("Minecraft.Windows"))
-                {
-                    if(MouseButtons == MouseButtons.Left)
-                    {
-                        PostMessage(hwnd, 0x0201, 0, 0);
-                        await Task.Delay(30);
-                        PostMessage(hwnd, 0x0202, 0, 0);
-                    }
+            if (currentwin.Contains("Minecraft"))
+            {
+            if (MouseButtons == MouseButtons.Left)
+            {
+                PostMessage(hwnd, 0x0201, 0, 0);
+                await Task.Delay(30);
+                PostMessage(hwnd, 0x0202, 0, 0);
+            }
             }
         }
 
         private void ModuleAmtTimer_Tick(object sender, EventArgs e)
         {
-            RPC.SetState(global.MODULEAMOUNT + "/" + global.MAXMODULES + " modules active");
+            RPC.SetState(GlobalVarHandler.MODULEAMOUNT + "/" + GlobalVarHandler.MAXMODULES + " modules active");
             NameTimer.Start();
             ModuleAmtTimer.Stop();
         }
 
         private void NameTimer_Tick(object sender, EventArgs e)
         {
-            RPC.SetState("as " + global.USER);
+            RPC.SetState("as " + GlobalVarHandler.USER);
             Thread.Sleep(100);
             ModuleAmtTimer.Start();
             NameTimer.Stop();
@@ -912,7 +899,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                RPC.SetState("as " + global.USER);
+                RPC.SetState("as " + GlobalVarHandler.USER);
                 ModuleAmtTimer.Stop();
                 NameTimer.Stop();
             }
@@ -922,11 +909,11 @@ namespace WindowsFormsApp1
         {
             if(skeetCheckbox36.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
@@ -934,23 +921,23 @@ namespace WindowsFormsApp1
         {
             if(skeetCheckbox31.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
         private void skeetCheckbox8_Click(object sender, EventArgs e)
         {
-            if(skeetCheckbox8.Checked == true)
+            if(FakeLagStart.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
@@ -958,11 +945,11 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox23.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
@@ -970,11 +957,11 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox15.Checked == true)
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT + 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
             }
             else
             {
-                global.MODULEAMOUNT = global.MODULEAMOUNT - 1;
+                GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
             }
         }
 
@@ -987,7 +974,7 @@ namespace WindowsFormsApp1
         {
             if (skeetCheckbox22.Checked == true)
             {
-                Console.WriteLine(mnsns + "Arraylist updated.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "Arraylist updated.");
                 // arlst.Show();
                 // arlst.Activate();
                 ArrayListUpdateTimer.Start();
@@ -996,7 +983,7 @@ namespace WindowsFormsApp1
             {
                 ArrayListUpdateTimer.Stop();
                 // arlst.Close();
-                Console.WriteLine(mnsns + "Arraylist updated.");
+                Console.WriteLine(GlobalVarHandler.mnsns + "Arraylist updated.");
             }
         }
         private void ArrayListUpdateTimer_Tick(object sender, EventArgs e) // arraylist updater - will be rewritten sooner or later
@@ -1421,10 +1408,20 @@ namespace WindowsFormsApp1
                 "\r\nrelated dlls.";
         }
 
+        private void skeetSlider12_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void skeetCheckbox26_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void skeetButton9_Click_1(object sender, EventArgs e)
         {
             configmanager.SaveConfig();
-            global.CONFIGNAME = configName.Text;
+            GlobalVarHandler.CONFIGNAME = configName.Text;
         }
 
         private void rgbTimer_Tick(object sender, EventArgs e)
@@ -1459,22 +1456,22 @@ namespace WindowsFormsApp1
             skeetSlider8.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider9.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider10.SliderColor = Color.FromArgb(r, g, b);
-            skeetSlider11.SliderColor = Color.FromArgb(r, g, b);
-            skeetSlider12.SliderColor = Color.FromArgb(r, g, b);
+            maxFakeLagDelay.SliderColor = Color.FromArgb(r, g, b);
+            minFakeLagDelay.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider13.SliderColor = Color.FromArgb(r, g, b);
-            skeetSlider14.SliderColor = Color.FromArgb(r, g, b);
+            FlucAmountVal.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider15.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider16.SliderColor = Color.FromArgb(r, g, b);
-            skeetSlider17.SliderColor = Color.FromArgb(r, g, b);
+            LagSwitchTime.SliderColor = Color.FromArgb(r, g, b);
             skeetSlider18.SliderColor = Color.FromArgb(r, g, b);
             skeetCheckbox1.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox2.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox3.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox4.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox5.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox6.ColorChecked = Color.FromArgb(r, g, b);
+            FluctuateCheck.ColorChecked = Color.FromArgb(r, g, b);
+            ReachFluc.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox7.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox8.ColorChecked = Color.FromArgb(r, g, b);
+            FakeLagStart.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox9.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox10.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox11.ColorChecked = Color.FromArgb(r, g, b);
@@ -1482,7 +1479,7 @@ namespace WindowsFormsApp1
             skeetCheckbox13.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox14.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox15.ColorChecked = Color.FromArgb(r, g, b);
-            skeetCheckbox16.ColorChecked = Color.FromArgb(r, g, b);
+            MovingFluc.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox17.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox18.ColorChecked = Color.FromArgb(r, g, b);
             skeetCheckbox19.ColorChecked = Color.FromArgb(r, g, b);

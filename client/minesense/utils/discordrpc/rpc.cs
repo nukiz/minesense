@@ -1,5 +1,7 @@
 ﻿using System;
 using DiscordRPC;
+using WindowsFormsApp1.minesense.feature.Global;
+
 namespace WindowsFormsApp1
 {
     public class RPC
@@ -10,15 +12,12 @@ namespace WindowsFormsApp1
         public static Timestamps rpctimestamp { get; set; }
         public static RichPresence presence;
         public static void InitializeRPC()  //we start the rich presence here
-        {
-            string discord = "[DISCORD] ";            
-
-            Console.WriteLine(discord + "Beginning RPC Initialization...");
+        {        
+            Console.WriteLine(GlobalVarHandler.discord + "Beginning RPC Initialization...");
             client = new DiscordRpcClient("1053332674510586056");
             client.Initialize();
             Button[] button = { new Button() { Label = "Discord", Url = "https://discord.gg/VupGTvkhd8" } };
-            Console.WriteLine(discord + "Initialization complete. You should now have a Rich Presence.");           
-
+            Console.WriteLine(GlobalVarHandler.discord + "Initialization complete. You should now have a Rich Presence.");           
 
             presence = new RichPresence() //presence details
             {
@@ -27,10 +26,8 @@ namespace WindowsFormsApp1
                 Timestamps = rpctimestamp,
                 Buttons = button,
 
-                
                 Assets = new Assets() //assets
                 {
-                    
                     LargeImageKey = "large",
                     LargeImageText = "minesense beta",
                     SmallImageKey = "large",
