@@ -694,12 +694,13 @@ namespace WindowsFormsApp1
             if (skeetCheckbox26.Checked == false)
             {
                 GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
-                Console.WriteLine(GlobalVarHandler.discord + "RPC Cleared´'."); //here
-                RPC.client.Dispose();
+                Console.WriteLine(GlobalVarHandler.discord + "RPC no longer active.");
+                RPC.client.Deinitialize();
             }
             else
             {
                 GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT + 1;
+                RPC.client.Initialize();
                 RPC.client.SetPresence(new RichPresence()
                 {
                     Details = "Cheating in MC:BE",
@@ -1408,6 +1409,11 @@ namespace WindowsFormsApp1
         }
 
         private void skeetSlider12_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void skeetCheckbox26_Load(object sender, EventArgs e)
         {
 
         }

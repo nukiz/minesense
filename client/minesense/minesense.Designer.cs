@@ -1681,6 +1681,7 @@
             this.skeetCheckbox26.Name = "skeetCheckbox26";
             this.skeetCheckbox26.Size = new System.Drawing.Size(104, 16);
             this.skeetCheckbox26.TabIndex = 6;
+            this.skeetCheckbox26.Load += new System.EventHandler(this.skeetCheckbox26_Load);
             this.skeetCheckbox26.Click += new System.EventHandler(this.skeetCheckbox26_Click);
             this.skeetCheckbox26.MouseHover += new System.EventHandler(this.skeetCheckbox26_MouseHover);
             // 
@@ -2186,11 +2187,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(532, 610);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.SettingsTab);
+            this.Controls.Add(this.ScriptTab);
             this.Controls.Add(this.VisualTab);
             this.Controls.Add(this.CustomizationTab);
             this.Controls.Add(this.CombatTab);
-            this.Controls.Add(this.SettingsTab);
-            this.Controls.Add(this.ScriptTab);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "m1n3s3n53";
