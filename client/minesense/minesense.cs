@@ -694,7 +694,7 @@ namespace WindowsFormsApp1
             if (skeetCheckbox26.Checked == false)
             {
                 GlobalVarHandler.MODULEAMOUNT = GlobalVarHandler.MODULEAMOUNT - 1;
-                Console.WriteLine(GlobalVarHandler.discord + "RPC Cleared´'.");
+                Console.WriteLine(GlobalVarHandler.discord + "RPC Cleared´'."); //here
                 RPC.client.Dispose();
             }
             else
