@@ -52,6 +52,6 @@ We hope to have as many contributors as possible!
 - [ ] Fix autoclicker randomizer
 - [ ] Make FakeLag better (not this primitive...)
 
-Autoclicker and reach used to work fine btw, after a few updates they just broke!
+- Btw we removed all the features - they broke, eventhough their code was fine. They didn't work, simply. They should've though. If someone bothers, please add them...
 
 
