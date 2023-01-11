@@ -2,7 +2,6 @@
 
 ![codefactor](https://img.shields.io/codefactor/grade/github/nukiz/minesense?color=royalblue)
 ![Lines of code](https://img.shields.io/tokei/lines/github/nukiz/minesense?color=lightcoral&label=lines%20of%20code)
-![Top Coder](https://img.shields.io/badge/Topcoder-29A7DF?style=for-the-badge&logo=Topcoder&logoColor=white)
 
 [![forthebadge](https://forthebadge.com/images/badges/compatibility-club-penguin.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
