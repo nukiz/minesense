@@ -19,9 +19,9 @@ namespace WindowsFormsApp1.minesense.feature.overlays
     {
         string mnsns = "[MINESENSE] ";
         
-        public const string WINDOW_NAME = "Minecraft";
+        public const string WINDOW_NAME = "Minecraft"; // BTW YES I KNOW ITS PROBABLY NOT GOOD TO MAKE A SEPARATE FORM FOR ARRAYLIST! 
 
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll")] // DIDN'T KNOW AT THE TIME OF MAKING ABOUT DRAWING STUFF
         public static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey);
 
         public static IntPtr handle = FindWindow(null, WINDOW_NAME);
