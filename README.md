@@ -6,7 +6,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/compatibility-club-penguin.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/made-with-crayons.svg)](https://forthebadge.com)
 
 
 <h1 align="center">minesense. be you from within.</h1>
@@ -33,6 +32,7 @@ Minesense uses many dependencies. These include:
 - KeraLua, NLua etc. | To be used for the upcoming Lua API
 - Newtonsoft.Json | To be used for the upcoming configs system, also a dependency of DiscordRPC.dll.
 - Memory.dll | Library used to read/write the game's memory for the cheats (very primitive... but easy to use!)
+- SkeetUI.dll | UI Framework used in this project to give it its distinct gamesense.pub/skeet.cc look. GUI May look a little like the Exhibition GUI. Some issues in this framework, 99% of UI bugs result from this framework :/
 
 ## <h1 align="center">Development & Contributions</h1>
 
