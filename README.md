@@ -1,7 +1,6 @@
 ![minesense](https://github.com/nukiz/minesense/blob/main/githubrsc/minesenses.png?raw=true)
 
 ![codefactor](https://img.shields.io/codefactor/grade/github/nukiz/minesense?color=royalblue)
-
 ![Lines of code](https://img.shields.io/tokei/lines/github/nukiz/minesense?color=lightcoral&label=lines%20of%20code)
 
 [![forthebadge](https://forthebadge.com/images/badges/compatibility-club-penguin.svg)](https://forthebadge.com)
