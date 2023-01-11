@@ -15,7 +15,7 @@
 
 <h1 align="center">minesense. be you from within.</h1>
 
-## What is this?
+## <h1 align="center">What is this?</h1>
 
 Minesense is an unfinished external ghost client for Minecraft: Bedrock Edition. Features include:
 - FakeLag
