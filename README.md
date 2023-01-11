@@ -57,3 +57,5 @@ We hope to have as many contributors as possible!
 - btw the 'working' features (clicker, reach) don't even work, some sort of issue i cant get my head around
 
 
+# FOLLOW THE LICENSE!
+Not following it will result in legal action, if no credits are given for our code!
