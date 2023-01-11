@@ -1,11 +1,19 @@
 ![minesense](https://github.com/nukiz/minesense/blob/main/githubrsc/minesenses.png?raw=true)
 
 ![codefactor](https://img.shields.io/codefactor/grade/github/nukiz/minesense?color=royalblue)
+
 ![Lines of code](https://img.shields.io/tokei/lines/github/nukiz/minesense?color=lightcoral&label=lines%20of%20code)
-[![forthebadge](https://forthebadge.com/images/badges/compatibility-club-penguin.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
+
+[![forthebadge](https://forthebadge.com/images/badges/compatibility-club-penguin.svg)](https://forthebadge.com)
+
 [![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
+
 [![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://forthebadge.com)
+
 [![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)
+
+[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
+
 <h1 align="center">minesense. be you from within.</h1>
 
 ## What is this?
