@@ -5,5 +5,30 @@
 
 <h1 align="center">minesense. be you from within.</h1>
 
+## What is this?
+
+Minesense is an unfinished external ghost client for Minecraft: Bedrock Edition. Features include:
+- FakeLag
+- Reach
+- Autoclicker
+- Airjump and other miscellaneous movement features
+- Customizable velocity with chance%, H% and V% and anticombo.
+- Comeback Assist (cranks settings to max when under hp threshold, and returns them shortly after)
+- Customization for the client, with intended Lua scripting API for customizable modules
+- Discord RPC
+
+However most of these features are very primitive (fakelag..) and some dont even exist yet (velocity etc)
+Client is very customizable.
+
+## Dependencies
+
+Minesense uses many dependencies. These include: 
+- DiscordRPC.dll | Used for the Discord Rich Presence used by the client
+- KeraLua, NLua etc. | To be used for the upcoming Lua API
+- Newtonsoft.Json | To be used for the upcoming configs system, also a dependency of DiscordRPC.dll.
+- Memory.dll | Library used to read/write the game's memory for the cheats (very primitive... but easy to use!)
+
+
+
 
 
