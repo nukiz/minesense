@@ -1,6 +1,7 @@
 ![minesense](https://github.com/nukiz/minesense/blob/main/githubrsc/minesenses.png?raw=true)
 
-![codefactor](https://img.shields.io/codefactor/grade/github/nukiz/minesense?color=royalblue)
+<a href="https://www.codacy.com/gh/nukiz/minesense/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nukiz/minesense&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/cadab857dab049438b6e28b3cfc5570e" alt="Codacy Badge"/></a>
+
 ![Lines of code](https://img.shields.io/tokei/lines/github/nukiz/minesense?color=lightcoral&label=lines%20of%20code)
 
 [![forthebadge](https://forthebadge.com/images/badges/compatibility-club-penguin.svg)](https://forthebadge.com)
