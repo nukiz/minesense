@@ -12,7 +12,7 @@
 
 ## <h1 align="center">What is this?</h1>
 
-Minesense is an unfinished external ghost client for Minecraft: Bedrock Edition. Features include:
+Minesense is an unfinished external ghost client for Minecraft: Bedrock Edition. Features should've included:
 - FakeLag
 - Reach
 - Autoclicker
@@ -37,6 +37,8 @@ Minesense uses many dependencies. These include:
 
 Main developer & maintainer of this project will remain nukiz.
 Other developers include Zyph. (Dimwitted-Developer)
+
+However, main developer nukiz got tired of coding this ( since it didnt want to budge, and was annoying to code a fully c# external for a shitty game LOL) 
 
 Contributions are simple. Make your changes/updates/refactors and whatnot, and submit a pull request. I (nukiz) will review your changes and act accordingly.
 
